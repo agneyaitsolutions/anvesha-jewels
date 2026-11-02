@@ -1,6 +1,6 @@
 /* Anvesha Jewels: catalogue data. Shared by the listing pages and the product page. */
 window.AJ = {
-  whatsapp: "919999999999",            /* placeholder until the client's number is confirmed */
+  whatsapp: "919898618327",            /* client WhatsApp: 098986 18327 */
   instagram: "https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==",
   facebook: "https://www.facebook.com/share/1MjLyjDmBE/",
   linkedin: "https://www.linkedin.com/company/anvesha-jewels/",
