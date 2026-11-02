@@ -329,11 +329,11 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 /* ───────────────────────── listing page ───────────────────────── */
 .crumbs{font-size:var(--t-small);color:var(--muted);padding:var(--space-stack-m) 0 0}
 .crumbs a:hover{color:var(--emerald)}
-.cat-hero{display:grid;grid-template-columns:minmax(300px,1fr) minmax(260px,400px);gap:clamp(30px,5vw,70px);align-items:center;padding:var(--space-head) 0 0}
+.cat-hero{display:grid;grid-template-columns:minmax(300px,1fr) minmax(220px,320px);gap:clamp(30px,5vw,70px);align-items:center;padding:var(--space-head) 0 0}
 .cat-hero h1{margin:14px 0 10px}
 .cat-hero .script{font-size:clamp(22px,2.3vw,29px);display:block;margin-bottom:22px}
 .cat-hero p{max-width:620px}
-.cat-hero img{width:100%;aspect-ratio:400/280;object-fit:cover}
+.cat-hero img{width:100%;aspect-ratio:2/3;object-fit:cover}
 
 .tabs{display:flex;gap:clamp(20px,3vw,40px);border-bottom:1px solid var(--line-soft)}
 .tabs a,.tabs button{position:relative;padding:0 2px 16px;font-size:var(--t-body);color:var(--body);transition:color .3s var(--ease)}
@@ -677,3 +677,15 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .cs{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){.cs-tile{clip-path:none}.cs::after,.cs-cta{opacity:1;transform:none;pointer-events:auto}}
+
+/* ───────── photo sizes agreed with the client ─────────
+   Product photos: portrait 4:5 (1600 × 2000) — product cards, product page, "You may also like".
+   Category photos: tall 2:3 (1200 × 1800) — home category tiles, category page photo, collection cards, catalogue strip. */
+.ct-row{bottom:auto!important;height:min(calc(100svh - var(--head-h,112px) - 260px),calc((min(var(--maxw),100vw - 2 * var(--gut)) - 3 * clamp(10px,1.2vw,16px)) / 4 * 1.5));
+  width:min(var(--maxw),calc(100% - 2 * var(--gut)),calc((100svh - var(--head-h,112px) - 260px) * 2.6667 + 3 * clamp(10px,1.2vw,16px)))!important;padding:0!important}
+.ct .figwrap{height:100%}
+@media (max-width:900px){
+  .ct-row{height:auto!important;width:calc(100% - 2 * var(--gut))!important;grid-template-rows:auto auto!important}
+  .ct .figwrap{height:auto;aspect-ratio:2/3}
+  .cat-hero img{max-width:none;aspect-ratio:2/3;max-height:70svh}
+}
