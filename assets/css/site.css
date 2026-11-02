@@ -2083,3 +2083,10 @@ img{max-width:100%}
   .mt-btn{font-size:12px!important;padding:12px 26px!important;letter-spacing:.16em!important;opacity:1!important;transform:none!important}
   .mt-ph img{transform:none!important}
 }
+
+/* search bar under the header: small icon, one tidy line */
+.search-panel{z-index:68;box-shadow:0 18px 30px -28px rgba(0,0,0,.35)}
+.search-panel form{max-width:760px;margin:0 auto;padding:18px 0 22px!important;gap:14px}
+.search-panel form>svg{width:18px!important;height:18px!important;flex:none;color:var(--ink)}
+.search-panel input{font-size:18px}
+.search-panel .mlink{flex:none}
