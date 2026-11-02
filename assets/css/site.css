@@ -2094,19 +2094,24 @@ img{max-width:100%}
 /* floating WhatsApp button: a round WhatsApp-green button fixed bottom-left on every page,
    desktop and mobile. Sits under the scrim, drawer, modals and sign-up pop-up. */
 .wa-float{position:fixed;z-index:75;left:calc(24px + env(safe-area-inset-left,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));
-  display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;
+  display:flex;align-items:center;height:58px;min-width:58px;border-radius:29px;background:#25D366;color:#fff;overflow:hidden;
   box-shadow:0 8px 22px -6px rgba(20,20,20,.35),0 2px 6px rgba(20,20,20,.12);-webkit-tap-highlight-color:transparent;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
-.wa-float__icon{display:grid;place-items:center}
+  transition:box-shadow .3s var(--ease),background .3s var(--ease)}
+.wa-float__icon{display:grid;place-items:center;width:58px;height:58px;flex:none}
 .wa-float__icon svg{width:31px;height:31px}
-.wa-float:hover,.wa-float:focus-visible{transform:scale(1.07);background:#1FBE5C;box-shadow:0 12px 28px -6px rgba(20,20,20,.4),0 2px 6px rgba(20,20,20,.12)}
-.wa-float:active{transform:scale(.96)}
+/* "Chat with us" slides out to the right on hover (desktop) */
+.wa-float__label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.02em;
+  transition:max-width .45s var(--ease),padding .45s var(--ease)}
+.wa-float:hover,.wa-float:focus-visible{background:#1FBE5C;box-shadow:0 12px 28px -6px rgba(20,20,20,.4),0 2px 6px rgba(20,20,20,.12)}
+.wa-float:hover .wa-float__label,.wa-float:focus-visible .wa-float__label{max-width:140px;padding-right:22px}
 .wa-float:focus-visible{outline:2px solid var(--emerald);outline-offset:3px}
 @media (max-width:760px){
-  .wa-float{left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:54px;height:54px}
+  .wa-float{left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));height:54px;min-width:54px;border-radius:27px}
+  .wa-float__icon{width:54px;height:54px}
   .wa-float__icon svg{width:29px;height:29px}
+  .wa-float__label{display:none}
 }
-@media (prefers-reduced-motion:reduce){.wa-float{transition:none}}
+@media (prefers-reduced-motion:reduce){.wa-float,.wa-float__label{transition:none}}
 @media print{.wa-float{display:none}}
 
 /* search: live results under the search box (header panel and mobile drawer) */
@@ -2187,4 +2192,17 @@ img{max-width:100%}
   .sz-table th{font-size:10px;letter-spacing:.12em;padding:10px 8px;white-space:normal}
   .sz-table td{padding:9px 8px}
   .sz-panel .sz-ill{max-width:220px;margin:0 auto}
+}
+
+/* category hero: one balanced banner, text and photo side by side in a soft panel (no empty gap) */
+.page-top:has(.cat-hero:not(.cat-hero--search)){padding-bottom:clamp(40px,5vw,72px)}
+.cat-hero:not(.cat-hero--search){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;align-items:stretch;padding:0;margin-top:var(--space-head);background:#F4EFE8}
+.cat-hero:not(.cat-hero--search)>div{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,5.5vw,88px)}
+.cat-hero:not(.cat-hero--search) h1{margin:14px 0 8px}
+.cat-hero:not(.cat-hero--search) p{max-width:46ch;margin:0}
+.cat-hero:not(.cat-hero--search) img{width:100%;height:100%;max-width:none;max-height:none;min-height:clamp(320px,32vw,460px);aspect-ratio:auto;object-fit:cover;justify-self:stretch;order:0}
+@media (max-width:900px){
+  .cat-hero:not(.cat-hero--search){grid-template-columns:minmax(0,1fr)}
+  .cat-hero:not(.cat-hero--search) img{order:-1;height:auto;min-height:0;aspect-ratio:4/3}
+  .cat-hero:not(.cat-hero--search)>div{padding:28px 22px 34px}
 }
