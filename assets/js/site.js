@@ -31,6 +31,23 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
   function el(html) { var t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 
+  /* ── search: every word must match the start of a word in the piece's details,
+     so "gold ring" works and "ring" no longer pulls in earrings ── */
+  function words(str) {
+    return String(str || "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).map(function (w) {
+      return w.length > 3 && /s$/.test(w) && !/ss$/.test(w) ? w.slice(0, -1) : w;
+    });
+  }
+  function searchProducts(q) {
+    var t = words(q);
+    if (!t.length) return [];
+    return D.products.filter(function (p) {
+      var hay = words([p.name, p.line, p.meta, p.code, p.cat, (D.categories[p.cat] || {}).name,
+        p.style, (p.metal || []).join(" "), p.diamond].join(" "));
+      return t.every(function (x) { return hay.some(function (w) { return w.indexOf(x) === 0; }); });
+    });
+  }
+
   /* ── header ────────────────────────────────────────── */
   function header() {
     var navCats = CATS.map(function (c) {
@@ -446,13 +463,34 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") { closeMega(); closeSearch(); setDrawer(false); closeQuote(); closeLightbox(); closeAllLuxDropdowns(); }
   });
-  document.querySelectorAll("[data-search-form]").forEach(function (f) {
+  function liveResults(q) {
+    var list = searchProducts(q);
+    if (!list.length) {
+      return '<p class="sl-empty">No pieces match \u201c' + esc(q) + '\u201d. Try \u201cring\u201d, \u201cpendant\u201d or \u201choops\u201d.</p>';
+    }
+    return '<div class="sl-list">' + list.slice(0, 6).map(function (p) {
+      return '<a class="sl-item" href="product.html?id=' + encodeURIComponent(p.code) + '">' +
+        '<img src="' + p.img + '" alt="" loading="lazy"><span><b>' + esc(p.name) + '</b><small>' + esc(p.meta) + '</small></span></a>';
+    }).join("") + '</div>' +
+      '<a class="mlink sl-all" href="rings.html?q=' + encodeURIComponent(q) + '">View all ' + list.length +
+      (list.length === 1 ? ' result' : ' results') + '</a>';
+  }
+  function wireSearch(f) {
+    var input = f.querySelector("input");
+    var live = el('<div class="search-live" aria-live="polite"></div>');
+    f.insertAdjacentElement("afterend", live);
+    function update() {
+      var q = input.value.trim();
+      live.innerHTML = q.length > 1 ? liveResults(q) : "";
+    }
+    input.addEventListener("input", update);
     f.addEventListener("submit", function (e) {
       e.preventDefault();
-      var q = f.querySelector("input").value.trim();
+      var q = input.value.trim();
       if (q) location.href = "rings.html?q=" + encodeURIComponent(q);
     });
-  });
+  }
+  document.querySelectorAll("[data-search-form]").forEach(wireSearch);
   document.addEventListener("click", function (e) {
     var c = e.target.closest("[data-catalogue]");
     if (c && (!c.getAttribute("href") || c.getAttribute("href") === "#")) {
@@ -780,13 +818,24 @@
   /* ── listing page ──────────────────────────────────── */
   if (page === "category") {
     var params = new URLSearchParams(location.search);
-    var q = (params.get("q") || "").trim().toLowerCase();
+    var qRaw = (params.get("q") || "").trim();
+    var q = qRaw.toLowerCase();
     var c = D.categories[cat];
     var searching = !!q;
+    var matches = searching ? searchProducts(q) : null;
+    var heroEl = document.querySelector("[data-cat-hero]");
+    if (searching) {
+      heroEl.classList.add("cat-hero--search");
+      var crumbs = document.querySelector(".crumbs");
+      if (crumbs) crumbs.innerHTML = '<a href="index.html">Home</a> / Search';
+      document.title = "Search: " + qRaw + " · Anvesha Jewels";
+    }
 
-    document.querySelector("[data-cat-hero]").innerHTML = searching
-      ? '<div><p class="eyebrow">The Anvesha selection</p><h1 class="display h-xl">Search results</h1>' +
-        '<span class="script script--emerald">Jewellery</span><p class="lede">Findings across all jewellery collections.</p></div>'
+    heroEl.innerHTML = searching
+      ? '<div><p class="eyebrow">Search</p><h1 class="display h-lg">Results for \u201c' + esc(qRaw) + '\u201d</h1>' +
+        '<p class="lede" data-search-summary></p>' +
+        '<form class="search-refine" data-search-form role="search">' + I.search +
+        '<input type="search" name="q" value="' + esc(qRaw) + '" aria-label="Search jewellery"><button class="mlink" type="submit">Search</button></form></div>'
       : '<div><p class="eyebrow">The Anvesha selection</p>' +
         '<h1 class="display h-xl">' + c.name + '</h1>' +
         '<span class="script script--emerald">' + esc(c.script) + '</span>' +
@@ -834,7 +883,7 @@
         if (f.metal && p.metal.indexOf(f.metal) < 0) return false;
         if (f.diamond && p.diamond !== f.diamond) return false;
         if (f.style && p.style !== f.style) return false;
-        if (q && (p.name + " " + p.meta + " " + p.code + " " + p.cat + " " + (D.categories[p.cat] || {}).name + " " + p.style + " " + p.metal.join(" ") + " " + p.diamond).toLowerCase().indexOf(q) < 0) return false;
+        if (matches && matches.indexOf(p) < 0) return false;
         return true;
       });
       var sort = document.querySelector("[data-sort]").value;
@@ -843,8 +892,12 @@
 
       grid.innerHTML = list.length
         ? list.map(card).join("")
-        : '<p class="grid-empty">No designs match these details just yet. Try another combination, or <a class="mlink" href="contact.html#inquiry">make an inquiry</a>.</p>';
+        : '<p class="grid-empty">' + (searching ? 'No pieces match \u201c' + esc(qRaw) + '\u201d. Try ring, pendant, hoops or bracelet, browse the categories above,' : 'No designs match these details just yet. Try another combination,') + ' or <a class="mlink" href="contact.html#inquiry">make an inquiry</a>.</p>';
       document.querySelector("[data-count]").textContent = list.length + (list.length === 1 ? " design" : " designs");
+      var sum = document.querySelector("[data-search-summary]");
+      if (sum) sum.textContent = list.length
+        ? list.length + (list.length === 1 ? " piece" : " pieces") + " across our jewellery."
+        : "Nothing matches yet. Try a simpler word such as ring, pendant, hoops or bracelet.";
       endNote.textContent = list.length
         ? searching
           ? "You've explored all " + list.length + " matching design" + (list.length === 1 ? "" : "s") + "."
@@ -853,10 +906,7 @@
       reveal();
     }
     document.querySelector("[data-filters]").addEventListener("change", render);
-    if (q) {
-      var note = el('<p class="crumbs" style="padding-bottom:8px">Showing results for “' + esc(q) + '” · <a class="mlink" href="' + cat + '.html">Clear</a></p>');
-      document.querySelector("[data-filters]").before(note);
-    }
+    if (searching) wireSearch(heroEl.querySelector("[data-search-form]"));
     render();
   }
 
