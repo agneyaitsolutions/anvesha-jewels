@@ -589,3 +589,40 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .inquiry + .sec{padding-top:var(--space-section)}
 .hero-copy p{max-width:420px}
 @media (max-width:900px){.cw__head p:not(.eyebrow){display:none}}
+
+/* ───────── categories, image tiles: the name sits on the photo (refined from the Moi reference) ───────── */
+.ct-row{position:absolute;left:0;right:0;bottom:clamp(18px,4vh,40px);width:auto;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
+  display:flex;gap:clamp(10px,1.2vw,16px)}
+.ct{position:relative;flex:1 1 0;min-width:0;display:block;color:#fff;transition:flex-grow .9s var(--ease)}
+.ct .figwrap{position:relative;display:block;height:100%;overflow:hidden;background:var(--cream)}
+.ct img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s var(--ease)}
+.ct__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,18,.10) 0%,rgba(14,22,18,.18) 45%,rgba(14,22,18,.58) 100%);opacity:0;transition:opacity .8s var(--ease)}
+.ct__in{position:absolute;left:0;right:0;bottom:clamp(22px,4vh,44px);display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.ct__n{font-size:var(--t-label);letter-spacing:var(--track);color:rgba(255,255,255,.75)}
+.ct__name{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,46px);line-height:1;color:#fff;letter-spacing:.005em}
+.ct__tag{font-family:var(--serif);font-style:italic;font-size:var(--t-quote);color:rgba(255,255,255,.9);max-height:0;opacity:0;overflow:hidden;transition:max-height .7s var(--ease),opacity .6s var(--ease)}
+.ct__btn{margin-top:6px;padding:12px 22px;border:1px solid rgba(255,255,255,.85);font-size:var(--t-label);font-weight:500;letter-spacing:var(--track);text-transform:uppercase;color:#fff;transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease)}
+.ct::after{content:"";position:absolute;inset:10px;border:1px solid rgba(200,174,110,.0);pointer-events:none;transition:border-color .8s var(--ease),inset .8s var(--ease)}
+/* once the photos have landed */
+.cw__row.ready .ct__shade{opacity:1}
+.cw__row.ready .ct__in{opacity:1;transform:none}
+.cw__row.ready .ct:nth-child(2) .ct__in{transition-delay:.06s}.cw__row.ready .ct:nth-child(3) .ct__in{transition-delay:.12s}.cw__row.ready .ct:nth-child(4) .ct__in{transition-delay:.18s}
+.cw__row.ready .ct img{transform:scale(1)}
+/* pointing at a tile: it opens wider, the photo leans in, the line appears and the button fills */
+@media (hover:hover){
+  .cw__row.ready .ct:hover{flex-grow:1.7}
+  .cw__row.ready .ct:hover img{transform:scale(1.05)}
+  .cw__row.ready .ct:hover .ct__tag{max-height:2.6em;opacity:1}
+  .cw__row.ready .ct:hover .ct__btn{background:#fff;color:var(--emerald);border-color:#fff}
+  .cw__row.ready .ct:hover::after{border-color:rgba(200,174,110,.85);inset:14px}
+}
+.ct:focus-visible{outline:2px solid var(--emerald);outline-offset:4px}
+@media (max-width:900px){
+  .ct-row{display:grid!important;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px!important;width:auto!important;top:calc(clamp(18px,4vh,40px) + 132px)}
+  .cw__head .h-lg{font-size:26px}
+  .ct__name{font-size:clamp(26px,7vw,34px)}
+  .ct__btn{padding:8px 12px;white-space:nowrap;letter-spacing:.12em}
+  .ct__n{display:none}
+  .ct__tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){.ct-row{position:relative;display:grid;grid-template-columns:repeat(4,1fr);height:70vh}.ct__in,.ct__shade{opacity:1;transform:none}}
