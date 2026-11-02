@@ -756,22 +756,25 @@
 
   /* ── listing page ──────────────────────────────────── */
   if (page === "category") {
-    var c = D.categories[cat];
     var params = new URLSearchParams(location.search);
-    var q = (params.get("q") || "").toLowerCase();
+    var q = (params.get("q") || "").trim().toLowerCase();
+    var c = D.categories[cat];
+    var searching = !!q;
 
-    document.querySelector("[data-cat-hero]").innerHTML =
-      '<div><p class="eyebrow">The Anvesha selection</p>' +
-      '<h1 class="display h-xl">' + c.name + '</h1>' +
-      '<span class="script script--emerald">' + esc(c.script) + '</span>' +
-      '<p class="lede">' + esc(c.intro) + '</p></div>' +
-      '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
+    document.querySelector("[data-cat-hero]").innerHTML = searching
+      ? '<div><p class="eyebrow">The Anvesha selection</p><h1 class="display h-xl">Search results</h1>' +
+        '<span class="script script--emerald">Jewellery</span><p class="lede">Findings across all jewellery collections.</p></div>'
+      : '<div><p class="eyebrow">The Anvesha selection</p>' +
+        '<h1 class="display h-xl">' + c.name + '</h1>' +
+        '<span class="script script--emerald">' + esc(c.script) + '</span>' +
+        '<p class="lede">' + esc(c.intro) + '</p></div>' +
+        '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
 
     document.querySelector("[data-tabs]").innerHTML = CATS.map(function (k) {
-      return '<a href="' + k + '.html"' + (k === cat ? ' class="is-active" aria-current="page"' : '') + '>' + D.categories[k].name + '</a>';
+      return '<a href="' + k + '.html"' + (!searching && k === cat ? ' class="is-active" aria-current="page"' : '') + '>' + D.categories[k].name + '</a>';
     }).join("");
 
-    var all = D.products.filter(function (p) { return p.cat === cat; });
+    var all = searching ? D.products.slice() : D.products.filter(function (p) { return p.cat === cat; });
     var styleOpts = [];
     all.forEach(function (p) { if (styleOpts.indexOf(p.style) < 0) styleOpts.push(p.style); });
     function label(list, id) { var f = list.filter(function (x) { return x[0] === id; })[0]; return f ? f[1] : id; }
@@ -808,7 +811,7 @@
         if (f.metal && p.metal.indexOf(f.metal) < 0) return false;
         if (f.diamond && p.diamond !== f.diamond) return false;
         if (f.style && p.style !== f.style) return false;
-        if (q && (p.name + " " + p.meta + " " + p.code).toLowerCase().indexOf(q) < 0) return false;
+        if (q && (p.name + " " + p.meta + " " + p.code + " " + p.cat + " " + (D.categories[p.cat] || {}).name + " " + p.style + " " + p.metal.join(" ") + " " + p.diamond).toLowerCase().indexOf(q) < 0) return false;
         return true;
       });
       var sort = document.querySelector("[data-sort]").value;
@@ -820,7 +823,9 @@
         : '<p class="grid-empty">No designs match these details just yet. Try another combination, or <a class="mlink" href="contact.html#inquiry">make an inquiry</a>.</p>';
       document.querySelector("[data-count]").textContent = list.length + (list.length === 1 ? " design" : " designs");
       endNote.textContent = list.length
-        ? "You've explored all " + list.length + " design" + (list.length === 1 ? "" : "s") + " in " + c.name.toLowerCase() + "."
+        ? searching
+          ? "You've explored all " + list.length + " matching design" + (list.length === 1 ? "" : "s") + "."
+          : "You've explored all " + list.length + " design" + (list.length === 1 ? "" : "s") + " in " + c.name.toLowerCase() + "."
         : "";
       reveal();
     }
