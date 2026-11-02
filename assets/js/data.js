@@ -1,7 +1,10 @@
 /* Anvesha Jewels — catalogue data. Shared by the listing pages and the product page. */
 window.AJ = {
   whatsapp: "919999999999",            /* placeholder until the client's number is confirmed */
-  instagram: "https://www.instagram.com/",
+  instagram: "https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==",
+  facebook: "https://www.facebook.com/share/1MjLyjDmBE/",
+  linkedin: "https://www.linkedin.com/company/anvesha-jewels/",
+  google: "https://share.google/W20GPQ1LgxwlsJTgo",
   catalogue: "#",
   /* Sign-up pop-up: where email + mobile are sent (e.g. a Google Apps Script web-app URL or a Brevo form URL).
      Leave empty to send the sign-up to WhatsApp instead. */

@@ -21,7 +21,10 @@
     zoom: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 4 4M7 9h4M9 7v4"/></svg>',
     prev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M20 12H5M10 6l-5 6 5 6"/></svg>',
     next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 12h15M14 6l5 6-5 6"/></svg>',
-    check: '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m2.5 7.3 3 3 6-6.6"/></svg>'
+    check: '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m2.5 7.3 3 3 6-6.6"/></svg>',
+    fb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+    google: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>'
   };
 
   var CATS = ["rings", "bracelets", "necklaces", "earrings"];
@@ -123,30 +126,156 @@
 
   /* ── footer ────────────────────────────────────────── */
   function footer() {
-    var jew = CATS.map(function (c) { return '<li><a href="' + c + '.html">' + D.categories[c].name + '</a></li>'; }).join("");
     return '' +
 '<footer class="site-foot">' +
   '<div class="wrap-wide">' +
-    '<div class="foot-grid">' +
-      '<div><a class="foot-brand" href="index.html" aria-label="Anvesha Jewels — home">' +
-        '<img src="assets/logo.png" alt="Anvesha Jewels" width="210" loading="lazy"></a>' +
-        '<p class="foot-tag">For the moments that become you.</p></div>' +
-      '<div class="foot-col"><h4>Jewellery</h4><ul>' + jew + '</ul></div>' +
-      '<div class="foot-col"><h4>Anvesha</h4><ul>' +
-        '<li><a href="collections.html">Collections</a></li>' +
-        '<li><a href="about.html">About Us</a></li>' +
-        '<li><a href="contact.html">Contact Us</a></li>' +
-        '<li><a href="' + D.instagram + '" target="_blank" rel="noopener">Instagram</a></li></ul></div>' +
-      '<div class="foot-col"><h4>Here to help</h4><ul>' +
-        '<li><a href="contact.html#inquiry">Request a quote</a></li>' +
-        '<li><a href="contact.html#inquiry">Make an inquiry</a></li>' +
-        '<li><a href="about.html#care">Jewellery care</a></li>' +
-        '<li><a href="about.html#sizing">Sizing guidance</a></li></ul></div>' +
+    '<div class="foot-top">' +
+      '<div class="foot-brand-col">' +
+        '<a class="foot-brand" href="index.html" aria-label="Anvesha Jewels — home">' +
+          '<img src="assets/logo.png" alt="Anvesha Jewels" width="200" loading="lazy"></a>' +
+        '<p class="foot-tag">For the moments that become you.</p>' +
+        '<p class="foot-summary">Considered fine jewellery handcrafted in solid gold, natural and lab-grown diamonds. Made to be lived with and kept for generations.</p>' +
+        '<div class="foot-social-pills">' +
+          '<a href="' + D.instagram + '" target="_blank" rel="noopener" aria-label="Instagram" class="foot-icon-btn">' + I.insta + '</a>' +
+          '<a href="' + D.facebook + '" target="_blank" rel="noopener" aria-label="Facebook" class="foot-icon-btn">' + I.fb + '</a>' +
+          '<a href="' + D.linkedin + '" target="_blank" rel="noopener" aria-label="LinkedIn" class="foot-icon-btn">' + I.linkedin + '</a>' +
+          '<a href="' + D.google + '" target="_blank" rel="noopener" aria-label="Google Reviews" class="foot-icon-btn">' + I.google + '</a>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="foot-nav-cols">' +
+        '<div class="foot-col">' +
+          '<h4 class="foot-heading">SHOP</h4>' +
+          '<ul>' +
+            '<li><a href="rings.html">Rings</a></li>' +
+            '<li><a href="necklaces.html">Necklaces</a></li>' +
+            '<li><a href="earrings.html">Earrings</a></li>' +
+            '<li><a href="bracelets.html">Bracelets</a></li>' +
+            '<li><a href="collections.html">All Pieces</a></li>' +
+          '</ul>' +
+        '</div>' +
+
+        '<div class="foot-col">' +
+          '<h4 class="foot-heading">HOUSE</h4>' +
+          '<ul>' +
+            '<li><a href="about.html">Our Craft</a></li>' +
+            '<li><a href="collections.html">Collections</a></li>' +
+            '<li><a href="collections.html#solene">Solene Selection</a></li>' +
+            '<li><a href="testimonials.html">Stories</a></li>' +
+            '<li><a href="contact.html">Contact Us</a></li>' +
+          '</ul>' +
+        '</div>' +
+
+        '<div class="foot-col">' +
+          '<h4 class="foot-heading">CARE</h4>' +
+          '<ul>' +
+            '<li><a href="about.html#sizing">Size Guide</a></li>' +
+            '<li><a href="about.html#care">Jewellery Care</a></li>' +
+            '<li><a href="contact.html">Personal Guidance</a></li>' +
+            '<li><a href="contact.html#inquiry">Request a Quote</a></li>' +
+          '</ul>' +
+        '</div>' +
+
+        '<div class="foot-col foot-col--social">' +
+          '<h4 class="foot-heading">CONNECT</h4>' +
+          '<p class="foot-connect-desc">Follow our journey, new bespoke arrivals and private previews.</p>' +
+          '<ul class="foot-connect-list">' +
+            '<li><a href="' + D.instagram + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.insta + '<span>Instagram</span></a></li>' +
+            '<li><a href="' + D.facebook + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.fb + '<span>Facebook</span></a></li>' +
+            '<li><a href="' + D.linkedin + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.linkedin + '<span>LinkedIn</span></a></li>' +
+            '<li><a href="' + D.google + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.google + '<span>Google Reviews</span></a></li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>' +
     '</div>' +
-    '<div class="foot-bar"><span>© 2026 Anvesha Jewels</span>' +
-      '<nav><a href="about.html#privacy">Privacy policy</a><span>·</span><a href="about.html#terms">Terms of use</a></nav></div>' +
+
+    '<div class="foot-wordmark-wrap">' +
+      '<div class="foot-wordmark" data-wordmark aria-label="Anvesha Jewels">' +
+        '<a href="rings.html" class="wm-char" data-char="A" aria-label="A — Rings">' +
+          '<span class="wm-letter">A</span>' +
+          '<span class="wm-media"><img src="assets/p-r001.webp" alt="Solene Diamond Ring" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="necklaces.html" class="wm-char" data-char="N" aria-label="N — Necklaces">' +
+          '<span class="wm-letter">N</span>' +
+          '<span class="wm-media"><img src="assets/hero-necklaces.webp" alt="Signature Diamond Necklace" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="collections.html" class="wm-char" data-char="V" aria-label="V — Collections">' +
+          '<span class="wm-letter">V</span>' +
+          '<span class="wm-media"><img src="assets/p-r002.webp" alt="Lumiere Halo Creation" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="earrings.html" class="wm-char" data-char="E" aria-label="E — Earrings">' +
+          '<span class="wm-letter">E</span>' +
+          '<span class="wm-media"><img src="assets/hero-earrings.webp" alt="Fine Emerald & Diamond Earrings" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="bracelets.html" class="wm-char" data-char="S" aria-label="S — Bracelets">' +
+          '<span class="wm-letter">S</span>' +
+          '<span class="wm-media"><img src="assets/hero-bracelets.webp" alt="Handcrafted Tennis Bracelet" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="rings.html" class="wm-char" data-char="H" aria-label="H — Heritage Rings">' +
+          '<span class="wm-letter">H</span>' +
+          '<span class="wm-media"><img src="assets/hero-rings.webp" alt="Heritage Gold Ring" loading="lazy"></span>' +
+        '</a>' +
+        '<a href="collections.html" class="wm-char" data-char="A" aria-label="A — Haute Joaillerie">' +
+          '<span class="wm-letter">A</span>' +
+          '<span class="wm-media"><img src="assets/nav-jewellery.webp" alt="Haute Joaillerie Statement" loading="lazy"></span>' +
+        '</a>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="foot-bar">' +
+      '<span>© 2026 Anvesha Jewels. Handcrafted with care.</span>' +
+      '<nav aria-label="Legal links">' +
+        '<a href="about.html#privacy">Privacy Policy</a>' +
+        '<span>·</span>' +
+        '<a href="about.html#terms">Terms of Use</a>' +
+        '<span>·</span>' +
+        '<a href="about.html#sizing">Sizing Guidance</a>' +
+      '</nav>' +
+    '</div>' +
   '</div>' +
 '</footer>';
+  }
+
+  function initWordmarkWave() {
+    var wm = document.querySelector("[data-wordmark]");
+    if (!wm) return;
+    var chars = Array.prototype.slice.call(wm.querySelectorAll(".wm-char"));
+    if (!chars.length) return;
+
+    chars.forEach(function (charEl, idx) {
+      charEl.addEventListener("mouseenter", function () {
+        chars.forEach(function (c, i) {
+          var dist = Math.abs(i - idx);
+          c.classList.remove("is-hovered", "is-neighbor-1", "is-neighbor-2");
+          if (dist === 0) c.classList.add("is-hovered");
+          else if (dist === 1) c.classList.add("is-neighbor-1");
+          else if (dist === 2) c.classList.add("is-neighbor-2");
+        });
+      });
+      charEl.addEventListener("touchstart", function () {
+        chars.forEach(function (c, i) {
+          var dist = Math.abs(i - idx);
+          c.classList.remove("is-hovered", "is-neighbor-1", "is-neighbor-2");
+          if (dist === 0) c.classList.add("is-hovered");
+          else if (dist === 1) c.classList.add("is-neighbor-1");
+          else if (dist === 2) c.classList.add("is-neighbor-2");
+        });
+      }, { passive: true });
+    });
+
+    wm.addEventListener("mouseleave", function () {
+      chars.forEach(function (c) {
+        c.classList.remove("is-hovered", "is-neighbor-1", "is-neighbor-2");
+      });
+    });
+
+    document.addEventListener("touchstart", function (e) {
+      if (!wm.contains(e.target)) {
+        chars.forEach(function (c) {
+          c.classList.remove("is-hovered", "is-neighbor-1", "is-neighbor-2");
+        });
+      }
+    }, { passive: true });
   }
 
   /* ── shared blocks ─────────────────────────────────── */
@@ -175,6 +304,7 @@
   var ctaSlot = document.querySelector("[data-cta-band]");
   if (ctaSlot) ctaSlot.outerHTML = ctaBand();
   document.body.insertAdjacentHTML("beforeend", footer());
+  initWordmarkWave();
   document.body.insertAdjacentHTML("beforeend",
     '<div class="modal" data-quote aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-bg" data-close-quote></div>' +
     '<div class="modal-card" data-quote-card></div></div>' +
@@ -291,7 +421,7 @@
     if (!e.target.closest(".site-head")) { closeMega(); closeSearch(); }
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { closeMega(); closeSearch(); setDrawer(false); closeQuote(); closeLightbox(); }
+    if (e.key === "Escape") { closeMega(); closeSearch(); setDrawer(false); closeQuote(); closeLightbox(); closeAllLuxDropdowns(); }
   });
   document.querySelectorAll("[data-search-form]").forEach(function (f) {
     f.addEventListener("submit", function (e) {
@@ -354,6 +484,276 @@
   window.addEventListener("orientationchange", measureHead);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureHead);
 
+  /* ── bespoke luxury dropdowns ────────────────────────── */
+  var openLuxDropdown = null;
+
+  function closeAllLuxDropdowns() {
+    if (openLuxDropdown) {
+      openLuxDropdown.classList.remove("is-open");
+      var btn = openLuxDropdown.querySelector(".lux-select-trigger");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+      var menu = openLuxDropdown.querySelector(".lux-select-menu");
+      if (menu) menu.setAttribute("aria-hidden", "true");
+      openLuxDropdown.classList.remove("is-flipped", "is-right-aligned");
+      openLuxDropdown = null;
+    }
+  }
+
+  function setupLuxSelect(selEl) {
+    if (!selEl || selEl.dataset.luxInit === "true") return;
+    selEl.dataset.luxInit = "true";
+
+    var isFilter = selEl.hasAttribute("data-filter");
+    var isSort = selEl.hasAttribute("data-sort");
+    var isSize = selEl.hasAttribute("data-opt-size") || !!selEl.closest(".opt-size");
+    var isField = !isFilter && !isSort && !isSize && !!selEl.closest(".field");
+
+    var filterKey = selEl.dataset.filter || (isSort ? "sort" : "");
+    var ariaLabel = selEl.getAttribute("aria-label") || selEl.name || "";
+    var parentSpan = selEl.closest(".selectish");
+    if (parentSpan) {
+      parentSpan.classList.add("has-lux");
+      parentSpan.querySelectorAll(":scope > svg").forEach(function (s) { s.style.display = "none"; });
+    }
+
+    // Hide native select visually
+    selEl.classList.add("lux-native-hidden");
+
+    // Create wrapper
+    var wrap = document.createElement("div");
+    wrap.className = "lux-select" +
+      (isFilter || isSort ? " lux-select--filter" : "") +
+      (isField ? " lux-select--field" : "") +
+      (isSize ? " lux-select--size" : "");
+
+    // Trigger button
+    var trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "lux-select-trigger";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-label", ariaLabel ? ariaLabel + " selector" : "Select option");
+
+    var dot = document.createElement("span");
+    dot.className = "lux-select-dot";
+
+    var text = document.createElement("span");
+    text.className = "lux-select-text";
+
+    var arrow = document.createElement("span");
+    arrow.className = "lux-select-arrow";
+    arrow.innerHTML = I.chev;
+
+    trigger.appendChild(dot);
+    trigger.appendChild(text);
+    trigger.appendChild(arrow);
+
+    // Dropdown menu
+    var menu = document.createElement("div");
+    menu.className = "lux-select-menu";
+    menu.setAttribute("role", "listbox");
+    menu.setAttribute("aria-hidden", "true");
+
+    var optsContainer = document.createElement("div");
+    optsContainer.className = "lux-select-options";
+    menu.appendChild(optsContainer);
+
+    function getFormattedTriggerText(opt) {
+      if (!opt) return "";
+      var val = opt.value;
+      var lbl = opt.textContent.trim();
+      if (!val) {
+        return lbl;
+      }
+      if (isFilter) {
+        if (filterKey === "metal") return "Metal: " + lbl;
+        if (filterKey === "diamond") return "Diamond: " + lbl;
+        if (filterKey === "style") return "Style: " + lbl;
+        return lbl;
+      }
+      if (isSize) {
+        return /size/i.test(lbl) ? lbl : "Size " + lbl;
+      }
+      return lbl;
+    }
+
+    function renderOptions() {
+      optsContainer.innerHTML = "";
+      var currentVal = selEl.value;
+
+      Array.prototype.forEach.call(selEl.options, function (opt, idx) {
+        var optVal = opt.value;
+        var optLabel = opt.textContent.trim();
+        var isSelected = (optVal === currentVal);
+        var isPlaceholder = (!optVal && idx === 0);
+
+        var displayLabel = optLabel;
+        if (isFilter && isPlaceholder) {
+          if (filterKey === "metal") displayLabel = "All Metals";
+          else if (filterKey === "diamond") displayLabel = "All Diamond Types";
+          else if (filterKey === "style") displayLabel = "All Styles";
+        } else if (isSize && !/size/i.test(optLabel)) {
+          displayLabel = "Size " + optLabel;
+        }
+
+        var optItem = document.createElement("div");
+        optItem.className = "lux-select-option" +
+          (isSelected ? " is-selected" : "") +
+          (isPlaceholder ? " is-placeholder" : "");
+        optItem.setAttribute("role", "option");
+        optItem.setAttribute("data-value", optVal);
+        optItem.setAttribute("aria-selected", isSelected ? "true" : "false");
+        optItem.tabIndex = -1;
+
+        optItem.innerHTML =
+          '<span class="lux-select-option-label">' + esc(displayLabel) + '</span>' +
+          '<span class="lux-select-check">' + I.check + '</span>';
+
+        optItem.addEventListener("click", function (e) {
+          e.stopPropagation();
+          selectValue(optVal);
+          closeAllLuxDropdowns();
+          trigger.focus();
+        });
+
+        optsContainer.appendChild(optItem);
+      });
+
+      syncTrigger();
+    }
+
+    function syncTrigger() {
+      var selectedOpt = selEl.options[selEl.selectedIndex] || selEl.options[0];
+      if (selectedOpt) {
+        text.textContent = getFormattedTriggerText(selectedOpt);
+        var hasVal = !!selectedOpt.value;
+        wrap.classList.toggle("is-set", hasVal);
+        wrap.classList.toggle("is-unselected", !hasVal);
+        if (parentSpan) parentSpan.classList.toggle("is-set", hasVal);
+      }
+
+      optsContainer.querySelectorAll(".lux-select-option").forEach(function (item) {
+        var isSel = (item.dataset.value === selEl.value);
+        item.classList.toggle("is-selected", isSel);
+        item.setAttribute("aria-selected", isSel ? "true" : "false");
+      });
+    }
+
+    function selectValue(val) {
+      if (selEl.value !== val) {
+        selEl.value = val;
+        selEl.dispatchEvent(new Event("change", { bubbles: true }));
+        selEl.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      syncTrigger();
+    }
+
+    // Toggle menu
+    trigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.contains("is-open");
+      closeAllLuxDropdowns();
+      if (!isOpen) {
+        wrap.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        menu.setAttribute("aria-hidden", "false");
+        openLuxDropdown = wrap;
+
+        // Smart flip & alignment
+        var rect = wrap.getBoundingClientRect();
+        var menuHeight = Math.min(optsContainer.scrollHeight + 16, 260);
+        var spaceBelow = window.innerHeight - rect.bottom;
+        var spaceAbove = rect.top;
+
+        if (spaceBelow < menuHeight && spaceAbove > spaceBelow) {
+          wrap.classList.add("is-flipped");
+        } else {
+          wrap.classList.remove("is-flipped");
+        }
+
+        if (rect.left + 260 > window.innerWidth) {
+          wrap.classList.add("is-right-aligned");
+        } else {
+          wrap.classList.remove("is-right-aligned");
+        }
+
+        var selOpt = optsContainer.querySelector(".lux-select-option.is-selected");
+        if (selOpt) {
+          selOpt.scrollIntoView({ block: "nearest" });
+        }
+      }
+    });
+
+    // Keyboard navigation
+    trigger.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (!wrap.classList.contains("is-open")) {
+          trigger.click();
+        } else {
+          var items = Array.prototype.slice.call(optsContainer.querySelectorAll(".lux-select-option"));
+          var curIdx = -1;
+          items.forEach(function (it, i) {
+            if (it.classList.contains("is-highlighted") || it.classList.contains("is-selected")) curIdx = i;
+          });
+          var nextIdx = curIdx;
+          if (e.key === "ArrowDown") nextIdx = (curIdx + 1) % items.length;
+          else if (e.key === "ArrowUp") nextIdx = (curIdx - 1 + items.length) % items.length;
+          items.forEach(function (it, idx) { it.classList.toggle("is-highlighted", idx === nextIdx); });
+          if (items[nextIdx]) items[nextIdx].scrollIntoView({ block: "nearest" });
+          if (e.key === "Enter" || e.key === " ") {
+            if (items[nextIdx]) items[nextIdx].click();
+          }
+        }
+      } else if (e.key === "Escape") {
+        closeAllLuxDropdowns();
+      }
+    });
+
+    // Label click support
+    if (selEl.id) {
+      var lbl = document.querySelector('label[for="' + selEl.id + '"]');
+      if (lbl) {
+        lbl.addEventListener("click", function (e) {
+          e.preventDefault();
+          trigger.focus();
+          trigger.click();
+        });
+      }
+    }
+
+    // External change listener
+    selEl.addEventListener("change", syncTrigger);
+    selEl.addEventListener("input", syncTrigger);
+
+    // Form reset listener
+    if (selEl.form) {
+      selEl.form.addEventListener("reset", function () {
+        setTimeout(syncTrigger, 20);
+      });
+    }
+
+    // Mount
+    renderOptions();
+    selEl.parentNode.insertBefore(wrap, selEl);
+    wrap.appendChild(selEl);
+    wrap.appendChild(trigger);
+    wrap.appendChild(menu);
+  }
+
+  function enhanceAllSelects(root) {
+    var targets = (root || document).querySelectorAll("select:not([data-lux-init])");
+    targets.forEach(setupLuxSelect);
+  }
+
+  window.enhanceAllSelects = enhanceAllSelects;
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".lux-select")) {
+      closeAllLuxDropdowns();
+    }
+  });
+
   /* ── listing page ──────────────────────────────────── */
   if (page === "category") {
     var c = D.categories[cat];
@@ -392,6 +792,8 @@
       '<div class="filters-right"><span data-count></span>' +
         '<span class="selectish"><select data-sort aria-label="Sort"><option value="featured">Sort: Featured</option>' +
         '<option value="az">Sort: A – Z</option><option value="za">Sort: Z – A</option></select>' + I.chev + '</span></div>';
+
+    enhanceAllSelects(document.querySelector("[data-filters]"));
 
     var grid = document.querySelector("[data-grid]");
     var endNote = document.querySelector("[data-grid-end]");
@@ -534,6 +936,7 @@
     var sizeSel = document.querySelector("[data-opt-size]");
     if (sizeSel) sizeSel.addEventListener("change", function () { state.size = sizeSel.value; syncOptions(); });
     syncOptions();
+    enhanceAllSelects(document.querySelector("[data-pdp-opt]"));
 
     /* gallery */
     document.querySelectorAll("[data-thumb]").forEach(function (t) {
@@ -625,5 +1028,6 @@
       if (io) io.observe(n); else n.classList.add("in");
     });
   }
+  enhanceAllSelects(document);
   reveal();
 })();
