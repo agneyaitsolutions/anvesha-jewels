@@ -689,3 +689,17 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .ct .figwrap{height:auto;aspect-ratio:2/3}
   .cat-hero img{max-width:none;aspect-ratio:2/3;max-height:70svh}
 }
+
+/* ───────── fixes: category tiles fill the width, lighter shade; catalogue strip crops and spacing ───────── */
+.ct-row{height:calc(100svh - var(--head-h,112px) - 250px)!important;max-height:720px;
+  width:min(var(--maxw),calc(100% - 2 * var(--gut)))!important}
+.ct__shade{background:linear-gradient(180deg,rgba(14,22,18,0) 35%,rgba(14,22,18,.22) 62%,rgba(14,22,18,.62) 100%)!important}
+.ct__in{bottom:clamp(20px,3.4vh,36px)}
+.ct img{object-position:50% 45%}
+@media (max-width:900px){.ct-row{height:auto!important;max-height:none}}
+.cs-sec .cs-note{margin-top:var(--space-head)}
+.cs::after{background:rgba(14,22,18,.16)}
+.cs-tile:nth-child(1) img{object-position:72% 30%}
+.cs-tile:nth-child(2) img{object-position:50% 40%}
+.cs-tile:nth-child(3) img{object-position:62% 55%}
+.cs-tile:nth-child(4) img{object-position:68% 30%}
