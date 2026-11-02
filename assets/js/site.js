@@ -8,6 +8,9 @@
 
   /* ── icons ─────────────────────────────────────────── */
   var I = {
+    ruler: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="2" y="6.5" width="16" height="7" rx=".6"/><path d="M5 6.5v3M8 6.5v2M11 6.5v3M14 6.5v2"/></svg>',
+    swap: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 7h11l-3-3M16 13H5l3 3"/></svg>',
+    lock: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4.5" y="9" width="11" height="8" rx="1"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9"/></svg>',
     arrow: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>',
     diag: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>',
     chev: '<svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5"/></svg>',
@@ -186,9 +189,10 @@
         '<div class="foot-col">' +
           '<h4 class="foot-heading">CARE</h4>' +
           '<ul>' +
-            '<li><a href="about.html#sizing">Size Guide</a></li>' +
+            '<li><a href="sizing-chart.html">Sizing Chart</a></li>' +
+            '<li><a href="returns-exchange.html">Returns &amp; Exchange</a></li>' +
+            '<li><a href="privacy-policy.html">Privacy Policy</a></li>' +
             '<li><a href="about.html#care">Jewellery Care</a></li>' +
-            '<li><a href="contact.html">Personal Guidance</a></li>' +
             '<li><a href="contact.html#inquiry">Request a Quote</a></li>' +
           '</ul>' +
         '</div>' +
@@ -344,10 +348,15 @@
       '<span class="wa-float__icon"><svg viewBox="0 0 32 32" aria-hidden="true">' +
       '<path fill="currentColor" d="M16 3.2A12.8 12.8 0 0 0 5 22.5L3.3 28.8l6.5-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.3a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.5 10.5 0 1 1 16 26.5Z"/>' +
       '<path fill="currentColor" d="M11.7 9.6c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.3 6.6 5.8 3.3 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.4-.3-.7-.5l-2.6-1.3c-.3-.1-.6-.2-.9.2l-1.2 1.4c-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-2.7Z"/>' +
-      '</svg></span><span class="wa-float__label">Chat with us</span></a>');
+      '</svg></span></a>');
     var wa = document.querySelector(".wa-float");
     /* the product title is filled in after load, so build the message again on tap */
     wa.addEventListener("click", function () { wa.href = waHref(); });
+    /* any link marked data-wa="message" opens WhatsApp with that message */
+    document.querySelectorAll("[data-wa]").forEach(function (a) {
+      a.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+      a.target = "_blank"; a.rel = "noopener";
+    });
   })();
 
   /* mark the active top-nav item */
@@ -870,6 +879,15 @@
 
     enhanceAllSelects(document.querySelector("[data-filters]"));
 
+    /* size chart and policy links at the top of every category */
+    var anchor = { rings: "rings", bracelets: "bracelets", necklaces: "necklaces" }[cat];
+    document.querySelector("[data-filters]").insertAdjacentHTML("beforebegin",
+      '<nav class="cat-help" aria-label="Help with sizing and orders">' +
+        (!searching && anchor ? '<a href="sizing-chart.html#' + anchor + '">' + I.ruler + 'Size chart</a>' : '<a href="sizing-chart.html">' + I.ruler + 'Sizing chart</a>') +
+        '<a href="returns-exchange.html">' + I.swap + 'Returns &amp; exchange</a>' +
+        '<a href="privacy-policy.html">' + I.lock + 'Privacy policy</a>' +
+      '</nav>');
+
     var grid = document.querySelector("[data-grid]");
     var endNote = document.querySelector("[data-grid-end]");
 
@@ -950,6 +968,8 @@
     var metals = D.metals.filter(function (m) { return p.metal.indexOf(m.id) >= 0; });
     if (!metals.some(function (m) { return m.id === state.metal; })) state.metal = metals[0].id;
 
+    var sizeAnchor = p.cat === "bracelets" ? (p.style === "bangle" || p.style === "cuff" ? "bangles" : "bracelets")
+      : p.cat === "necklaces" ? "necklaces" : "";
     document.querySelector("[data-pdp-info]").innerHTML =
       '<p class="eyebrow">' + pc.name + ' / The ' + esc(p.line) + ' selection</p>' +
       '<h1 class="display h-xl">' + esc(p.name).replace(" ", "<br>") + '</h1>' +
@@ -969,11 +989,17 @@
         ? '<div class="opt"><div class="opt-size"><span class="opt-label">Ring size (India)</span>' +
           '<select data-opt-size aria-label="Ring size">' + D.ringSizes.map(function (s) {
             return '<option' + (s === state.size ? " selected" : "") + '>' + s + '</option>'; }).join("") + '</select>' +
-          '<a href="about.html#sizing">Sizing guidance</a></div></div>'
-        : '<div class="opt"><div class="opt-size"><span class="opt-label">Fit and length</span>' +
-          '<a href="about.html#sizing">Sizing guidance</a></div></div>') +
+          '<a href="sizing-chart.html#rings">Size chart</a></div></div>'
+        : sizeAnchor
+          ? '<div class="opt"><div class="opt-size"><span class="opt-label">Fit and length</span>' +
+            '<a href="sizing-chart.html#' + sizeAnchor + '">Size chart</a></div></div>'
+          : "") +
       '<div class="pdp-cta"><button class="btn btn--solid" data-request>Request a quote ' + I.chat + '</button>' +
-        '<p class="pdp-sel"><span data-selection></span><span>Continue with your selection on WhatsApp.</span></p></div>';
+        '<p class="pdp-sel"><span data-selection></span><span>Continue with your selection on WhatsApp.</span></p></div>' +
+      '<nav class="pdp-help" aria-label="Help with this piece">' +
+        (sizeAnchor || isRing ? '<a href="sizing-chart.html#' + (isRing ? "rings" : sizeAnchor) + '">' + I.ruler + 'Size chart</a>' : '') +
+        '<a href="returns-exchange.html">' + I.swap + 'Returns &amp; exchange</a>' +
+        '<a href="privacy-policy.html">' + I.lock + 'Privacy</a></nav>';
 
     document.querySelector("[data-pdp-detail]").innerHTML =
       '<div><h2 class="display h-md">The details that make it yours.</h2><p class="p">' + esc(p.detail) + '</p></div>' +
@@ -981,7 +1007,11 @@
         '<div class="acc"><button aria-expanded="false">Jewellery care <span>+</span></button>' +
           '<div class="acc-body"><div><p class="p">Keep your piece away from perfume, lotion and household cleaners. Store it separately in a soft pouch, and bring it to us for a gentle professional clean and a prong check once a year.</p></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Sizing and personal guidance <span>+</span></button>' +
-          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows.</p></div></div></div>' +
+          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows.</p>' +
+          '<a class="mlink" href="sizing-chart.html">See the sizing chart</a></div></div></div>' +
+        '<div class="acc"><button aria-expanded="false">Returns and exchange <span>+</span></button>' +
+          '<div class="acc-body"><div><p class="p">Each piece is made to order to your confirmed quote. If it arrives damaged or differs from your quote, we will put it right.</p>' +
+          '<a class="mlink" href="returns-exchange.html">Read our returns and exchange policy</a></div></div></div>' +
       '</div>';
 
     var related = D.products.filter(function (x) { return x.cat === p.cat && x.code !== p.code; }).slice(0, 3);
