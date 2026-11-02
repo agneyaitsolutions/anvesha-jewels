@@ -783,3 +783,15 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .fs-arrow svg{width:15px;height:15px}
 @media (max-width:900px){.fs-row{grid-auto-columns:46%}}
 @media (max-width:560px){.fs-row{grid-auto-columns:78%;gap:14px}.fs-arrow{display:none}}
+
+/* fixes: the curved edge only shows while the menu is open or moving (no white shape left over the hero);
+   one consistent type style for the header (MENU + nav) and the drawer */
+.drawer-curve{visibility:hidden}
+.drawer.is-open .drawer-curve,.drawer.is-curving .drawer-curve{visibility:visible}
+.menu-btn,.nav-item{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:var(--track);text-transform:uppercase}
+.nav-item{padding:11px 2px}
+.drawer-row>a,.drawer-row>button{font-family:var(--serif)!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;font-size:clamp(30px,3vw,38px)!important}
+.dw-num{font-family:var(--sans)!important;font-size:var(--t-label)!important;font-weight:600;letter-spacing:var(--track);color:var(--emerald);margin-top:.9em!important;min-width:1.6em}
+.drawer-close{font-weight:600}
+.drawer-sub a{font-family:var(--sans);font-size:var(--t-body)}
+.hero-bar{background:rgba(20,20,20,.18)}

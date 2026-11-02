@@ -201,11 +201,13 @@
   function animateCurve(from, to, ms) {
     cancelAnimationFrame(curveRaf);
     var H = window.innerHeight, t0 = performance.now();
+    drawer.classList.add("is-curving");
     curveSvg.setAttribute("viewBox", "0 0 100 " + H);
     (function f(now) {
       var k = Math.min(1, (now - t0) / ms), c = from + (to - from) * bez(k);
       curvePath.setAttribute("d", "M0 0 Q" + c.toFixed(1) + " " + (H / 2) + " 0 " + H + " Z");
       if (k < 1) curveRaf = requestAnimationFrame(f);
+      else { drawer.classList.remove("is-curving"); if (!drawer.classList.contains("is-open")) curvePath.setAttribute("d", ""); }
     })(t0);
   }
   /* number each row and split its word into letters for the hover effect */
