@@ -2020,3 +2020,13 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .mt-ph::after{background:linear-gradient(180deg,rgba(14,22,18,0) 40%,rgba(14,22,18,.5) 100%)!important}
 @media (max-width:900px){.mt-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.mt-name{font-size:28px!important}.mt-btn{padding:8px 12px!important;letter-spacing:.12em}}
 @media (max-width:900px){.mt-btn{white-space:nowrap;font-size:10px!important;padding:8px 10px!important;letter-spacing:.1em!important}.mt-in{padding:0 8px 16px!important}}
+
+/* About page: care / guidance / policies as three tidy cards */
+.info-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.6vw,36px);align-items:stretch}
+.info-grid .contact-col{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:clamp(26px,3vw,40px);background:var(--cream);border:1px solid var(--line);border-top:2px solid var(--gold)}
+.tone-cream .info-grid .contact-col{background:var(--white)}
+.info-grid .contact-col h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.2vw,32px);line-height:1.1;color:var(--ink)}
+.info-grid .contact-col .p{margin:0;flex:1}
+.info-grid .contact-col .mlink{margin-top:6px}
+.info-sec .sec-head{margin-bottom:var(--space-head)}
+@media (max-width:900px){.info-grid{grid-template-columns:1fr}}
