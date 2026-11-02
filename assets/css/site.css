@@ -123,23 +123,21 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .head-tools button:hover,.head-tools a:hover{color:var(--emerald)}
 .head-tools svg{width:18px;height:18px}
 
-/* The nav row is white like everything else, set off by a hairline. */
-.head-navbar{background:var(--white);border-top:1px solid var(--line)}
+/* The nav row is the one emerald band on the site; everything else stays white. */
+.head-navbar{background:var(--emerald)}
 .head-nav{display:flex;justify-content:center;gap:34px}
 .head-nav>div{position:relative}
 .nav-item{
   display:inline-flex;align-items:center;gap:7px;padding:15px 2px;
-  font-size:var(--t-small);font-weight:400;color:var(--ink);position:relative;transition:color .3s var(--ease);
+  font-size:var(--t-small);font-weight:400;color:var(--white);position:relative;transition:color .3s var(--ease);
 }
 .nav-item svg{width:9px;height:9px;opacity:.75;transition:transform .3s var(--ease)}
 .nav-item::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);
   transform:scaleX(0);transform-origin:center;transition:transform .4s var(--ease);
 }
-.nav-item:hover{color:var(--emerald)}
-.nav-item:hover::after{transform:scaleX(1)}
-.nav-item.is-active,.nav-item.is-open{color:var(--emerald)}
-.nav-item.is-active::after,.nav-item.is-open::after{transform:scaleX(1);background:var(--emerald)}
+.nav-item:hover{color:var(--gold-hi)}
+.nav-item.is-active::after,.nav-item.is-open::after{transform:scaleX(1)}
 .nav-item.is-open svg{transform:rotate(180deg)}
 
 /* mega menu */

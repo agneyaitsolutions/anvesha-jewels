@@ -62,7 +62,8 @@ italic serif lines one size, one letter-spacing for every small-capital style, a
 
 ## White theme
 
-Every page, section, bar and panel is white (`#FFFFFF`): header and nav row, collection block,
+Every page, section and panel is white (`#FFFFFF`) except the nav row, which stays an emerald band
+with white links and a gold underline. White: header, collection block,
 inquiry, CTA band, testimonials, footer, drawer, mega menus and modals. Sections are separated by
 space, and where needed by a single 1px hairline in `var(--line)`. Cards and form fields are white
 with a 1px `var(--line)` border — no shadows, no rounded corners. The overlays behind the drawer,
