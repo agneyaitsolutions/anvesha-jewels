@@ -795,3 +795,38 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .drawer-close{font-weight:600}
 .drawer-sub a{font-family:var(--sans);font-size:var(--t-body)}
 .hero-bar{background:rgba(20,20,20,.18)}
+
+/* ───────── section colours: white, cream and sage alternate so you can see where one part ends ───────── */
+.tone-cream{background:#F6F2EA}
+.tone-sage{background:#ECEFE8}
+.sec.tone-cream,.sec.tone-sage{padding-top:var(--space-section)!important;padding-bottom:var(--space-section)!important}
+.tone-cream + .sec,.tone-sage + .sec,.sec + .tone-cream,.sec + .tone-sage{padding-top:var(--space-section)}
+.inquiry{background:var(--white)!important}
+.site-foot{border-top:1px solid rgba(200,174,110,.55)}
+.tone-cream .pcard .figwrap,.tone-sage .pcard .figwrap{background:var(--white)}
+
+/* ───────── About: a framed photo with a small second photo, a gold rule and three promises ───────── */
+.about-grid--framed{grid-template-columns:minmax(280px,480px) minmax(320px,1fr)!important}
+.about-fig{position:relative;margin:0 0 40px;padding:0 0 0 0}
+.about-fig::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--gold);z-index:0;pointer-events:none}
+.about-fig>img:first-child{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-fig__small{position:absolute;z-index:2;right:-56px;bottom:-40px;width:42%;aspect-ratio:3/4;object-fit:cover;border:8px solid #F6F2EA;box-shadow:0 24px 40px -28px rgba(0,0,0,.45)}
+.about-fig__cap{position:absolute;z-index:2;left:-14px;top:28px;padding:8px 14px;background:var(--emerald);color:#fff;font-size:var(--t-label);font-weight:600;letter-spacing:var(--track);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.gold-rule{display:block;width:56px;height:1px;background:var(--gold);margin:4px 0 6px}
+.promise{list-style:none;margin:10px 0 6px;padding:22px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.promise li{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:1px solid var(--line)}
+.promise li:first-child{padding-left:0;border-left:0}
+.promise b{font-size:var(--t-label);font-weight:600;letter-spacing:var(--track);color:var(--gold-deep)}
+.promise span{font-family:var(--serif);font-size:clamp(20px,1.7vw,24px);line-height:1.15;color:var(--ink)}
+.promise small{font-size:var(--t-small);color:var(--muted)}
+@media (max-width:900px){
+  .about-grid--framed{grid-template-columns:1fr!important}
+  .about-fig{margin:0 18px 56px 0}
+  .about-fig__small{right:-10px;bottom:-34px;width:38%;border-width:6px}
+  .promise{grid-template-columns:1fr;gap:14px}
+  .promise li{padding-left:0;border-left:0;padding-top:12px;border-top:1px solid var(--line)}
+  .promise li:first-child{padding-top:0;border-top:0}
+}
+.about-grid .about-fig__small{width:42%;aspect-ratio:3/4}
+.about-grid .about-fig>img:first-child{aspect-ratio:4/5}
+@media (max-width:900px){.about-grid .about-fig__small{width:38%}}
