@@ -181,7 +181,7 @@
             '<li><a href="about.html">Our Craft</a></li>' +
             '<li><a href="collections.html">Collections</a></li>' +
             '<li><a href="collections.html#solene">Solene Selection</a></li>' +
-            '<li><a href="testimonials.html">Stories</a></li>' +
+            /* Stories page hidden for now: '<li><a href="testimonials.html">Stories</a></li>' + */
             '<li><a href="contact.html">Contact Us</a></li>' +
           '</ul>' +
         '</div>' +
