@@ -65,8 +65,8 @@
 
     '<div class="mega mega--jewellery" data-mega-panel="jewellery">' +
       '<div class="wrap-wide"><div class="mega-inner">' +
-        '<div><p class="eyebrow eyebrow--muted mega-col-head">Explore jewellery</p><div class="mega-list">' + navCats + '</div></div>' +
-        '<div><p class="eyebrow eyebrow--muted mega-col-head">Make it personal</p>' +
+        '<div><p class="eyebrow mega-col-head">Explore jewellery</p><div class="mega-list">' + navCats + '</div></div>' +
+        '<div><p class="eyebrow mega-col-head">Make it personal</p>' +
           '<h3 class="display h-md" style="margin-bottom:14px">A piece that feels<br>like you.</h3>' +
           '<p class="p" style="margin-bottom:20px">Explore your preferred metal, diamond and design details with a personal quote.</p>' +
           '<a class="mlink" href="contact.html">Request guidance ' + I.diag + '</a></div>' +
@@ -77,7 +77,7 @@
 
     '<div class="mega mega--collections" data-mega-panel="collections">' +
       '<div class="wrap-wide"><div class="mega-inner">' +
-        '<div><p class="eyebrow eyebrow--muted mega-col-head">Explore our collection</p>' +
+        '<div><p class="eyebrow mega-col-head">Explore our collection</p>' +
           '<h3 class="display h-lg" style="margin-bottom:18px">Considered forms.<br>Personal expressions.</h3>' +
           '<p class="p" style="margin-bottom:26px;max-width:40ch">Discover the collection, from delicate everyday details to pieces for meaningful moments.</p>' +
           '<a class="btn btn--ghost" href="' + D.catalogue + '" data-catalogue>Download catalogue ' + I.dl + '</a></div>' +
@@ -129,7 +129,7 @@
   '<div class="wrap-wide">' +
     '<div class="foot-grid">' +
       '<div><a class="foot-brand" href="index.html" aria-label="Anvesha Jewels — home">' +
-        '<img src="assets/logo-white.png" alt="Anvesha Jewels" width="210" loading="lazy"></a>' +
+        '<img src="assets/logo.png" alt="Anvesha Jewels" width="210" loading="lazy"></a>' +
         '<p class="foot-tag">For the moments that become you.</p></div>' +
       '<div class="foot-col"><h4>Jewellery</h4><ul>' + jew + '</ul></div>' +
       '<div class="foot-col"><h4>Anvesha</h4><ul>' +
@@ -525,7 +525,7 @@
     var msg = "Hello Anvesha Jewels, I'd like to request a quote for the " + p.name + " (" + p.code + ").\n\n" +
       "My selection: " + selection.replace(/ · /g, ", ") + ".\n\nPlease share the details and a personalised quote. Thank you.";
     document.querySelector("[data-quote-card]").innerHTML =
-      '<div class="modal-top"><p class="eyebrow eyebrow--muted">Your personal quote</p>' +
+      '<div class="modal-top"><p class="eyebrow">Your personal quote</p>' +
       '<button data-close-quote aria-label="Close">' + I.close + '</button></div>' +
       '<h2 class="display h-lg">A little closer to<br>your perfect piece.</h2>' +
       '<div class="modal-item"><img src="' + p.img + '" alt="' + esc(p.name) + '">' +

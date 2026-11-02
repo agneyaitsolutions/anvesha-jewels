@@ -60,9 +60,45 @@ One type scale in `assets/css/site.css` (`:root`): labels 10.5px, small 12.5px, 
 italic serif lines one size, one letter-spacing for every small-capital style, and three weights
 (300 reading, 400 headings, 500 labels). No inline font sizes in the pages.
 
-Palette (`assets/css/site.css`, `:root`): emerald `#184736`, gold `#C8AE6E`, ink `#141414`,
-cream `#FAF9F6`, sage `#F1F3EF`. The script logo is recoloured to the brand emerald
-(`assets/logo.png`); `assets/logo-dark.png` is the black cut if it is ever wanted.
+## White theme
+
+Every page, section, bar and panel is white (`#FFFFFF`): header and nav row, collection block,
+inquiry, CTA band, testimonials, footer, drawer, mega menus and modals. Sections are separated by
+space, and where needed by a single 1px hairline in `var(--line)`. Cards and form fields are white
+with a 1px `var(--line)` border — no shadows, no rounded corners. The overlays behind the drawer,
+quote modal and lightbox are translucent white.
+
+The brand colours are accents only (`assets/css/site.css`, `:root`):
+
+- **Emerald `#184736`** — links, small-capital labels, active states, the primary button
+  (the only filled block on the site), and the 1px outline of secondary buttons
+- **Gold `#C8AE6E` / `--gold-deep`** — thin rules, italic serif lines, hover underlines
+- **Ink `#141414`** headings, **`--body`** text, **`--muted`** meta
+
+`--cream` and `--sage` remain in `:root` but are no longer used as fills. Both logos (header and
+footer) are the emerald script logo (`assets/logo.png`); `assets/logo-white.png` and
+`assets/logo-dark.png` are kept in case they are wanted again.
+
+## Spacing
+
+One rhythm, defined in `:root` and used everywhere:
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--space-section` | `clamp(72px, 9vw, 128px)` (64px on phones) | above and below every section |
+| `--space-head` | `clamp(28px, 3.4vw, 48px)` | section heading → content |
+| `--space-stack-s` / `-m` / `-l` | 16 / 24 / 32px | inside blocks |
+| `--space-grid` | `clamp(16px, 2vw, 28px)` | gaps in product, category and card grids |
+
+`--gut` and `--maxw` are unchanged.
+
+- Every section is `<section class="sec">`. Back-to-back sections share one `--space-section` gap
+  rather than doubling it; add `sec--rule` to put a hairline in the middle of that gap.
+- Inner pages open with `<div class="wrap-wide page-top">` (breadcrumb + page hero), which is
+  followed by the same gap.
+- Section headings use `.sec-head`: centred eyebrow, serif heading, one short line of body text
+  (max 60 characters a line), then `--space-head`. A trailing link or button goes in `.sec-foot`.
+- There are no inline styles in the pages.
 
 ## Catalogue
 
