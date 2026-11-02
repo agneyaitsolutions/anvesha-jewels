@@ -847,12 +847,15 @@
       '<a href="index.html">Home</a> / <a href="' + p.cat + '.html">Jewellery</a> / <a href="' + p.cat + '.html">' + pc.name + '</a> / ' + esc(p.name);
 
     /* one large 4:5 photo; the other photos of the piece (up to 3) sit beside it */
-    var shots = gallery.slice(0, 4);
+    /* until the real extra photos arrive, a piece with one photo also shows a close-up of it and its
+       category photo, so the side column is never empty. Real photos: add "gallery" in data.js. */
+    var shots = (p.gallery && p.gallery.length > 1 ? p.gallery : [p.img, p.img + "#detail", pc.hero]).slice(0, 4);
+    var isDetail = function (src) { return /#detail$/.test(src); };
     document.querySelector("[data-pdp-media]").innerHTML =
       '<div class="pdp-gal' + (shots.length > 1 ? " has-thumbs" : "") + '">' +
       (shots.length > 1
         ? '<div class="pdp-side" role="list">' + shots.map(function (src, k) {
-            return '<button type="button" class="pdp-th' + (k ? "" : " is-on") + '" role="listitem" data-shot="' + k + '" aria-label="Photo ' + (k + 1) + ' of ' + esc(p.name) + '"><img src="' + src + '" alt="" loading="lazy"></button>';
+            return '<button type="button" class="pdp-th' + (k ? "" : " is-on") + (isDetail(src) ? " is-detail" : "") + '" role="listitem" data-shot="' + k + '" aria-label="Photo ' + (k + 1) + ' of ' + esc(p.name) + '"><img src="' + src + '" alt="" loading="lazy"></button>';
           }).join("") + '</div>'
         : "") +
       '<div class="pdp-main"><img src="' + shots[0] + '" alt="' + esc(p.name) + '" data-main>' +
@@ -946,7 +949,7 @@
       t.addEventListener("click", function () {
         var k = Number(t.dataset.shot), main = document.querySelector("[data-main]");
         main.style.opacity = 0;
-        setTimeout(function () { main.src = shots[k]; main.style.opacity = 1; }, 180);
+        setTimeout(function () { main.src = shots[k]; main.classList.toggle("is-detail", isDetail(shots[k])); main.style.opacity = 1; }, 180);
         document.querySelectorAll("[data-shot]").forEach(function (x) { x.classList.toggle("is-on", x === t); });
         var c = document.querySelector("[data-counter]");
         if (c) c.textContent = String(k + 1).padStart(2, "0") + " / " + String(shots.length).padStart(2, "0");

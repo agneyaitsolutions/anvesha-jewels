@@ -2045,3 +2045,27 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .pdp-side{order:2;flex-direction:row}
   .pdp-th{width:calc((100% - 36px) / 4)}
 }
+
+/* ───────── fit to the screen: big photos never taller than the window, nothing wider than it ───────── */
+html,body{max-width:100%;overflow-x:clip}
+img{max-width:100%}
+/* product page: the large photo and its column fit inside the window height */
+.pdp{grid-template-columns:minmax(0,auto) minmax(320px,1fr)!important;align-items:start}
+.pdp-gal{max-width:min(704px,calc((100svh - var(--head-h,112px) - 90px) * .8 + 110px))}
+.pdp-main img.is-detail{transform:scale(1.7);transform-origin:50% 55%}
+.pdp-main{overflow:hidden}
+.pdp-th.is-detail img{transform:scale(1.7);transform-origin:50% 55%}
+.pdp-th{overflow:hidden}
+.pdp-info{position:sticky;top:calc(var(--head-h,112px) + 24px)}
+/* category page photo, about photos and the catalogue strip stay within the window */
+.cat-hero img{max-height:calc(100svh - var(--head-h,112px) - 80px);width:auto;max-width:100%;justify-self:end}
+.about-fig>img:first-child{max-height:calc(100svh - var(--head-h,112px) - 60px)}
+.cs-tile{max-height:calc(100svh - 80px)}
+.mt-ph{max-height:calc(100svh - var(--head-h,112px) - 120px)}
+@media (max-width:900px){
+  .pdp{grid-template-columns:1fr!important}
+  .pdp-gal{max-width:none}
+  .pdp-info{position:static}
+  .cat-hero img{width:100%;max-height:62svh;justify-self:stretch}
+  .about-fig>img:first-child{max-height:70svh}
+}
