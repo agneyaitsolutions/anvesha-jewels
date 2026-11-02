@@ -15,12 +15,13 @@ Then open <http://localhost:4180>. Any static host will serve it as-is (no build
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Home — campaign carousel, about, categories, collection, Instagram, inquiry, contact |
+| `index.html` | Home — campaign carousel, about, categories, collection, Instagram, client words, inquiry, contact |
 | `rings.html` `bracelets.html` `necklaces.html` `earrings.html` | Category listings with filters and sort |
 | `product.html?id=AJ-R001` | Product detail; `id` is any jewellery code from `assets/js/data.js` |
 | `collections.html` | The collection and the Solene selection |
 | `about.html` | Our story, jewellery care, sizing guidance, privacy, terms |
 | `contact.html` | Inquiry form and contact routes |
+| `testimonials.html` | Stories — every testimonial in a masonry grid, filterable by category (linked from the footer and the menu drawer) |
 
 The header, mega menus, drawer, footer, CTA band and quote modal are injected by
 `assets/js/site.js`, so every page stays in step from one source.
@@ -28,6 +29,25 @@ The header, mega menus, drawer, footer, CTA band and quote modal are injected by
 ## Home · categories
 The line comes first ("A ring ▢ for a promise…"); its four small photos then glide into the category boxes.
 It follows the scroll, so it plays again when scrolling up or down (`assets/js/categories.js`).
+
+## Testimonials (client words)
+
+Edit them in `assets/js/data.js` → `window.TESTIMONIALS`. Each entry is
+`{ name, city, quote, product, category }`:
+
+- `name` — first name only; `city` — shown beside it in small capitals
+- `quote` — plain text, without quotation marks (they are added)
+- `product` — a jewellery code from `AJ.products` (e.g. `AJ-R001`); it gives the link to the piece and its thumbnail
+- `category` — `rings`, `bracelets`, `necklaces` or `earrings`; drives the filter on the Stories page
+
+**The eight entries there now are placeholders** (each marked `// PLACEHOLDER – replace with real
+client words`). Replace them with real, approved client words before the site goes live.
+
+On the home page the entries are split across two rows that drift slowly in opposite directions
+(`assets/js/testimonials.js`). The drift pauses on hover, focus or touch, quickens a little while
+the page scrolls, and loops seamlessly. On phones it becomes one swipeable row; with reduced motion
+it is a still row that scrolls sideways. The Stories page lists them all — no HTML changes needed
+when entries are added or removed.
 
 ## Type and colour
 

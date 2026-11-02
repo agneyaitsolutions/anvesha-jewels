@@ -110,6 +110,7 @@
       '<div class="drawer-sub"><a href="collections.html">The collection</a><a href="collections.html#solene">Solene selection</a>' +
       '<a href="' + D.catalogue + '" data-catalogue>Download catalogue</a><a href="contact.html">Request guidance</a></div></div>' +
     '<div class="drawer-row"><a href="about.html">About Us</a></div>' +
+    '<div class="drawer-row"><a href="testimonials.html">Stories</a></div>' +
     '<div class="drawer-row"><a href="contact.html">Contact Us</a></div>' +
   '</nav>' +
   '<div class="drawer-foot">' +
@@ -134,6 +135,7 @@
       '<div class="foot-col"><h4>Anvesha</h4><ul>' +
         '<li><a href="collections.html">Collections</a></li>' +
         '<li><a href="about.html">About Us</a></li>' +
+        '<li><a href="testimonials.html">Stories</a></li>' +
         '<li><a href="contact.html">Contact Us</a></li>' +
         '<li><a href="' + D.instagram + '" target="_blank" rel="noopener">Instagram</a></li></ul></div>' +
       '<div class="foot-col"><h4>Here to help</h4><ul>' +

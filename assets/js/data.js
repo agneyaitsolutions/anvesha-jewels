@@ -180,3 +180,33 @@ window.AJ = {
             ["bar","Bar"],["studs","Studs"],["hoops","Hoops"]]
   }
 };
+
+/* Client words — home drift rows and the Stories page (testimonials.html).
+   product is a jewellery code from AJ.products above (it gives the link and the thumbnail);
+   category is one of rings / bracelets / necklaces / earrings (it drives the Stories filter). */
+window.TESTIMONIALS = [
+  // PLACEHOLDER – replace with real client words
+  { name:"Aanya", city:"Mumbai", product:"AJ-R001", category:"rings",
+    quote:"I wanted something that felt like a promise, not a performance. It is exactly that — quiet, and mine." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Meera", city:"Pune", product:"AJ-B002", category:"bracelets",
+    quote:"I have not taken it off since it arrived. It goes with linen on a Monday and silk at a wedding." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Ishita", city:"Ahmedabad", product:"AJ-N001", category:"necklaces",
+    quote:"They helped me choose between natural and lab-grown without any pressure at all. The pendant sits just where I hoped it would." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Riya", city:"Bengaluru", product:"AJ-E006", category:"earrings",
+    quote:"Light enough to forget I am wearing them, until someone asks." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Kavya", city:"Delhi", product:"AJ-R005", category:"rings",
+    quote:"Three stones for the three of us. They understood the idea before I had finished explaining it." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Nandini", city:"Jaipur", product:"AJ-E001", category:"earrings",
+    quote:"A gift for my mother’s sixtieth. She opened the box and went very quiet, which is the highest praise she gives." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Sana", city:"Hyderabad", product:"AJ-B001", category:"bracelets",
+    quote:"Every detail was confirmed with me before anything was made. It felt personal from the very first message." },
+  // PLACEHOLDER – replace with real client words
+  { name:"Tara", city:"Chennai", product:"AJ-N003", category:"necklaces",
+    quote:"I wore it on my wedding evening, and again last week for no reason at all. Both times it felt right." }
+];
