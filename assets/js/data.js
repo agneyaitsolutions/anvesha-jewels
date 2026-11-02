@@ -3,6 +3,9 @@ window.AJ = {
   whatsapp: "919999999999",            /* placeholder until the client's number is confirmed */
   instagram: "https://www.instagram.com/",
   catalogue: "#",
+  /* Sign-up pop-up: where email + mobile are sent (e.g. a Google Apps Script web-app URL or a Brevo form URL).
+     Leave empty to send the sign-up to WhatsApp instead. */
+  signupEndpoint: "",
 
   categories: {
     rings: {

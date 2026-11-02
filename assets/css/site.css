@@ -626,3 +626,30 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .ct__tag{display:none}
 }
 @media (prefers-reduced-motion:reduce){.ct-row{position:relative;display:grid;grid-template-columns:repeat(4,1fr);height:70vh}.ct__in,.ct__shade{opacity:1;transform:none}}
+
+/* ───────── sign-up pop-up: centred on computers, a panel from the bottom on phones ───────── */
+.su{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px}
+.su[hidden]{display:none}
+.su-bg{position:absolute;inset:0;background:rgba(20,20,20,.35);opacity:0;transition:opacity .45s var(--ease)}
+.su-box{position:relative;width:min(480px,100%);max-height:calc(100svh - 40px);overflow-y:auto;background:var(--white);padding:clamp(28px,4vw,44px);
+  display:flex;flex-direction:column;gap:var(--space-stack-m);opacity:0;transform:translateY(16px);transition:opacity .45s var(--ease),transform .55s var(--ease)}
+.su.on .su-bg{opacity:1}
+.su.on .su-box{opacity:1;transform:none}
+.su-x{position:absolute;top:14px;right:14px;display:grid;place-items:center;width:34px;height:34px;color:var(--ink)}
+.su-x svg{width:14px;height:14px}
+.su-x:hover{color:var(--emerald)}
+.su-form{display:flex;flex-direction:column;gap:var(--space-stack-m)}
+.su-agree{display:flex;gap:10px;align-items:flex-start;font-size:var(--t-small);color:var(--body);line-height:1.5}
+.su-agree input{margin-top:3px;accent-color:var(--emerald)}
+.su-agree a{text-decoration:underline}
+.su-err{margin:0;font-size:var(--t-small);color:#A33A2A}
+.su-fine{margin:0;text-align:center;font-size:var(--t-small);color:var(--muted)}
+.su-done{display:flex;flex-direction:column;gap:var(--space-stack-m);align-items:flex-start}
+.su [aria-invalid="true"]{border-color:#A33A2A}
+@media (max-width:640px){
+  .su{place-items:end stretch;padding:0}
+  .su-box{width:100%;max-height:88svh;padding:30px var(--gut) calc(26px + env(safe-area-inset-bottom,0px));transform:translateY(100%)}
+  .su.on .su-box{transform:none}
+}
+@media (prefers-reduced-motion:reduce){.su-bg,.su-box{transition:none}}
+.su-form[hidden],.su-done[hidden],.su [hidden]{display:none!important}
