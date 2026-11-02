@@ -1,11 +1,11 @@
 /* Catalogue strip: the four tall photos open from the bottom one after another as the row comes into view,
-   and close again when it leaves, so it plays every time, scrolling down or up. The photos drift slightly. */
+   once, the first time the row comes into view. The photos drift slightly. */
 (function () {
   "use strict";
   var strips = [].slice.call(document.querySelectorAll("[data-cs]")); if (!strips.length) return;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || !("IntersectionObserver" in window)) { strips.forEach(function (s) { s.classList.add("in"); }); return; }
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle("in", e.isIntersecting); }); }, { threshold: 0.25 });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.25 });
   strips.forEach(function (s) { io.observe(s); });
   function frame() {
     var vh = window.innerHeight;

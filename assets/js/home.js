@@ -6,12 +6,12 @@
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
 
   /* ── category tiles: each opens from the bottom as it comes into view and closes as it leaves
-        (so it plays again scrolling down or up); the photo settles and drifts slightly ── */
+        (plays once); the photo settles and drifts slightly ── */
   var tiles = [].slice.call(document.querySelectorAll("[data-mt]"));
   if (tiles.length) {
     if (reduce || !("IntersectionObserver" in window)) tiles.forEach(function (t) { t.classList.add("in"); });
     else {
-      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle("in", e.isIntersecting); }); }, { threshold: 0.18 });
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.18 });
       tiles.forEach(function (t) { io.observe(t); });
       (function frame() {
         var vh = window.innerHeight;

@@ -2009,3 +2009,14 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   height: 12px;
 }
 
+
+/* landing page category cards: smaller — four in a row on computers (2:3, like the category photos), two per row on phones */
+.mt-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(12px,1.4vw,20px)!important}
+.mt-ph{aspect-ratio:2/3!important}
+.mt-in{gap:10px!important;justify-content:flex-end!important;padding:0 14px clamp(20px,3vw,32px)!important}
+.mt-name{font-size:clamp(28px,2.6vw,40px)!important}
+.mt-tag{display:none!important}
+.mt-btn{padding:10px 18px!important;margin-top:4px!important}
+.mt-ph::after{background:linear-gradient(180deg,rgba(14,22,18,0) 40%,rgba(14,22,18,.5) 100%)!important}
+@media (max-width:900px){.mt-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.mt-name{font-size:28px!important}.mt-btn{padding:8px 12px!important;letter-spacing:.12em}}
+@media (max-width:900px){.mt-btn{white-space:nowrap;font-size:10px!important;padding:8px 10px!important;letter-spacing:.1em!important}.mt-in{padding:0 8px 16px!important}}
