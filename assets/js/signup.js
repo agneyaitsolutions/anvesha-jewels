@@ -1,4 +1,4 @@
-/* Anvesha Jewels — sign-up pop-up (email + mobile).
+/* Anvesha Jewels: sign-up pop-up (email + mobile).
    When it appears (whichever comes first, never as someone lands):
      · after the visitor has viewed 2 pieces (product pages), or
      · after about 40 seconds on the site (counted across pages), or

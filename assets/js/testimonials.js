@@ -1,4 +1,4 @@
-/* Anvesha Jewels — client words.
+/* Anvesha Jewels: client words.
    Home: two rows drift endlessly (top to the left, bottom to the right). They pause on hover,
    focus or touch, can be swiped on a phone, and quicken a little while the page scrolls.
    Stories page: every testimonial in a masonry grid, with category filters.
@@ -78,7 +78,7 @@
   }
 
   /* One set must cover the row; clones (inert, hidden from assistive tech) fill the rest, so a
-     shift of exactly one set width — -50% when there is one clone — loops without a seam. */
+     shift of exactly one set width (-50% when there is one clone) loops without a seam. */
   function fit() {
     rows.forEach(function (r) {
       var W = r.el.hidden ? 0 : r.set.getBoundingClientRect().width;

@@ -1,4 +1,4 @@
-/* Anvesha Jewels — shared stylesheet.
+/* Anvesha Jewels: shared stylesheet.
    Two faces only: Cormorant Garamond (display/serif) and Nunito Sans (everything else). */
 
 :root{
@@ -45,7 +45,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-/* No visible scrollbars anywhere — scrolling still works as normal. */
+/* No visible scrollbars anywhere: scrolling still works as normal. */
 *{scrollbar-width:none;-ms-overflow-style:none}
 *::-webkit-scrollbar{width:0;height:0;display:none}
 body{
@@ -1345,7 +1345,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .drawer-sub{grid-template-columns:1fr}
   .hero-copy{justify-content:flex-end;padding-bottom:64px}
   .hero-slide img{object-position:72% 14%}
-  /* the crop puts the copy over the photograph on a phone — lift it off a little */
+  /* the crop puts the copy over the photograph on a phone: lift it off a little */
   .hero-slide::after{
     content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:linear-gradient(180deg,rgba(255,255,255,0) 34%,rgba(255,255,255,.62) 64%,rgba(255,255,255,.88) 100%);
@@ -1523,8 +1523,8 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 @media (prefers-reduced-motion:reduce){.cs-tile{clip-path:none}.cs::after,.cs-cta{opacity:1;transform:none;pointer-events:auto}}
 
 /* ───────── photo sizes agreed with the client ─────────
-   Product photos: portrait 4:5 (1600 × 2000) — product cards, product page, "You may also like".
-   Category photos: tall 2:3 (1200 × 1800) — home category tiles, category page photo, collection cards, catalogue strip. */
+   Product photos: portrait 4:5 (1600 × 2000): product cards, product page, "You may also like".
+   Category photos: tall 2:3 (1200 × 1800), home category tiles, category page photo, collection cards, catalogue strip. */
 .ct-row{bottom:auto!important;height:min(calc(100svh - var(--head-h,112px) - 260px),calc((min(var(--maxw),100vw - 2 * var(--gut)) - 3 * clamp(10px,1.2vw,16px)) / 4 * 1.5));
   width:min(var(--maxw),calc(100% - 2 * var(--gut)),calc((100svh - var(--head-h,112px) - 260px) * 2.6667 + 3 * clamp(10px,1.2vw,16px)))!important;padding:0!important}
 .ct .figwrap{height:100%}
@@ -2010,7 +2010,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 }
 
 
-/* landing page category cards: smaller — four in a row on computers (2:3, like the category photos), two per row on phones */
+/* landing page category cards: smaller: four in a row on computers (2:3, like the category photos), two per row on phones */
 .mt-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(12px,1.4vw,20px)!important}
 .mt-ph{aspect-ratio:2/3!important}
 .mt-in{gap:10px!important;justify-content:flex-end!important;padding:0 14px clamp(20px,3vw,32px)!important}

@@ -1,4 +1,4 @@
-/* Anvesha Jewels — site behaviour.
+/* Anvesha Jewels: site behaviour.
    Header, drawer, mega menus and footer are injected here so every page stays in step. */
 (function () {
   "use strict";
@@ -45,7 +45,7 @@
   '<div class="wrap-wide">' +
     '<div class="head-top">' +
       '<button class="menu-btn" data-open-drawer aria-label="Open menu"><span class="bars"><i></i><i></i><i></i></span>Menu</button>' +
-      '<a class="brand" href="index.html" aria-label="Anvesha Jewels — home"><img src="assets/logo.png" alt="Anvesha Jewels" width="178"></a>' +
+      '<a class="brand" href="index.html" aria-label="Anvesha Jewels, home"><img src="assets/logo.png" alt="Anvesha Jewels" width="178"></a>' +
       '<div class="head-tools">' +
         '<a href="' + D.instagram + '" target="_blank" rel="noopener" aria-label="Anvesha Jewels on Instagram">' + I.insta + '</a>' +
         '<button data-toggle-search aria-label="Search jewellery">' + I.search + '</button>' +
@@ -131,7 +131,7 @@
   '<div class="wrap-wide">' +
     '<div class="foot-top">' +
       '<div class="foot-brand-col">' +
-        '<a class="foot-brand" href="index.html" aria-label="Anvesha Jewels — home">' +
+        '<a class="foot-brand" href="index.html" aria-label="Anvesha Jewels, home">' +
           '<img src="assets/logo.png" alt="Anvesha Jewels" width="200" loading="lazy"></a>' +
         '<p class="foot-tag">For the moments that become you.</p>' +
         '<p class="foot-summary">Considered fine jewellery handcrafted in solid gold, natural and lab-grown diamonds. Made to be lived with and kept for generations.</p>' +
@@ -191,31 +191,31 @@
 
     '<div class="foot-wordmark-wrap">' +
       '<div class="foot-wordmark" data-wordmark aria-label="Anvesha Jewels">' +
-        '<a href="rings.html" class="wm-char" data-char="A" aria-label="A — Rings">' +
+        '<a href="rings.html" class="wm-char" data-char="A" aria-label="A: Rings">' +
           '<span class="wm-letter">A</span>' +
           '<span class="wm-media"><img src="assets/p-r001.webp" alt="Solene Diamond Ring" loading="lazy"></span>' +
         '</a>' +
-        '<a href="necklaces.html" class="wm-char" data-char="N" aria-label="N — Necklaces">' +
+        '<a href="necklaces.html" class="wm-char" data-char="N" aria-label="N: Necklaces">' +
           '<span class="wm-letter">N</span>' +
           '<span class="wm-media"><img src="assets/hero-necklaces.webp" alt="Signature Diamond Necklace" loading="lazy"></span>' +
         '</a>' +
-        '<a href="collections.html" class="wm-char" data-char="V" aria-label="V — Collections">' +
+        '<a href="collections.html" class="wm-char" data-char="V" aria-label="V: Collections">' +
           '<span class="wm-letter">V</span>' +
           '<span class="wm-media"><img src="assets/p-r002.webp" alt="Lumiere Halo Creation" loading="lazy"></span>' +
         '</a>' +
-        '<a href="earrings.html" class="wm-char" data-char="E" aria-label="E — Earrings">' +
+        '<a href="earrings.html" class="wm-char" data-char="E" aria-label="E: Earrings">' +
           '<span class="wm-letter">E</span>' +
           '<span class="wm-media"><img src="assets/hero-earrings.webp" alt="Fine Emerald & Diamond Earrings" loading="lazy"></span>' +
         '</a>' +
-        '<a href="bracelets.html" class="wm-char" data-char="S" aria-label="S — Bracelets">' +
+        '<a href="bracelets.html" class="wm-char" data-char="S" aria-label="S: Bracelets">' +
           '<span class="wm-letter">S</span>' +
           '<span class="wm-media"><img src="assets/hero-bracelets.webp" alt="Handcrafted Tennis Bracelet" loading="lazy"></span>' +
         '</a>' +
-        '<a href="rings.html" class="wm-char" data-char="H" aria-label="H — Heritage Rings">' +
+        '<a href="rings.html" class="wm-char" data-char="H" aria-label="H: Heritage Rings">' +
           '<span class="wm-letter">H</span>' +
           '<span class="wm-media"><img src="assets/hero-rings.webp" alt="Heritage Gold Ring" loading="lazy"></span>' +
         '</a>' +
-        '<a href="collections.html" class="wm-char" data-char="A" aria-label="A — Haute Joaillerie">' +
+        '<a href="collections.html" class="wm-char" data-char="A" aria-label="A: Haute Joaillerie">' +
           '<span class="wm-letter">A</span>' +
           '<span class="wm-media"><img src="assets/nav-jewellery.webp" alt="Haute Joaillerie Statement" loading="lazy"></span>' +
         '</a>' +
@@ -903,7 +903,7 @@
         '<div class="acc"><button aria-expanded="false">Jewellery care <span>+</span></button>' +
           '<div class="acc-body"><div><p class="p">Keep your piece away from perfume, lotion and household cleaners. Store it separately in a soft pouch, and bring it to us for a gentle professional clean and a prong check once a year.</p></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Sizing and personal guidance <span>+</span></button>' +
-          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you — including a complimentary resize within the first six months where the design allows.</p></div></div></div>' +
+          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows.</p></div></div></div>' +
       '</div>';
 
     var related = D.products.filter(function (x) { return x.cat === p.cat && x.code !== p.code; }).slice(0, 3);
@@ -920,7 +920,7 @@
       var kb = document.querySelector("[data-karat-block]");
       if (kb) { kb.style.opacity = silver ? ".45" : "1"; kb.style.pointerEvents = silver ? "none" : "auto"; }
       var metalLabel = (D.metals.filter(function (m) { return m.id === state.metal; })[0] || {}).label;
-      var out = { metal: metalLabel, karat: silver ? "—" : state.karat, diamond: state.diamond === "lab-grown" ? "Lab-grown" : "Natural" };
+      var out = { metal: metalLabel, karat: silver ? "Not needed" : state.karat, diamond: state.diamond === "lab-grown" ? "Lab-grown" : "Natural" };
       Object.keys(out).forEach(function (k) {
         var n = document.querySelector('[data-out="' + k + '"]'); if (n) n.textContent = out[k];
       });

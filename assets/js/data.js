@@ -1,4 +1,4 @@
-/* Anvesha Jewels — catalogue data. Shared by the listing pages and the product page. */
+/* Anvesha Jewels: catalogue data. Shared by the listing pages and the product page. */
 window.AJ = {
   whatsapp: "919999999999",            /* placeholder until the client's number is confirmed */
   instagram: "https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==",
@@ -58,7 +58,7 @@ window.AJ = {
     { code:"AJ-R004", cat:"rings", name:"Elara Oval Ring", line:"Elara",
       meta:"Oval diamond · Solitaire", metal:["gold","rose-gold"], diamond:"oval", style:"solitaire",
       img:"assets/p-r004.webp",
-      desc:"An elongated oval, lifted on a fine band — a softer, more elegant take on the classic solitaire.",
+      desc:"An elongated oval, lifted on a fine band, a softer, more elegant take on the classic solitaire.",
       detail:"Oval centre diamond in a four-prong setting with a slim tapered band. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-R005", cat:"rings", name:"Celeste Three Stone Ring", line:"Celeste",
       meta:"Three diamonds · Classic", metal:["gold","rose-gold"], diamond:"round", style:"classic",
@@ -68,7 +68,7 @@ window.AJ = {
     { code:"AJ-R006", cat:"rings", name:"Mira Curve Ring", line:"Mira",
       meta:"Diamond-set · Sculptural", metal:["gold","silver"], diamond:"round", style:"sculptural",
       img:"assets/p-r006.webp",
-      desc:"A sweeping, open curve that follows the finger — quietly modern, and easy to wear every day.",
+      desc:"A sweeping, open curve that follows the finger, quietly modern, and easy to wear every day.",
       detail:"Pavé-set diamonds along a sculpted open band. Your quote will confirm the diamond specifications, metal details and fit." },
 
     { code:"AJ-B001", festive:true, cat:"bracelets", name:"Solene Line Bracelet", line:"Solene",
@@ -79,7 +79,7 @@ window.AJ = {
     { code:"AJ-B002", cat:"bracelets", name:"Aurelia Cuff", line:"Aurelia",
       meta:"Diamond accents · Cuff", metal:["gold","rose-gold"], diamond:"round", style:"cuff",
       img:"assets/p-b002.webp",
-      desc:"A smooth open cuff closed by two points of light — simple, sculptural and endlessly wearable.",
+      desc:"A smooth open cuff closed by two points of light, simple, sculptural and endlessly wearable.",
       detail:"Polished open cuff with bezel-set diamond terminals. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-B003", cat:"bracelets", name:"Mira Chain Bracelet", line:"Mira",
       meta:"Diamond-set · Fine chain", metal:["gold","silver"], diamond:"round", style:"chain",
@@ -89,7 +89,7 @@ window.AJ = {
     { code:"AJ-B004", cat:"bracelets", name:"Celeste Bangle", line:"Celeste",
       meta:"Diamond-set · Bangle", metal:["gold","rose-gold"], diamond:"round", style:"bangle",
       img:"assets/p-b004.webp",
-      desc:"A slender, perfectly round bangle — the quietest possible way to wear gold and diamonds together.",
+      desc:"A slender, perfectly round bangle, the quietest possible way to wear gold and diamonds together.",
       detail:"Slim round bangle with pavé-set diamonds along the upper edge. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-B005", cat:"bracelets", name:"Elara Link Bracelet", line:"Elara",
       meta:"Polished gold · Oval links", metal:["gold","rose-gold"], diamond:"none", style:"link",
@@ -99,7 +99,7 @@ window.AJ = {
     { code:"AJ-B006", cat:"bracelets", name:"Lumiere Duo Bracelet", line:"Lumiere",
       meta:"Diamond accents · Double chain", metal:["gold","silver"], diamond:"round", style:"chain",
       img:"assets/p-b006.webp",
-      desc:"Two fine chains worn as one, dotted with light — layered for you, before you even put it on.",
+      desc:"Two fine chains worn as one, dotted with light, layered for you, before you even put it on.",
       detail:"Double fine chain with bezel-set diamond stations and an adjustable clasp. Your quote will confirm the diamond specifications, metal details and fit." },
 
     { code:"AJ-N001", festive:true, cat:"necklaces", name:"Solene Solitaire Pendant", line:"Solene",
@@ -110,7 +110,7 @@ window.AJ = {
     { code:"AJ-N002", cat:"necklaces", name:"Elara Oval Pendant", line:"Elara",
       meta:"Oval diamond · Pendant", metal:["gold","rose-gold"], diamond:"oval", style:"pendant",
       img:"assets/p-n002.webp",
-      desc:"A softly elongated oval that catches light as you move — quietly different from the expected.",
+      desc:"A softly elongated oval that catches light as you move, quietly different from the expected.",
       detail:"Oval diamond in a four-prong setting on a fine chain. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-N003", festive:true, cat:"necklaces", name:"Celeste Drop Necklace", line:"Celeste",
       meta:"Three diamonds · Drop", metal:["gold","rose-gold"], diamond:"round", style:"drop",
@@ -125,7 +125,7 @@ window.AJ = {
     { code:"AJ-N005", cat:"necklaces", name:"Aurelia Circle Pendant", line:"Aurelia",
       meta:"Diamond-set · Open circle", metal:["gold","rose-gold"], diamond:"round", style:"pendant",
       img:"assets/p-n005.webp",
-      desc:"An open circle, set all the way round — a small symbol of something continuous.",
+      desc:"An open circle, set all the way round, a small symbol of something continuous.",
       detail:"Open circle pendant with pavé-set diamonds on a fine chain. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-N006", cat:"necklaces", name:"Lumiere Station Necklace", line:"Lumiere",
       meta:"Diamond accents · Fine chain", metal:["gold","silver"], diamond:"round", style:"chain",
@@ -151,7 +151,7 @@ window.AJ = {
     { code:"AJ-E004", festive:true, cat:"earrings", name:"Celeste Drop Earrings", line:"Celeste",
       meta:"Three diamonds · Drops", metal:["gold","rose-gold"], diamond:"round", style:"drop",
       img:"assets/p-e004.webp",
-      desc:"Three points of light in a fine vertical line — movement, and a little quiet drama.",
+      desc:"Three points of light in a fine vertical line, movement, and a little quiet drama.",
       detail:"Graduated bezel-set diamonds on a fine drop with a hook fitting. Your quote will confirm the diamond specifications and metal details." },
     { code:"AJ-E005", cat:"earrings", name:"Mira Arc Earrings", line:"Mira",
       meta:"Diamond-set · Curved", metal:["gold","silver"], diamond:"round", style:"sculptural",
@@ -161,7 +161,7 @@ window.AJ = {
     { code:"AJ-E006", festive:true, cat:"earrings", name:"Lumiere Hoops", line:"Lumiere",
       meta:"Diamond-set · Hoops", metal:["gold","rose-gold","silver"], diamond:"round", style:"hoops",
       img:"assets/p-e006.webp",
-      desc:"A slender hoop lined with diamonds — light, luminous and surprisingly easy to live in.",
+      desc:"A slender hoop lined with diamonds, light, luminous and surprisingly easy to live in.",
       detail:"Pavé-set round diamonds along a slim hoop with a hinged closure. Your quote will confirm the diamond specifications and metal details." }
   ],
 
@@ -187,13 +187,13 @@ window.AJ = {
   }
 };
 
-/* Client words — home drift rows and the Stories page (testimonials.html).
+/* Client words: home drift rows and the Stories page (testimonials.html).
    product is a jewellery code from AJ.products above (it gives the link and the thumbnail);
    category is one of rings / bracelets / necklaces / earrings (it drives the Stories filter). */
 window.TESTIMONIALS = [
   // PLACEHOLDER – replace with real client words
   { name:"Aanya", city:"Mumbai", product:"AJ-R001", category:"rings",
-    quote:"I wanted something that felt like a promise, not a performance. It is exactly that — quiet, and mine." },
+    quote:"I wanted something that felt like a promise, not a performance. It is exactly that: quiet, and mine." },
   // PLACEHOLDER – replace with real client words
   { name:"Meera", city:"Pune", product:"AJ-B002", category:"bracelets",
     quote:"I have not taken it off since it arrived. It goes with linen on a Monday and silk at a wedding." },
