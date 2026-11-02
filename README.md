@@ -1,0 +1,83 @@
+# Anvesha Jewels — website
+
+A standalone static build of the approved Figma designs. Nothing here is shared with or linked to
+any earlier version of the site; this folder is self-contained.
+
+## Run it
+
+```bash
+python -m http.server 4180
+```
+
+Then open <http://localhost:4180>. Any static host will serve it as-is (no build step).
+
+## Pages
+
+| File | What it is |
+| --- | --- |
+| `index.html` | Home — campaign carousel, about, categories, collection, Instagram, inquiry, contact |
+| `rings.html` `bracelets.html` `necklaces.html` `earrings.html` | Category listings with filters and sort |
+| `product.html?id=AJ-R001` | Product detail; `id` is any jewellery code from `assets/js/data.js` |
+| `collections.html` | The collection and the Solene selection |
+| `about.html` | Our story, jewellery care, sizing guidance, privacy, terms |
+| `contact.html` | Inquiry form and contact routes |
+
+The header, mega menus, drawer, footer, CTA band and quote modal are injected by
+`assets/js/site.js`, so every page stays in step from one source.
+
+## Home · categories
+The line comes first ("A ring ▢ for a promise…"); its four small photos then glide into the category boxes.
+It follows the scroll, so it plays again when scrolling up or down (`assets/js/categories.js`).
+
+## Type and colour
+
+Two faces only, both from Google Fonts:
+
+- **Cormorant Garamond** — all display and headings
+- **Nunito Sans** — everything else
+
+One type scale in `assets/css/site.css` (`:root`): labels 10.5px, small 12.5px, body 14px, lede 15px,
+italic serif lines one size, one letter-spacing for every small-capital style, and three weights
+(300 reading, 400 headings, 500 labels). No inline font sizes in the pages.
+
+Palette (`assets/css/site.css`, `:root`): emerald `#184736`, gold `#C8AE6E`, ink `#141414`,
+cream `#FAF9F6`, sage `#F1F3EF`. The script logo is recoloured to the brand emerald
+(`assets/logo.png`); `assets/logo-dark.png` is the black cut if it is ever wanted.
+
+## Catalogue
+
+`assets/js/data.js` holds all 24 pieces plus the category copy, metal/karat/diamond options and
+ring sizes. Add or edit a product there and it appears on its listing page, in the filters and on
+its own product page — no HTML changes needed.
+
+## Two things still to supply
+
+1. **WhatsApp number** — `AJ.whatsapp` in `assets/js/data.js` is a placeholder
+   (`919999999999`). The "Request a quote" flow builds a `wa.me` link with the piece, its code and
+   the chosen metal, karat, diamond and size.
+2. **Catalogue PDF** — `AJ.catalogue` is `"#"`. Until a file is set, "Download catalogue" shows a
+   note instead of downloading. Point it at the PDF to switch it on.
+
+## Photography
+
+Product and campaign imagery was cut from the approved Figma frames, so it matches the designs
+exactly but is only as large as those frames were (listing tiles 416×328, product main 704×584).
+Swap in the original high-resolution files over the same names in `assets/` when they are
+available — nothing else needs to change.
+
+`assets/hero-1.webp` and `assets/hero-2.webp` needed extra work: both Figma frames had the hero
+copy baked into the photograph, which collided with the live text. The left of each frame has been
+rebuilt as the plain lit wall it is, so the headline sits on clean background. Original
+photographs without the copy burned in would be better still.
+
+The hero runs two slides and advances on its own every 6.5s, scrolling sideways. There are no
+arrows — only the `01 / 02` progress indicator. Add another `.hero-slide` block in `index.html`
+and it joins the rotation automatically.
+
+Note `Hero2.png`–`Hero4.png` in the Figma folder are alternative full-page design concepts, not
+photographs; the second slide comes from `Campaign carousel · Alternate slide.png`.
+
+## Inquiry form
+
+The form validates in the browser and shows a confirmation, but does not post anywhere yet. Wire
+the `submit` handler in `assets/js/site.js` to whichever endpoint or inbox the client prefers.

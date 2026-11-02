@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anvesha Jewels · Collections</title>
+<meta name="description" content="Considered forms. Personal expressions. Explore the Anvesha Jewels collection, from delicate everyday details to pieces for meaningful moments.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..700;1,6..12,300..500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="collections">
+
+<main>
+  <div class="wrap-wide">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Collections</nav>
+  </div>
+
+  <section style="padding:clamp(26px,3.4vw,42px) 0 clamp(56px,7vw,92px)"><div class="wrap-wide">
+    <div class="coll rv">
+      <img src="assets/collection.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk">
+      <div class="coll-panel">
+        <p class="eyebrow eyebrow--muted">Explore our collection</p>
+        <h1 class="display h-lg">A world of<br>quiet radiance.</h1>
+        <p class="p" style="max-width:42ch">Considered forms. Captivating details. Explore pieces that speak to your personal style, in a collection made for discovery.</p>
+        <a class="btn btn--ghost" href="#" data-catalogue>Download catalogue
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2v8M4.6 7.2 8 10.6l3.4-3.4M3 13.4h10"/></svg></a>
+        <p class="script script--gold">Find the piece that speaks to you.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec--tight" style="padding-top:0"><div class="wrap-wide">
+    <div class="sec-head sec-head--center rv" style="margin-bottom:10px">
+      <p class="eyebrow eyebrow--muted">Find your expression</p>
+      <h2 class="display h-lg">Jewellery, as individual as you.</h2>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card rv" href="rings.html">
+        <span class="figwrap"><img src="assets/cat-rings.webp" alt="Gold ring with an emerald centre stone" loading="lazy"></span>
+        <span class="row"><h3>Rings</h3><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+        <p class="tag">A gesture, held close.</p></a>
+      <a class="cat-card rv" href="bracelets.html">
+        <span class="figwrap"><img src="assets/cat-bracelets.webp" alt="Gold cuff bracelet with emerald details" loading="lazy"></span>
+        <span class="row"><h3>Bracelets</h3><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+        <p class="tag">A rhythm all your own.</p></a>
+      <a class="cat-card rv" href="necklaces.html">
+        <span class="figwrap"><img src="assets/cat-necklaces.webp" alt="Gold necklace with an emerald pendant" loading="lazy"></span>
+        <span class="row"><h3>Necklaces</h3><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+        <p class="tag">A little light, close to you.</p></a>
+      <a class="cat-card rv" href="earrings.html">
+        <span class="figwrap"><img src="assets/cat-earrings.webp" alt="Gold earrings set with emeralds" loading="lazy"></span>
+        <span class="row"><h3>Earrings</h3><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+        <p class="tag">The finishing expression.</p></a>
+    </div>
+  </div></section>
+
+  <section class="sec--tight" style="padding-top:0" id="solene"><div class="wrap-wide">
+    <div class="rel-head">
+      <div><p class="eyebrow eyebrow--muted">A selection</p>
+        <h2 class="display h-lg" style="margin-top:12px">The Solene selection</h2></div>
+      <a class="mlink" href="rings.html">Explore all jewellery <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+    </div>
+    <div class="grid-products" data-solene></div>
+    <p class="grid-end">One line, carried across every category — a single point of light, held simply.</p>
+  </div></section>
+
+  <div data-cta-band></div>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var slot=document.querySelector('[data-solene]');
+  if(!slot) return;
+  var diag='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg>';
+  slot.innerHTML=window.AJ.products.filter(function(p){return p.line==='Solene';}).map(function(p){
+    var href='product.html?id='+encodeURIComponent(p.code);
+    return '<article class="pcard rv"><a class="figwrap" href="'+href+'"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"><span class="go">'+diag+'</span></a>'+
+      '<div class="row"><h3><a href="'+href+'">'+p.name+'</a></h3><span class="code">'+p.code+'</span></div>'+
+      '<p class="meta">'+p.meta+'</p><a class="mlink" href="'+href+'">Request a quote</a></article>';
+  }).join('');
+  slot.querySelectorAll('.rv').forEach(function(n){n.classList.add('in');});
+})();
+</script>
+</body>
+</html>
