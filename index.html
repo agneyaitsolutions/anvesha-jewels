@@ -67,39 +67,43 @@
     </div>
   </div></section>
 
-  <!-- Categories: the line comes first; its small photos then glide into the four categories (follows the scroll, both ways) -->
-  <section class="cw" id="cw" aria-label="Jewellery categories"><div class="cw__stage" id="cwStage">
-    <div class="cw__text" id="cwText">
+  <!-- Shop by category: large photo tiles, the name and button on the photo (Moi-style, refined).
+       Each tile opens from the bottom as it scrolls into view and the photo settles; it plays again scrolling up or down. -->
+  <section class="sec" aria-labelledby="catTitle"><div class="wrap-wide">
+    <div class="sec-head rv">
       <p class="eyebrow">Find your expression</p>
-      <p class="cw__line" id="cwLine">A ring <span class="slot"></span> for a promise, a bracelet <span class="slot"></span> for every day, a necklace <span class="slot"></span> to keep close and earrings <span class="slot"></span> to <em>finish the look.</em></p>
+      <h2 class="display h-lg" id="catTitle">shop by category</h2>
+      <p class="p">Rings, bracelets, necklaces and earrings,<br>made personal to you.</p>
     </div>
-    <div class="cw__head" id="cwHead">
-      <p class="eyebrow">Find your expression</p>
-      <h2 class="display h-lg">Jewellery, as individual as you.</h2>
-      <p class="p">Rings, bracelets, necklaces and earrings, made personal to you.</p>
-    </div>
-    <div class="cw__row ct-row" id="cwRow">
-      <a class="ct" href="rings.html" aria-label="Shop rings">
-        <span class="figwrap"><img src="assets/cat-rings.webp" alt="Gold ring with an emerald centre stone"><span class="ct__shade" aria-hidden="true"></span>
-          <span class="ct__in"><span class="ct__n">01</span><h3 class="ct__name">Rings</h3><span class="ct__tag">A gesture, held close.</span><span class="ct__btn">Shop category</span></span>
-        </span>
+    <div class="mt-grid">
+      <a class="mt" href="rings.html" data-mt>
+        <span class="mt-ph"><img src="assets/cat-rings.webp" alt="Gold ring with an emerald centre stone" loading="lazy"></span>
+        <span class="mt-in"><span class="mt-name">rings</span><span class="mt-tag">A gesture, held close.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="ct" href="bracelets.html" aria-label="Shop bracelets">
-        <span class="figwrap"><img src="assets/cat-bracelets.webp" alt="Gold cuff bracelet with emerald details"><span class="ct__shade" aria-hidden="true"></span>
-          <span class="ct__in"><span class="ct__n">02</span><h3 class="ct__name">Bracelets</h3><span class="ct__tag">A rhythm all your own.</span><span class="ct__btn">Shop category</span></span>
-        </span>
+      <a class="mt" href="bracelets.html" data-mt>
+        <span class="mt-ph"><img src="assets/cat-bracelets.webp" alt="Gold cuff bracelet with emerald details" loading="lazy"></span>
+        <span class="mt-in"><span class="mt-name">bracelets</span><span class="mt-tag">A rhythm all your own.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="ct" href="necklaces.html" aria-label="Shop necklaces">
-        <span class="figwrap"><img src="assets/cat-necklaces.webp" alt="Gold necklace with an emerald pendant"><span class="ct__shade" aria-hidden="true"></span>
-          <span class="ct__in"><span class="ct__n">03</span><h3 class="ct__name">Necklaces</h3><span class="ct__tag">A little light, close to you.</span><span class="ct__btn">Shop category</span></span>
-        </span>
+      <a class="mt" href="necklaces.html" data-mt>
+        <span class="mt-ph"><img src="assets/cat-necklaces.webp" alt="Gold necklace with an emerald pendant" loading="lazy"></span>
+        <span class="mt-in"><span class="mt-name">necklaces</span><span class="mt-tag">A little light, close to you.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="ct" href="earrings.html" aria-label="Shop earrings">
-        <span class="figwrap"><img src="assets/cat-earrings.webp" alt="Gold earrings set with emeralds"><span class="ct__shade" aria-hidden="true"></span>
-          <span class="ct__in"><span class="ct__n">04</span><h3 class="ct__name">Earrings</h3><span class="ct__tag">The finishing expression.</span><span class="ct__btn">Shop category</span></span>
-        </span>
+      <a class="mt" href="earrings.html" data-mt>
+        <span class="mt-ph"><img src="assets/cat-earrings.webp" alt="Gold earrings set with emeralds" loading="lazy"></span>
+        <span class="mt-in"><span class="mt-name">earrings</span><span class="mt-tag">The finishing expression.</span><span class="mt-btn">Shop category</span></span>
       </a>
     </div>
+  </div></section>
+
+  <!-- Our festive specials: a row of featured pieces (marked festive:true in assets/js/data.js) -->
+  <section class="sec fs" aria-labelledby="fsTitle"><div class="wrap-wide">
+    <div class="sec-head rv">
+      <p class="eyebrow">This season</p>
+      <h2 class="display h-lg" id="fsTitle">our festive specials</h2>
+      <p class="p">Pieces chosen for Diwali, weddings and every celebration in between.</p>
+    </div>
+    <div class="fs-row" data-festive aria-label="Festive specials"></div>
+    <div class="fs-ctl"><button class="fs-arrow" type="button" data-fs-prev aria-label="Previous pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 3 5 8l5 5"/></svg></button><a class="btn btn--ghost" href="collections.html">View all festive pieces</a><button class="fs-arrow" type="button" data-fs-next aria-label="Next pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3l5 5-5 5"/></svg></button></div>
   </div></section>
 
   <!-- Catalogue: one row of tall photos, edge to edge, with the catalogue button over them -->
@@ -146,7 +150,8 @@
     </div>
   </div></section>
 
-  <!-- Client words: two rows drifting in opposite directions (assets/js/testimonials.js) -->
+  <!-- TESTIMONIALS (hidden for now — remove these comment marks to bring the section back)
+  <!~~ Client words: two rows drifting in opposite directions (assets/js/testimonials.js) ~~>
   <section class="sec" aria-labelledby="tm-title">
     <div class="wrap-wide">
       <div class="sec-head rv">
@@ -163,6 +168,8 @@
       <a class="mlink" href="testimonials.html">Read all stories <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
     </div>
   </section>
+
+  -->
 
   <!-- Inquiry -->
   <section class="sec sec--rule inquiry" id="inquiry"><div class="wrap-wide">
@@ -227,10 +234,9 @@
 </main>
 
 <script src="assets/js/data.js"></script>
-<script src="assets/js/testimonials.js"></script>
 <script src="assets/js/site.js"></script>
 <script src="assets/js/signup.js"></script>
-<script src="assets/js/categories.js"></script>
+<script src="assets/js/home.js"></script>
 <script src="assets/js/strip.js"></script>
 </body>
 </html>

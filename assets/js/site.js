@@ -96,6 +96,7 @@
 
 '<div class="scrim" data-scrim></div>' +
 '<aside class="drawer" data-drawer aria-label="Menu" aria-hidden="true">' +
+  '<svg class="drawer-curve" aria-hidden="true" preserveAspectRatio="none"><path data-curve></path></svg>' +
   '<div class="drawer-top">' +
     '<a class="wordmark" href="index.html"><b>ANVESHA</b><i>JEWELS</i></a>' +
     '<button class="drawer-close" data-close-drawer>Close ' + I.close + '</button>' +
@@ -110,7 +111,6 @@
       '<div class="drawer-sub"><a href="collections.html">The collection</a><a href="collections.html#solene">Solene selection</a>' +
       '<a href="' + D.catalogue + '" data-catalogue>Download catalogue</a><a href="contact.html">Request guidance</a></div></div>' +
     '<div class="drawer-row"><a href="about.html">About Us</a></div>' +
-    '<div class="drawer-row"><a href="testimonials.html">Stories</a></div>' +
     '<div class="drawer-row"><a href="contact.html">Contact Us</a></div>' +
   '</nav>' +
   '<div class="drawer-foot">' +
@@ -135,7 +135,6 @@
       '<div class="foot-col"><h4>Anvesha</h4><ul>' +
         '<li><a href="collections.html">Collections</a></li>' +
         '<li><a href="about.html">About Us</a></li>' +
-        '<li><a href="testimonials.html">Stories</a></li>' +
         '<li><a href="contact.html">Contact Us</a></li>' +
         '<li><a href="' + D.instagram + '" target="_blank" rel="noopener">Instagram</a></li></ul></div>' +
       '<div class="foot-col"><h4>Here to help</h4><ul>' +
@@ -196,7 +195,30 @@
   /* ── drawer ────────────────────────────────────────── */
   var drawer = document.querySelector("[data-drawer]");
   var scrim = document.querySelector("[data-scrim]");
+  /* curved edge: bulges out while the menu slides, then settles flat (eased like the reference menu) */
+  var curvePath = drawer.querySelector("[data-curve]"), curveSvg = drawer.querySelector(".drawer-curve"), curveRaf = 0;
+  function bez(t) { /* cubic-bezier(.76,0,.24,1) approximation */ return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function animateCurve(from, to, ms) {
+    cancelAnimationFrame(curveRaf);
+    var H = window.innerHeight, t0 = performance.now();
+    curveSvg.setAttribute("viewBox", "0 0 100 " + H);
+    (function f(now) {
+      var k = Math.min(1, (now - t0) / ms), c = from + (to - from) * bez(k);
+      curvePath.setAttribute("d", "M0 0 Q" + c.toFixed(1) + " " + (H / 2) + " 0 " + H + " Z");
+      if (k < 1) curveRaf = requestAnimationFrame(f);
+    })(t0);
+  }
+  /* number each row and split its word into letters for the hover effect */
+  [].forEach.call(drawer.querySelectorAll(".drawer-row"), function (row, i) {
+    var el = row.querySelector(":scope > a, :scope > button"); if (!el) return;
+    var label = el.firstChild && el.firstChild.nodeType === 3 ? el.firstChild : null; if (!label) return;
+    var word = label.textContent.trim(), span = document.createElement("span"); span.className = "dw-word";
+    span.innerHTML = word.split("").map(function (ch, k) { return '<i style="--k:' + k + '">' + (ch === " " ? "&nbsp;" : ch) + "</i>"; }).join("");
+    var num = document.createElement("span"); num.className = "dw-num"; num.textContent = (i + 1) + ".";
+    el.replaceChild(span, label); el.insertBefore(num, span);
+  });
   function setDrawer(on) {
+    if (on !== drawer.classList.contains("is-open")) animateCurve(on ? 100 : 0, on ? 0 : 100, on ? 1000 : 800);
     drawer.classList.toggle("is-open", on);
     scrim.classList.toggle("is-open", on);
     drawer.setAttribute("aria-hidden", on ? "false" : "true");
@@ -239,6 +261,23 @@
       }
     });
   });
+  if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    var hoverT;
+    document.querySelectorAll("[data-mega-btn]").forEach(function (btn) {
+      btn.addEventListener("mouseenter", function () {
+        clearTimeout(hoverT);
+        var key = btn.closest("[data-mega]").dataset.mega;
+        if (openMega === key) return;
+        closeMega(); closeSearch();
+        document.querySelector('[data-mega-panel="' + key + '"]').classList.add("is-open");
+        btn.classList.add("is-open"); btn.setAttribute("aria-expanded", "true"); openMega = key;
+      });
+    });
+    document.querySelectorAll(".head-nav > a, .head-nav > div:not([data-mega]) a").forEach(function (a) { a.addEventListener("mouseenter", function () { closeMega(); }); });
+    var head = document.querySelector(".site-head");
+    head.addEventListener("mouseleave", function () { hoverT = setTimeout(closeMega, 180); });
+    head.addEventListener("mouseenter", function () { clearTimeout(hoverT); });
+  }
   document.querySelector("[data-toggle-search]").addEventListener("click", function (e) {
     e.stopPropagation(); closeMega();
     var p = document.querySelector("[data-search-panel]");
