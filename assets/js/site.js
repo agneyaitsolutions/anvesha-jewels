@@ -846,16 +846,19 @@
     document.querySelector("[data-crumbs]").innerHTML =
       '<a href="index.html">Home</a> / <a href="' + p.cat + '.html">Jewellery</a> / <a href="' + p.cat + '.html">' + pc.name + '</a> / ' + esc(p.name);
 
+    /* one large 4:5 photo; the other photos of the piece (up to 3) sit beside it */
+    var shots = gallery.slice(0, 4);
     document.querySelector("[data-pdp-media]").innerHTML =
-      '<div class="pdp-main"><img src="' + gallery[0] + '" alt="' + esc(p.name) + '" data-main>' +
+      '<div class="pdp-gal' + (shots.length > 1 ? " has-thumbs" : "") + '">' +
+      (shots.length > 1
+        ? '<div class="pdp-side" role="list">' + shots.map(function (src, k) {
+            return '<button type="button" class="pdp-th' + (k ? "" : " is-on") + '" role="listitem" data-shot="' + k + '" aria-label="Photo ' + (k + 1) + ' of ' + esc(p.name) + '"><img src="' + src + '" alt="" loading="lazy"></button>';
+          }).join("") + '</div>'
+        : "") +
+      '<div class="pdp-main"><img src="' + shots[0] + '" alt="' + esc(p.name) + '" data-main>' +
         '<button class="pdp-zoom" data-zoom aria-label="View larger">' + I.zoom + '</button>' +
-        '<span class="pdp-count" data-counter>01 / ' + String(gallery.length).padStart(2, "0") + '</span></div>' +
-      (gallery.length > 1
-        ? '<div class="pdp-thumbs">' +
-            '<figure><img src="' + gallery[1] + '" alt="' + esc(p.name) + ' setting detail" data-thumb="1" loading="lazy"><figcaption>The setting, in detail</figcaption></figure>' +
-            '<figure><img src="' + (gallery[2] || gallery[1]) + '" alt="' + esc(p.name) + ' worn" data-thumb="2" loading="lazy"><figcaption>A personal perspective</figcaption></figure>' +
-          '</div>'
-        : "");
+        (shots.length > 1 ? '<span class="pdp-count" data-counter>01 / ' + String(shots.length).padStart(2, "0") + '</span>' : "") +
+      '</div></div>';
 
     function chips(key, items) {
       return items.map(function (it) {
@@ -938,13 +941,15 @@
     syncOptions();
     enhanceAllSelects(document.querySelector("[data-pdp-opt]"));
 
-    /* gallery */
-    document.querySelectorAll("[data-thumb]").forEach(function (t) {
+    /* gallery: tap a photo on the side to show it large */
+    document.querySelectorAll("[data-shot]").forEach(function (t) {
       t.addEventListener("click", function () {
-        var main = document.querySelector("[data-main]"), was = main.src;
-        main.src = t.src; t.src = was;
-        document.querySelector("[data-counter]").textContent =
-          String(Number(t.dataset.thumb) + 1).padStart(2, "0") + " / " + String(gallery.length).padStart(2, "0");
+        var k = Number(t.dataset.shot), main = document.querySelector("[data-main]");
+        main.style.opacity = 0;
+        setTimeout(function () { main.src = shots[k]; main.style.opacity = 1; }, 180);
+        document.querySelectorAll("[data-shot]").forEach(function (x) { x.classList.toggle("is-on", x === t); });
+        var c = document.querySelector("[data-counter]");
+        if (c) c.textContent = String(k + 1).padStart(2, "0") + " / " + String(shots.length).padStart(2, "0");
       });
     });
     document.querySelector("[data-zoom]").addEventListener("click", function () {

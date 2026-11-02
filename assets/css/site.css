@@ -2030,3 +2030,18 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .info-grid .contact-col .mlink{margin-top:6px}
 .info-sec .sec-head{margin-bottom:var(--space-head)}
 @media (max-width:900px){.info-grid{grid-template-columns:1fr}}
+
+/* product page gallery: one large 4:5 photo, the other photos (up to 3) in a column beside it */
+.pdp-gal{display:grid;grid-template-columns:1fr;gap:14px}
+.pdp-gal.has-thumbs{grid-template-columns:clamp(64px,7vw,96px) minmax(0,1fr)}
+.pdp-side{display:flex;flex-direction:column;gap:12px}
+.pdp-th{display:block;padding:0;border:1px solid transparent;background:var(--cream);cursor:pointer;opacity:.7;transition:opacity .3s var(--ease),border-color .3s var(--ease)}
+.pdp-th img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.pdp-th:hover{opacity:1}
+.pdp-th.is-on{opacity:1;border-color:var(--emerald)}
+.pdp-main img{transition:opacity .25s var(--ease)}
+@media (max-width:760px){
+  .pdp-gal.has-thumbs{grid-template-columns:1fr}
+  .pdp-side{order:2;flex-direction:row}
+  .pdp-th{width:calc((100% - 36px) / 4)}
+}
