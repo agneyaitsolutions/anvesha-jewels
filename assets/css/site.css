@@ -105,7 +105,7 @@ p.script{font-size:var(--t-quote);line-height:1.35;margin:0}
 .btn--solid{background:var(--emerald);color:#fff}
 .btn--solid:hover{background:var(--emerald-deep)}
 .btn--ghost,.btn--ghost-em{border-color:var(--emerald);color:var(--emerald);background:var(--white)}
-.btn--ghost:hover,.btn--ghost-em:hover{border-color:var(--emerald-deep);color:var(--emerald-deep)}
+.btn--ghost:hover,.btn--ghost-em:hover,.btn--ghost:active,.btn--ghost-em:active{background:var(--emerald);border-color:var(--emerald);color:#fff}
 .btn--block{width:100%;justify-content:center;gap:1em}
 
 hr.rule{border:0;border-top:1px solid var(--line);margin:0}
@@ -2091,26 +2091,25 @@ img{max-width:100%}
 .search-panel input{font-size:18px}
 .search-panel .mlink{flex:none}
 
-/* floating WhatsApp button: fixed bottom-right on every page, desktop and mobile.
+/* floating WhatsApp button: an emerald box (the navbar colour) fixed bottom-right on every page,
+   desktop and mobile. It deepens on hover (desktop) and on tap (mobile).
    Sits under the scrim, drawer, modals and sign-up pop-up so it never covers them. */
 .wa-float{position:fixed;z-index:75;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));
-  display:flex;align-items:center;height:60px;padding:0;border-radius:30px;background:#25D366;color:#fff;
-  box-shadow:0 10px 28px -8px rgba(20,20,20,.38),0 2px 6px rgba(20,20,20,.12);
-  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.wa-float__icon{display:grid;place-items:center;width:60px;height:60px;flex:none}
+  display:flex;align-items:center;height:60px;padding:0;background:var(--emerald);color:#fff;border:1px solid var(--emerald);
+  box-shadow:0 10px 28px -10px rgba(20,20,20,.28),0 2px 6px rgba(20,20,20,.08);-webkit-tap-highlight-color:transparent;
+  transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.wa-float__icon{display:grid;place-items:center;width:58px;height:58px;flex:none}
 .wa-float__icon svg{width:30px;height:30px}
-.wa-float__label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;
+.wa-float__label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   transition:max-width .45s var(--ease),padding .45s var(--ease)}
-.wa-float:hover,.wa-float:focus-visible{transform:translateY(-2px);box-shadow:0 14px 32px -8px rgba(20,20,20,.45),0 2px 6px rgba(20,20,20,.12)}
-.wa-float:hover .wa-float__label,.wa-float:focus-visible .wa-float__label{max-width:140px;padding-right:22px}
-.wa-float:focus-visible{outline:2px solid var(--emerald);outline-offset:3px}
-.wa-float::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(37,211,102,.5);animation:waPulse 2.6s ease-out 1.2s 3}
-@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+.wa-float:hover,.wa-float:focus-visible,.wa-float:active{background:var(--emerald-deep);border-color:var(--emerald-deep);color:var(--gold-hi);box-shadow:0 14px 32px -10px rgba(20,20,20,.35),0 2px 6px rgba(20,20,20,.1)}
+.wa-float:hover .wa-float__label,.wa-float:focus-visible .wa-float__label{max-width:160px;padding-right:22px}
+.wa-float:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media (max-width:760px){
-  .wa-float{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));height:54px;border-radius:27px}
-  .wa-float__icon{width:54px;height:54px}
-  .wa-float__icon svg{width:28px;height:28px}
+  .wa-float{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));height:54px}
+  .wa-float__icon{width:52px;height:52px}
+  .wa-float__icon svg{width:27px;height:27px}
   .wa-float__label{display:none}
 }
-@media (prefers-reduced-motion:reduce){.wa-float,.wa-float__label{transition:none}.wa-float::before{animation:none}}
+@media (prefers-reduced-motion:reduce){.wa-float,.wa-float__label{transition:none}}
 @media print{.wa-float{display:none}}
