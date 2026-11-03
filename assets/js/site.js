@@ -879,14 +879,12 @@
 
     enhanceAllSelects(document.querySelector("[data-filters]"));
 
-    /* size chart and policy links at the top of every category */
+    /* size chart link at the top of each category that has sizes (returns and privacy live in the footer) */
     var anchor = { rings: "rings", bracelets: "bracelets", necklaces: "necklaces" }[cat];
-    document.querySelector("[data-filters]").insertAdjacentHTML("beforebegin",
-      '<nav class="cat-help" aria-label="Help with sizing and orders">' +
-        (!searching && anchor ? '<a href="sizing-chart.html#' + anchor + '">' + I.ruler + 'Size chart</a>' : '<a href="sizing-chart.html">' + I.ruler + 'Sizing chart</a>') +
-        '<a href="returns-exchange.html">' + I.swap + 'Returns &amp; exchange</a>' +
-        '<a href="privacy-policy.html">' + I.lock + 'Privacy policy</a>' +
-      '</nav>');
+    if (!searching && anchor) {
+      document.querySelector("[data-filters]").insertAdjacentHTML("beforebegin",
+        '<nav class="cat-help" aria-label="Sizing help"><a href="sizing-chart.html#' + anchor + '">' + I.ruler + 'Size chart</a></nav>');
+    }
 
     var grid = document.querySelector("[data-grid]");
     var endNote = document.querySelector("[data-grid-end]");
@@ -996,10 +994,7 @@
           : "") +
       '<div class="pdp-cta"><button class="btn btn--solid" data-request>Request a quote ' + I.chat + '</button>' +
         '<p class="pdp-sel"><span data-selection></span><span>Continue with your selection on WhatsApp.</span></p></div>' +
-      '<nav class="pdp-help" aria-label="Help with this piece">' +
-        (sizeAnchor || isRing ? '<a href="sizing-chart.html#' + (isRing ? "rings" : sizeAnchor) + '">' + I.ruler + 'Size chart</a>' : '') +
-        '<a href="returns-exchange.html">' + I.swap + 'Returns &amp; exchange</a>' +
-        '<a href="privacy-policy.html">' + I.lock + 'Privacy</a></nav>';
+      '';
 
     document.querySelector("[data-pdp-detail]").innerHTML =
       '<div><h2 class="display h-md">The details that make it yours.</h2><p class="p">' + esc(p.detail) + '</p></div>' +

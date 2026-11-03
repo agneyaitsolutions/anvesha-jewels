@@ -2146,7 +2146,7 @@ img{max-width:100%}
 .cat-help a:hover,.pdp-help a:hover{color:var(--emerald);border-color:var(--emerald)}
 .cat-help svg,.pdp-help svg{width:17px;height:17px;flex:none;color:var(--gold-deep)}
 .pdp-help{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-@media (max-width:760px){.cat-help{justify-content:flex-start;gap:8px 20px}.cat-help a,.pdp-help a{font-size:11px;letter-spacing:.12em}}
+@media (max-width:760px){.cat-help{justify-content:flex-end;padding-top:16px}.cat-help a,.pdp-help a{font-size:11px;letter-spacing:.12em}}
 
 /* sizing chart and policy pages */
 .info-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;padding:var(--space-head) 0 0}
