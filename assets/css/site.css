@@ -563,6 +563,56 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   }
 }
 
+/* Reels row (home): full bleed, drifting left (assets/js/reels.js); the arrows below glide it a card at a
+   time. Only the track's transform ever changes. */
+.ig-reels{overflow:hidden;touch-action:pan-y}
+.ig-track{display:flex;width:max-content;will-change:transform}
+.ig-set{display:flex;flex:none}
+.ig-reel{position:relative;flex:none;width:clamp(210px,19vw,290px);aspect-ratio:9/16;margin-right:var(--space-grid);overflow:hidden;background:#EAE6DF;border-radius:2px}
+.ig-reel video,.ig-reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.ig-reel:hover video,.ig-reel:hover img{transform:scale(1.04)}
+.ig-reel .ig-type-badge{right:auto;left:14px}
+/* the whole card opens the reel; caption and link rise in on hover over a soft emerald shade */
+.ig-reel-link{
+  position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;
+  padding:clamp(16px,1.6vw,22px);color:var(--white);text-decoration:none;
+  background:linear-gradient(180deg,rgba(14,50,38,0) 42%,rgba(14,50,38,.86));
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.ig-reel-link>*{transform:translateY(8px);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.ig-reel:hover .ig-reel-link,.ig-reel-link:focus-visible{opacity:1}
+.ig-reel:hover .ig-reel-link>*,.ig-reel-link:focus-visible>*{transform:none}
+.ig-reel-cap{font-size:13.5px;font-weight:300;line-height:1.5;color:rgba(255,255,255,.92);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ig-reel-link .ig-action-cta{margin-top:0;color:var(--gold-hi)}
+.ig-reel-sound{
+  position:absolute;top:12px;right:12px;z-index:3;width:34px;height:34px;display:grid;place-items:center;
+  border:0;border-radius:50%;padding:0;color:var(--white);cursor:pointer;
+  background:rgba(18,22,20,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:background .3s var(--ease),transform .3s var(--ease);
+}
+.ig-reel-sound:hover{transform:scale(1.06)}
+.ig-reel-sound:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+.ig-reel.is-loud .ig-reel-sound{background:var(--emerald)}
+.ig-reel-sound svg{width:16px;height:16px}
+@media (max-width:640px){
+  .ig-reel{width:60vw}
+  /* no hover on touch: keep a quiet shade with the link always readable */
+  .ig-reel-link{opacity:1;background:linear-gradient(180deg,rgba(14,50,38,0) 62%,rgba(14,50,38,.78))}
+  .ig-reel-link>*{transform:none}
+  .ig-reel-cap{display:none}
+}
+/* Reels with licensed music come without a video: the cover drifts in slowly so it doesn't sit still */
+.ig-reel.is-still img{animation:ig-drift 14s ease-in-out infinite alternate}
+.ig-reel.is-still:hover img{animation-play-state:paused}
+@keyframes ig-drift{from{transform:scale(1)}to{transform:scale(1.12) translate(-2%,-1.5%)}}
+@media (prefers-reduced-motion:reduce){.ig-reel.is-still img{animation:none}}
+
+/* no drift: one still row that scrolls sideways */
+@media (prefers-reduced-motion:reduce){
+  .ig-reels{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);padding-inline:var(--gut);scrollbar-width:none}
+  .ig-reel{scroll-snap-align:start}
+}
+
 /* inquiry */
 .inquiry-grid{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(320px,1.35fr);gap:clamp(34px,6vw,86px)}
 .inquiry-copy{display:flex;flex-direction:column;gap:var(--space-stack-m);max-width:420px}
