@@ -336,7 +336,7 @@
     var num = String(D.whatsapp || "").replace(/\D/g, "");
     if (!num) return;
     /* one plain greeting, so people write their own question */
-    function waHref() { return "https://wa.me/" + num + "?text=" + encodeURIComponent("Hello Anvesha Jewels"); }
+    function waHref() { return "https://wa.me/" + num + "?text=" + encodeURIComponent("Hello Anvesha Jewels,"); }
     document.body.insertAdjacentHTML("beforeend",
       '<a class="wa-float" href="' + waHref() + '" target="_blank" rel="noopener" aria-label="Chat with Anvesha Jewels on WhatsApp">' +
       '<span class="wa-float__icon"><svg viewBox="0 0 32 32" aria-hidden="true">' +
