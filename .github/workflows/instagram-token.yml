@@ -1,0 +1,53 @@
+# Keeps the reels sync's token alive. Runs every Monday.
+#  - Instagram token ("IG…", Instagram login): lasts 60 days, so it is renewed and saved back into the
+#    IG_TOKEN secret. Needs GH_PAT (a fine-grained token for this repository with "Secrets: Read and write").
+#  - Meta token ("EAA…", Facebook / Unified login): can't be renewed without logging in, so this checks how
+#    long it has left and fails 10 days before it expires; GitHub then emails you. Needs META_APP_ID and
+#    META_APP_SECRET. A token that never expires (system user, Page) just passes.
+# It also re-enables both workflows each week: GitHub pauses scheduled workflows in a repository with no
+# commits for 60 days, and this keeps them running with nobody touching the repo.
+# Renewing: docs/instagram-reels.md
+name: Instagram token
+
+on:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Keep the scheduled workflows switched on
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for w in instagram-reels.yml instagram-token.yml; do
+            gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/$w/enable"
+          done
+      - name: Renew or check the token
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          APP: ${{ secrets.META_APP_ID }}|${{ secrets.META_APP_SECRET }}
+        run: |
+          case "$IG_TOKEN" in
+            IG*)
+              NEW=$(curl -fsS "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=$IG_TOKEN" | jq -r .access_token)
+              if [ -z "$NEW" ] || [ "$NEW" = "null" ]; then echo "Instagram did not return a new token."; exit 1; fi
+              echo "::add-mask::$NEW"
+              gh secret set IG_TOKEN --body "$NEW" --repo "$GITHUB_REPOSITORY"
+              echo "Token renewed."
+              ;;
+            *)
+              D=$(curl -fsS "https://graph.facebook.com/v23.0/debug_token?input_token=$IG_TOKEN&access_token=$APP")
+              if [ "$(echo "$D" | jq -r .data.is_valid)" != "true" ]; then echo "::error::The Instagram token no longer works. Make a new one (docs/instagram-reels.md)."; exit 1; fi
+              EXP=$(echo "$D" | jq -r '.data.expires_at // 0')
+              if [ "$EXP" = "0" ]; then echo "Token never expires."; exit 0; fi
+              DAYS=$(( (EXP - $(date +%s)) / 86400 ))
+              echo "Token expires in $DAYS days ($(date -u -d @"$EXP" +%F))."
+              if [ "$DAYS" -lt 10 ]; then echo "::error::The Instagram token expires in $DAYS days. Make a new one (docs/instagram-reels.md)."; exit 1; fi
+              ;;
+          esac

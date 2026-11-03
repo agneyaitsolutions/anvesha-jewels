@@ -6,10 +6,14 @@ any earlier version of the site; this folder is self-contained.
 ## Run it
 
 ```bash
-python -m http.server 4180
+npm install
+npm run dev
 ```
 
-Then open <http://localhost:4180>. Any static host will serve it as-is (no build step).
+Then open <http://localhost:3000>. Any static host will serve it as-is (no build step).
+
+The home page's Instagram reels come from Cloudflare R2, kept up to date by a GitHub Action:
+see [docs/instagram-reels.md](docs/instagram-reels.md).
 
 ## Pages
 

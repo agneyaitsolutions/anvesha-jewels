@@ -1,0 +1,13 @@
+{
+  "name": "anvesha-jewels",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "live-server --port=3000 --no-browser",
+    "reels": "node scripts/instagram-sync.mjs"
+  },
+  "devDependencies": {
+    "aws4fetch": "^1.0.20",
+    "live-server": "^1.2.2"
+  }
+}

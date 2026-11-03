@@ -1,0 +1,37 @@
+# Copies new Instagram reels to Cloudflare R2 and updates reels.json, which the home page reads.
+# Runs every 10 minutes; after posting a reel you can also start it at once from
+# Actions → "Instagram reels" → Run workflow (or `gh workflow run instagram-reels.yml`).
+# Setup and secrets: docs/instagram-reels.md
+name: Instagram reels
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: instagram-reels
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg
+      # yt-dlp copies reels with licensed music (which the API sends without video); the sound is removed
+      - run: pipx install yt-dlp
+      - run: npm run reels
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}

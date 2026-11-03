@@ -9,6 +9,10 @@ window.AJ = {
   /* Sign-up pop-up: where email + mobile are sent (e.g. a Google Apps Script web-app URL or a Brevo form URL).
      Leave empty to send the sign-up to WhatsApp instead. */
   signupEndpoint: "",
+  /* Home page reels row: the public URL of reels.json in Cloudflare R2, kept up to date by
+     scripts/instagram-sync.mjs (docs/instagram-reels.md). Empty: the photo cards in index.html show instead.
+     The row holds every reel; add show: 20 (say) to keep only the newest. */
+  reels: { feed: "https://pub-f9ec3c35742243adb91804e153531c79.r2.dev/reels.json" },
 
   categories: {
     rings: {
