@@ -1,4 +1,4 @@
-# Anvesha Jewels — website
+# Anvesha Jewels — website https://anvesha-jewel.vercel.app
 
 A standalone static build of the approved Figma designs. Nothing here is shared with or linked to
 any earlier version of the site; this folder is self-contained.
