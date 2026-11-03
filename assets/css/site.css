@@ -2310,8 +2310,9 @@ img{max-width:100%}
 .cat-hero:not(.cat-hero--search){min-height:clamp(340px,32vw,460px)}
 @media (max-width:900px){
   .cat-hero:not(.cat-hero--search){min-height:0}
-  .cat-hero:not(.cat-hero--search)>div{min-height:336px;justify-content:flex-start}
+  .cat-hero:not(.cat-hero--search)>div{min-height:290px;justify-content:center}
 }
+@media (max-width:640px){.cat-hero:not(.cat-hero--search)>div{min-height:372px}}
 
 /* WhatsApp: the "need help?" note on product pages */
 .wa-tip{position:fixed;z-index:76;left:calc(24px + env(safe-area-inset-left,0px));bottom:calc(94px + env(safe-area-inset-bottom,0px));width:min(260px,calc(100vw - 32px));padding:14px 38px 14px 16px;background:#fff;border-radius:14px;box-shadow:0 14px 34px -14px rgba(20,20,20,.35),0 0 0 1px rgba(20,20,20,.06);opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
