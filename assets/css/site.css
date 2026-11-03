@@ -2206,3 +2206,15 @@ img{max-width:100%}
   .cat-hero:not(.cat-hero--search) img{order:-1;height:auto;min-height:0;aspect-ratio:4/3}
   .cat-hero:not(.cat-hero--search)>div{padding:28px 22px 34px}
 }
+
+/* phones: the three filters sit on one line */
+@media (max-width:760px){
+  .filters-left{flex-wrap:nowrap;width:100%;gap:6px}
+  .filters-left>svg{flex:none;margin-right:4px}
+  .filters-left .selectish{flex:1 1 0;min-width:0}
+  .filters-left .selectish:has([data-filter="diamond"]){flex-grow:1.45}
+  .filters-left .lux-select{display:block;width:100%;min-width:0}
+  .filters-left .lux-select--filter .lux-select-trigger{min-width:0;height:38px;padding:8px 7px 8px 9px;font-size:11.5px;letter-spacing:0;gap:4px}
+  .filters-left .lux-select-menu{min-width:170px}
+  .filters-left .selectish:last-child .lux-select-menu{left:auto;right:0}
+}
