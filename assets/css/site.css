@@ -2268,3 +2268,58 @@ img{max-width:100%}
   .filters-left .lux-select-menu{min-width:170px}
   .filters-left .selectish:last-child .lux-select-menu{left:auto;right:0}
 }
+
+/* ───────── client fixes: slimmer phone header, aligned hero, catalogue, Instagram, banners ───────── */
+.menu-btn{line-height:1}
+.menu-btn .bars{flex:none}
+@media (max-width:900px){
+  .head-top{padding:9px 0 8px}
+  .brand img{width:118px}
+  .menu-btn{gap:10px;font-size:12px}
+  .head-tools{gap:16px}
+}
+/* phone hero: photo on top, words underneath on white, so nothing sits on the face */
+@media (max-width:640px){
+  .hero-slide img{height:56%;bottom:auto;object-position:72% 18%}
+  .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 48%,#fff 56%,#fff 100%)}
+  .hero-copy{justify-content:flex-end;padding-bottom:62px}
+  .hero-copy .eyebrow{margin-bottom:10px}
+  .hero-copy h1,.hero-copy h2{margin-bottom:12px}
+  .hero-copy p{margin-bottom:22px}
+}
+/* catalogue: button sits exactly on the centre line, tiles divided by a fine line */
+.cs{gap:2px;background:#fff}
+@media (max-width:900px){
+  .cs-tile{aspect-ratio:3/4}
+  .cs-cta{gap:12px}
+  .cs-btn{padding:14px 26px;background:rgba(14,22,18,.38);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .cs-dl{position:absolute;left:50%;top:calc(50% + 40px);transform:translateX(-50%);white-space:nowrap;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+  .cs-sec .cs-note{margin-top:22px}
+  .cs-sec{padding-bottom:40px}
+  .cs-sec + .sec{padding-top:56px}
+}
+/* Instagram on phones: a neat 2 x 3 grid instead of six full-width posts */
+@media (max-width:580px){
+  .ig-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .ig-feed-grid .ig-card{margin-top:0}
+  .ig-feed-grid .ig-card-overlay{display:none}
+  .ig-feed-grid .ig-type-badge{transform:scale(.8);transform-origin:top right}
+  .ig-feed-foot{margin-top:24px}
+}
+/* every category banner is the same size, whatever the length of its words */
+.cat-hero:not(.cat-hero--search){min-height:clamp(340px,32vw,460px)}
+@media (max-width:900px){
+  .cat-hero:not(.cat-hero--search){min-height:0}
+  .cat-hero:not(.cat-hero--search)>div{min-height:336px;justify-content:flex-start}
+}
+
+/* WhatsApp: the "need help?" note on product pages */
+.wa-tip{position:fixed;z-index:76;left:calc(24px + env(safe-area-inset-left,0px));bottom:calc(94px + env(safe-area-inset-bottom,0px));width:min(260px,calc(100vw - 32px));padding:14px 38px 14px 16px;background:#fff;border-radius:14px;box-shadow:0 14px 34px -14px rgba(20,20,20,.35),0 0 0 1px rgba(20,20,20,.06);opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.wa-tip.is-on{opacity:1;transform:none}
+.wa-tip a{display:flex;flex-direction:column;gap:3px}
+.wa-tip strong{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--ink)}
+.wa-tip span{font-size:13px;color:#1a9e4a;font-weight:600}
+.wa-tip__x{position:absolute;top:8px;right:8px;width:24px;height:24px;display:grid;place-items:center;color:var(--body)}
+.wa-tip__x svg{width:13px;height:13px}
+@media (max-width:640px){.wa-tip{left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(80px + env(safe-area-inset-bottom,0px))}}
+@media print{.wa-tip{display:none}}

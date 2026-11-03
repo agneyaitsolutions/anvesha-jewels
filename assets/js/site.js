@@ -335,14 +335,8 @@
   (function () {
     var num = String(D.whatsapp || "").replace(/\D/g, "");
     if (!num) return;
-    function waHref() {
-      var msg = "Hello Anvesha Jewels, I would like to know more about your jewellery.";
-      if (page === "product") {
-        var t = document.title.split("·").pop().trim();
-        if (t && t !== "Anvesha Jewels") msg = "Hello Anvesha Jewels, I am interested in the " + t + ". Could you share more details?";
-      }
-      return "https://wa.me/" + num + "?text=" + encodeURIComponent(msg);
-    }
+    /* one plain greeting, so people write their own question */
+    function waHref() { return "https://wa.me/" + num + "?text=" + encodeURIComponent("Hello Anvesha Jewels"); }
     document.body.insertAdjacentHTML("beforeend",
       '<a class="wa-float" href="' + waHref() + '" target="_blank" rel="noopener" aria-label="Chat with Anvesha Jewels on WhatsApp">' +
       '<span class="wa-float__icon"><svg viewBox="0 0 32 32" aria-hidden="true">' +
@@ -350,11 +344,30 @@
       '<path fill="currentColor" d="M11.7 9.6c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.3 6.6 5.8 3.3 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.4-.3-.7-.5l-2.6-1.3c-.3-.1-.6-.2-.9.2l-1.2 1.4c-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-2.7Z"/>' +
       '</svg></span><span class="wa-float__label">Chat with us</span></a>');
     var wa = document.querySelector(".wa-float");
-    /* the product title is filled in after load, so build the message again on tap */
-    wa.addEventListener("click", function () { wa.href = waHref(); });
+    /* product pages only: a small "need help?" note after 45 seconds, once per visit (a test) */
+    if (page === "product") {
+      var seen = false;
+      try { seen = sessionStorage.getItem("aj-wa-tip") === "1"; } catch (e) {}
+      var showTip = function () {
+        /* wait while the sign-up pop-up, menu or another window is open */
+        var su = document.querySelector(".su");
+        if (document.body.classList.contains("no-scroll") || (su && !su.hidden)) { setTimeout(showTip, 3000); return; }
+        document.body.insertAdjacentHTML("beforeend",
+          '<div class="wa-tip" role="status"><button class="wa-tip__x" aria-label="Close">' + I.close + '</button>' +
+          '<a href="' + waHref() + '" target="_blank" rel="noopener"><strong>Need help with this piece?</strong><span>Chat with us on WhatsApp</span></a></div>');
+        var tip = document.querySelector(".wa-tip");
+        requestAnimationFrame(function () { tip.classList.add("is-on"); });
+        function hide() { tip.classList.remove("is-on"); setTimeout(function () { tip.remove(); }, 400); }
+        tip.querySelector(".wa-tip__x").addEventListener("click", hide);
+        tip.querySelector("a").addEventListener("click", hide);
+        wa.addEventListener("click", hide);
+        try { sessionStorage.setItem("aj-wa-tip", "1"); } catch (e) {}
+      };
+      if (!seen) setTimeout(showTip, 45000);
+    }
     /* any link marked data-wa="message" opens WhatsApp with that message */
     document.querySelectorAll("[data-wa]").forEach(function (a) {
-      a.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+      a.href = waHref();
       a.target = "_blank"; a.rel = "noopener";
     });
   })();
@@ -934,7 +947,7 @@
     var pc = D.categories[p.cat];
     var gallery = p.gallery || [p.img];
     var isRing = p.cat === "rings";
-    state = { metal: "gold", karat: "16K", diamond: "lab-grown", size: "14", product: p };
+    state = { metal: "gold", karat: "18K", diamond: "lab-grown", size: "14", product: p };
 
     document.title = "Anvesha Jewels · " + p.name;
     document.querySelector("[data-crumbs]").innerHTML =
