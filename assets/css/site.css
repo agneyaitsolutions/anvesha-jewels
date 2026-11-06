@@ -100,7 +100,8 @@ p.script{font-size:var(--t-quote);line-height:1.35;margin:0}
   padding:17px 26px;font-size:var(--t-label);font-weight:500;letter-spacing:var(--track);text-transform:uppercase;
   border:1px solid transparent;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
 }
-.btn svg{width:13px;height:13px;flex:none;transition:transform .35s var(--ease)}
+/* button text is all capitals, which sit above the line box centre; lift the arrow to their middle */
+.btn svg{width:13px;height:13px;flex:none;position:relative;top:-1px;transition:transform .35s var(--ease)}
 .btn:hover svg{transform:translateX(3px)}
 .btn--solid{background:var(--emerald);color:#fff}
 .btn--solid:hover{background:var(--emerald-deep)}
