@@ -2,7 +2,8 @@
    Reads the reel list that scripts/instagram-sync.mjs keeps in Cloudflare R2 (AJ.reels.feed) and drifts it
    endlessly to the left. A reel plays silently while it is on screen; its speaker button turns the sound on
    (one reel at a time) and holds the row still. A click opens that reel on Instagram. The row pauses on hover
-   or focus and can be swiped on a phone. If the list can't be read, the photo cards in the page stay.
+   or focus, swipes natively on a phone or trackpad, and drags with a mouse. If the list can't be read, the
+   photo cards in the page stay.
    Reels whose music is licensed to Instagram only come without a video; they show their cover, drifting
    in slowly, and open on Instagram like the rest. */
 (function () {
@@ -83,16 +84,20 @@
     b.setAttribute("aria-pressed", "true"); b.setAttribute("aria-label", "Turn sound off"); b.innerHTML = icon.on;
   });
 
-  /* ── the drift: one set covers the row, copies fill the rest, so a shift of one set width loops ── */
-  var W = 0, x = 0, f = 1, skip = true, hold = false, focus = false, drag = false, fling = 0, until = 0, glide = 0;
+  /* ── the drift: the row is a real scroller, so a phone swipes it with its own momentum and a trackpad
+     scrolls it sideways; a mouse can drag it. A slow drift moves it on its own and waits while anyone is
+     touching, dragging, hovering or scrolling. Copies of the set sit either side and the position is kept in
+     the middle copy, so it loops without a seam. ── */
+  var W = 0, x = 0, f = 1, skip = true, hold = false, focus = false, touch = false, drag = false;
+  var until = 0, glide = 0, user = 0;   /* user: when the person last moved the row */
   function fit() {
     var set = track.firstElementChild;
     W = set.getBoundingClientRect().width; skip = !W;
     if (skip) return;
-    var need = 1 + Math.ceil(row.clientWidth / W);
+    var need = 2 + Math.ceil(row.clientWidth / W);
     while (track.children.length < need) {
       var c = set.cloneNode(true);
-      /* copies stay clickable (they are half of what shows) but are skipped by keyboard and screen readers */
+      /* copies stay clickable (they are most of what shows) but are skipped by keyboard and screen readers */
       c.setAttribute("aria-hidden", "true");
       c.querySelectorAll("a,button").forEach(function (a) { a.tabIndex = -1; });
       track.appendChild(c);
@@ -101,66 +106,73 @@
       track.lastChild.querySelectorAll("video,img").forEach(function (v) { if (io) io.unobserve(v); if (near) near.unobserve(v); });
       track.removeChild(track.lastChild);
     }
-    x = ((x % W) + W) % W;
-    paint(); watch();
+    x = W + (((x - W) % W) + W) % W;
+    row.scrollLeft = x;
+    watch();
   }
-  function paint() { track.style.transform = "translate3d(" + (-x).toFixed(2) + "px,0,0)"; }
 
   /* Keep a focused card in view (the row is paused while it holds focus). */
   function show(c) {
-    row.scrollLeft = 0;
     if (!c || skip) return;
     var pad = 80, vw = row.clientWidth, a = c.offsetLeft, b = a + c.offsetWidth;
     if (a - pad < x) x = Math.max(0, a - pad);
     else if (b + pad > x + vw) x = b + pad - vw;
-    paint();
+    row.scrollLeft = x;
   }
 
   function motion() {
-    var px = 0, pt = 0, vel = 0, moved = 0;
     row.addEventListener("pointerover", function (e) { if (e.pointerType !== "touch") hold = !!e.target.closest(".ig-reel"); });
     row.addEventListener("pointerleave", function () { hold = false; });
     row.addEventListener("focusin", function (e) { focus = true; f = 0; show(e.target.closest(".ig-reel")); });
     row.addEventListener("focusout", function (e) { focus = row.contains(e.relatedTarget); });
-    row.addEventListener("scroll", function () { row.scrollLeft = 0; });
 
-    /* touch: hold to pause, swipe to move, a short glide on release */
+    /* a swipe, trackpad or the scrollbar: follow it, and let the drift wait */
+    row.addEventListener("scroll", function () {
+      if (Math.abs(row.scrollLeft - x) < 1.5) return;   /* our own move */
+      x = row.scrollLeft; user = performance.now(); until = user + 1500; glide = 0;
+    }, { passive: true });
+    row.addEventListener("touchstart", function () { touch = true; glide = 0; }, { passive: true });
+    function lift() { touch = false; user = performance.now(); until = user + 1500; }
+    row.addEventListener("touchend", lift, { passive: true });
+    row.addEventListener("touchcancel", lift, { passive: true });
+
+    /* mouse: hold and drag the row, with a short glide on release; a drag never opens a reel */
+    var sx = 0, sl = 0, moved = 0, pt = 0, vel = 0;
     row.addEventListener("pointerdown", function (e) {
-      if (e.pointerType === "mouse" || skip) return;
-      drag = true; fling = 0; vel = 0; moved = 0; px = e.clientX; pt = e.timeStamp;
+      if (e.pointerType !== "mouse" || e.button || skip || e.target.closest(".ig-reel-sound")) return;
+      drag = true; moved = 0; vel = 0; glide = 0; sx = e.clientX; sl = x; pt = e.timeStamp;
     });
-    row.addEventListener("pointermove", function (e) {
+    window.addEventListener("pointermove", function (e) {
       if (!drag) return;
-      var dx = e.clientX - px;
-      x -= dx; moved += Math.abs(dx);
-      vel = -dx / Math.max(1, e.timeStamp - pt) * 1000;
-      px = e.clientX; pt = e.timeStamp;
+      var nx = sl - (e.clientX - sx), dt = Math.max(1, e.timeStamp - pt);
+      vel = (nx - x) / dt * 1000; pt = e.timeStamp;
+      moved = Math.max(moved, Math.abs(e.clientX - sx));
+      if (moved > 4) row.classList.add("is-dragging");
+      x = nx; row.scrollLeft = x; user = performance.now();
     });
-    function release(e) {
+    window.addEventListener("pointerup", function (e) {
       if (!drag) return;
-      drag = false;
-      fling = e.type === "pointerup" && e.timeStamp - pt < 80 ? Math.max(-2400, Math.min(2400, vel)) : 0;
-      until = performance.now() + 1600;
-    }
-    row.addEventListener("pointerup", release);
-    row.addEventListener("pointercancel", release);
-    row.addEventListener("click", function (e) { if (moved > 8) { e.preventDefault(); e.stopPropagation(); } moved = 0; }, true);
+      drag = false; row.classList.remove("is-dragging");
+      if (e.timeStamp - pt < 80) glide = Math.max(-1400, Math.min(1400, vel * 0.3));
+      until = performance.now() + 1500;
+    });
+    row.addEventListener("click", function (e) { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } moved = 0; }, true);
+    row.addEventListener("dragstart", function (e) { e.preventDefault(); });
 
     var on = false, raf = 0, last = 0;
     function frame(now) {
       var dt = last ? Math.min(0.05, (now - last) / 1000) : 0; last = now;
-      if (!skip) {
-        var held = hold || focus || drag || loud || now < until;
+      /* while a finger or a fling is moving the row, leave it alone so its momentum isn't cut short */
+      if (!skip && !touch && !drag && now - user > 250) {
+        var held = hold || focus || loud || now < until;
         f += ((held ? 0 : 1) - f) * (1 - Math.exp(-dt * 6));
-        if (focus || drag) f = 0;
-        /* an arrow press: ease the rest of the way over, a little each frame */
+        if (focus) f = 0;
+        /* an arrow press or a mouse fling: ease the rest of the way over, a little each frame */
         var g = Math.abs(glide) < 0.5 ? glide : glide * (1 - Math.exp(-dt * 7));
         glide -= g;
-        x += (SPEED * f + fling) * dt + g;
-        fling *= Math.exp(-dt * 3.5);
-        if (Math.abs(fling) < 2) fling = 0;
-        x = ((x % W) + W) % W;
-        paint();
+        x += SPEED * f * dt + g;
+        if (x < W) x += W; else if (x >= 2 * W) x -= W;
+        if (Math.abs(row.scrollLeft - x) >= 0.5) row.scrollLeft = x;
       }
       raf = on ? requestAnimationFrame(frame) : 0;
     }
@@ -184,7 +196,7 @@
   function step() { var c = track.querySelector(".ig-reel"); return c ? c.offsetWidth + parseFloat(getComputedStyle(c).marginRight) : 0; }
   function arrow(dir) {
     if (reduce) { row.scrollBy({ left: dir * step(), behavior: "smooth" }); return; }
-    glide += dir * step(); f = 0; until = performance.now() + 2600;
+    user = 0; glide += dir * step(); f = 0; until = performance.now() + 2600;
   }
   [["[data-ig-prev]", -1], ["[data-ig-next]", 1]].forEach(function (a) {
     var b = document.querySelector(a[0]); if (b) b.addEventListener("click", function () { arrow(a[1]); });

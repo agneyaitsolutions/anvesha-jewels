@@ -563,10 +563,12 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   }
 }
 
-/* Reels row (home): full bleed, drifting left (assets/js/reels.js); the arrows below glide it a card at a
-   time. Only the track's transform ever changes. */
-.ig-reels{overflow:hidden;touch-action:pan-y}
-.ig-track{display:flex;width:max-content;will-change:transform}
+/* Reels row (home): full bleed, drifting left (assets/js/reels.js). A real sideways scroller with its bar
+   hidden, so phones swipe it with their own momentum; a mouse drags it; the arrows glide it a card at a time. */
+.ig-reels{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-behavior:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.ig-reels::-webkit-scrollbar{display:none}
+.ig-reels.is-dragging,.ig-reels.is-dragging *{cursor:grabbing;user-select:none}
+.ig-track{display:flex;width:max-content}
 .ig-set{display:flex;flex:none}
 .ig-reel{position:relative;flex:none;width:clamp(210px,19vw,290px);aspect-ratio:9/16;margin-right:var(--space-grid);overflow:hidden;background:#EAE6DF;border-radius:2px}
 .ig-reel video,.ig-reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.16,1,.3,1)}
@@ -601,6 +603,11 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   .ig-reel-link>*{transform:none}
   .ig-reel-cap{display:none}
 }
+/* phones: the follow button fits one line ("Follow on Instagram"); the row is swiped, so no arrows */
+@media (max-width:560px){
+  .ig-follow-handle{display:none}
+  .ig-feed-foot .btn{white-space:nowrap}
+}
 /* Reels with licensed music come without a video: the cover drifts in slowly so it doesn't sit still */
 .ig-reel.is-still img{animation:ig-drift 14s ease-in-out infinite alternate}
 .ig-reel.is-still:hover img{animation-play-state:paused}
@@ -609,7 +616,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 
 /* no drift: one still row that scrolls sideways */
 @media (prefers-reduced-motion:reduce){
-  .ig-reels{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);padding-inline:var(--gut);scrollbar-width:none}
+  .ig-reels{scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);padding-inline:var(--gut)}
   .ig-reel{scroll-snap-align:start}
 }
 
