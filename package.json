@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "live-server --port=3000 --no-browser",
+    "dev": "node scripts/dev.mjs",
     "reels": "node scripts/instagram-sync.mjs"
   },
   "devDependencies": {

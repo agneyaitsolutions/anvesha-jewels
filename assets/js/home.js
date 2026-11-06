@@ -30,7 +30,7 @@
     var items = D.products.filter(function (p) { return p.festive; });
     var diag = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg>';
     row.innerHTML = items.map(function (p) {
-      var href = "product.html?id=" + encodeURIComponent(p.code);
+      var href = "/product/" + D.slug(p);
       return '<article class="pcard fs-card">' +
         '<a class="figwrap" href="' + href + '" aria-label="' + esc(p.name) + '">' +
           '<img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy"><span class="fs-tag">Festive</span>' +

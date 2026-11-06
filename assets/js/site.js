@@ -54,10 +54,10 @@
   /* ── header ────────────────────────────────────────── */
   function header() {
     var navCats = CATS.map(function (c) {
-      return '<a href="' + c + '.html">' + D.categories[c].name + ' ' + I.diag + '</a>';
+      return '<a href=\"/' + c + '">' + D.categories[c].name + ' ' + I.diag + '</a>';
     }).join("");
     var subCats = CATS.map(function (c) {
-      return '<a href="' + c + '.html">' + D.categories[c].name + '</a>';
+      return '<a href=\"/' + c + '">' + D.categories[c].name + '</a>';
     }).join("");
 
     return '' +
@@ -65,7 +65,7 @@
   '<div class="wrap-wide">' +
     '<div class="head-top">' +
       '<button class="menu-btn" data-open-drawer aria-label="Open menu"><span class="bars"><i></i><i></i><i></i></span>Menu</button>' +
-      '<a class="brand" href="index.html" aria-label="Anvesha Jewels, home"><img src="assets/logo.png" alt="Anvesha Jewels" width="178"></a>' +
+      '<a class="brand" href="/" aria-label="Anvesha Jewels, home"><img src="/assets/logo.png" alt="Anvesha Jewels" width="178"></a>' +
       '<div class="head-tools">' +
         '<a href="' + D.instagram + '" target="_blank" rel="noopener" aria-label="Anvesha Jewels on Instagram">' + I.insta + '</a>' +
         '<button data-toggle-search aria-label="Search jewellery">' + I.search + '</button>' +
@@ -74,15 +74,15 @@
   '</div>' +
   '<div class="head-navbar">' +
     '<nav class="head-nav wrap-wide" aria-label="Primary">' +
-      '<div><a class="nav-item" href="index.html"' + (page === "home" ? ' aria-current="page"' : '') + '>Home</a></div>' +
+      '<div><a class="nav-item" href="/"' + (page === "home" ? ' aria-current="page"' : '') + '>Home</a></div>' +
       '<div data-mega="jewellery">' +
         '<button class="nav-item" data-mega-btn aria-expanded="false">Jewellery ' + I.chev + '</button>' +
       '</div>' +
       '<div data-mega="collections">' +
         '<button class="nav-item" data-mega-btn aria-expanded="false">Collections ' + I.chev + '</button>' +
       '</div>' +
-      '<div><a class="nav-item" href="about.html"' + (page === "about" ? ' aria-current="page"' : '') + '>About Us</a></div>' +
-      '<div><a class="nav-item" href="contact.html"' + (page === "contact" ? ' aria-current="page"' : '') + '>Contact Us</a></div>' +
+      '<div><a class="nav-item" href="/about"' + (page === "about" ? ' aria-current="page"' : '') + '>About Us</a></div>' +
+      '<div><a class="nav-item" href="/contact"' + (page === "contact" ? ' aria-current="page"' : '') + '>Contact Us</a></div>' +
     '</nav>' +
   '</div>' +
 
@@ -92,9 +92,9 @@
         '<div><p class="eyebrow mega-col-head">Make it personal</p>' +
           '<h3 class="display h-md" style="margin-bottom:14px">A piece that feels<br>like you.</h3>' +
           '<p class="p" style="margin-bottom:20px">Explore your preferred metal, diamond and design details with a personal quote.</p>' +
-          '<a class="mlink" href="contact.html">Request guidance ' + I.diag + '</a></div>' +
-        '<figure class="mega-fig" style="margin:0"><img src="assets/nav-jewellery.webp" alt="A gold ring set with an emerald and diamonds" loading="lazy">' +
-          '<figcaption><a href="rings.html">A gesture, held close. Explore rings ' + I.diag + '</a></figcaption></figure>' +
+          '<a class="mlink" href="/contact">Request guidance ' + I.diag + '</a></div>' +
+        '<figure class="mega-fig" style="margin:0"><img src="/assets/nav-jewellery.webp" alt="A gold ring set with an emerald and diamonds" loading="lazy">' +
+          '<figcaption><a href="/rings">A gesture, held close. Explore rings ' + I.diag + '</a></figcaption></figure>' +
       '</div></div>' +
     '</div>' +
 
@@ -104,9 +104,9 @@
           '<h3 class="display h-lg" style="margin-bottom:18px">Considered forms.<br>Personal expressions.</h3>' +
           '<p class="p" style="margin-bottom:26px;max-width:40ch">Discover the collection, from delicate everyday details to pieces for meaningful moments.</p>' +
           '<a class="btn btn--ghost" href="' + D.catalogue + '" data-catalogue>Download catalogue ' + I.dl + '</a></div>' +
-        '<figure class="mega-fig" style="margin:0"><img src="assets/nav-collections.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk" loading="lazy">' +
-          '<div class="mega-links"><a href="collections.html">Explore the collection ' + I.diag + '</a>' +
-          '<a href="collections.html#solene">Discover the Solene selection ' + I.diag + '</a></div></figure>' +
+        '<figure class="mega-fig" style="margin:0"><img src="/assets/nav-collections.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk" loading="lazy">' +
+          '<div class="mega-links"><a href="/collections">Explore the collection ' + I.diag + '</a>' +
+          '<a href="/collections#solene">Discover the Solene selection ' + I.diag + '</a></div></figure>' +
       '</div></div>' +
     '</div>' +
 
@@ -121,23 +121,23 @@
 '<aside class="drawer" data-drawer aria-label="Menu" aria-hidden="true">' +
   '<svg class="drawer-curve" aria-hidden="true" preserveAspectRatio="none"><path data-curve></path></svg>' +
   '<div class="drawer-top">' +
-    '<a class="wordmark" href="index.html"><b>ANVESHA</b><i>JEWELS</i></a>' +
+    '<a class="wordmark" href="/"><b>ANVESHA</b><i>JEWELS</i></a>' +
     '<button class="drawer-close" data-close-drawer>Close ' + I.close + '</button>' +
   '</div>' +
   '<form class="drawer-search" data-search-form>' + I.search +
     '<input type="search" name="q" placeholder="Search jewellery" aria-label="Search jewellery"></form>' +
   '<nav class="drawer-nav">' +
-    '<div class="drawer-row"><a href="index.html">Home</a></div>' +
+    '<div class="drawer-row"><a href="/">Home</a></div>' +
     '<div class="drawer-row"><button data-acc aria-expanded="false">Jewellery <span class="pm">+</span></button>' +
       '<div class="drawer-sub">' + subCats + '</div></div>' +
     '<div class="drawer-row"><button data-acc aria-expanded="false">Collections <span class="pm">+</span></button>' +
-      '<div class="drawer-sub"><a href="collections.html">The collection</a><a href="collections.html#solene">Solene selection</a>' +
-      '<a href="' + D.catalogue + '" data-catalogue>Download catalogue</a><a href="contact.html">Request guidance</a></div></div>' +
-    '<div class="drawer-row"><a href="about.html">About Us</a></div>' +
-    '<div class="drawer-row"><a href="contact.html">Contact Us</a></div>' +
+      '<div class="drawer-sub"><a href="/collections">The collection</a><a href="/collections#solene">Solene selection</a>' +
+      '<a href="' + D.catalogue + '" data-catalogue>Download catalogue</a><a href="/contact">Request guidance</a></div></div>' +
+    '<div class="drawer-row"><a href="/about">About Us</a></div>' +
+    '<div class="drawer-row"><a href="/contact">Contact Us</a></div>' +
   '</nav>' +
   '<div class="drawer-foot">' +
-    '<a class="mlink mlink--ink" href="contact.html">Personal guidance · Make an inquiry ' + I.diag + '</a>' +
+    '<a class="mlink mlink--ink" href="/contact">Personal guidance · Make an inquiry ' + I.diag + '</a>' +
     '<a href="' + D.instagram + '" target="_blank" rel="noopener" aria-label="Instagram">' + I.insta + '</a>' +
   '</div>' +
   '<p class="drawer-tag">For the moments that become you.</p>' +
@@ -151,8 +151,8 @@
   '<div class="wrap-wide">' +
     '<div class="foot-top">' +
       '<div class="foot-brand-col">' +
-        '<a class="foot-brand" href="index.html" aria-label="Anvesha Jewels, home">' +
-          '<img src="assets/logo.png" alt="Anvesha Jewels" width="200" loading="lazy"></a>' +
+        '<a class="foot-brand" href="/" aria-label="Anvesha Jewels, home">' +
+          '<img src="/assets/logo.png" alt="Anvesha Jewels" width="200" loading="lazy"></a>' +
         '<p class="foot-tag">For the moments that become you.</p>' +
         '<p class="foot-summary">Considered fine jewellery handcrafted in solid gold, natural and lab-grown diamonds. Made to be lived with and kept for generations.</p>' +
         '<div class="foot-social-pills">' +
@@ -167,33 +167,33 @@
         '<div class="foot-col">' +
           '<h4 class="foot-heading">SHOP</h4>' +
           '<ul>' +
-            '<li><a href="rings.html">Rings</a></li>' +
-            '<li><a href="necklaces.html">Necklaces</a></li>' +
-            '<li><a href="earrings.html">Earrings</a></li>' +
-            '<li><a href="bracelets.html">Bracelets</a></li>' +
-            '<li><a href="collections.html">All Pieces</a></li>' +
+            '<li><a href="/rings">Rings</a></li>' +
+            '<li><a href="/necklaces">Necklaces</a></li>' +
+            '<li><a href="/earrings">Earrings</a></li>' +
+            '<li><a href="/bracelets">Bracelets</a></li>' +
+            '<li><a href="/collections">All Pieces</a></li>' +
           '</ul>' +
         '</div>' +
 
         '<div class="foot-col">' +
           '<h4 class="foot-heading">HOUSE</h4>' +
           '<ul>' +
-            '<li><a href="about.html">Our Craft</a></li>' +
-            '<li><a href="collections.html">Collections</a></li>' +
-            '<li><a href="collections.html#solene">Solene Selection</a></li>' +
-            /* Stories page hidden for now: '<li><a href="testimonials.html">Stories</a></li>' + */
-            '<li><a href="contact.html">Contact Us</a></li>' +
+            '<li><a href="/about">Our Craft</a></li>' +
+            '<li><a href="/collections">Collections</a></li>' +
+            '<li><a href="/collections#solene">Solene Selection</a></li>' +
+            /* Stories page hidden for now: '<li><a href="/testimonials">Stories</a></li>' + */
+            '<li><a href="/contact">Contact Us</a></li>' +
           '</ul>' +
         '</div>' +
 
         '<div class="foot-col">' +
           '<h4 class="foot-heading">CARE</h4>' +
           '<ul>' +
-            '<li><a href="sizing-chart.html">Sizing Chart</a></li>' +
-            '<li><a href="returns-exchange.html">Returns &amp; Exchange</a></li>' +
-            '<li><a href="privacy-policy.html">Privacy Policy</a></li>' +
-            '<li><a href="about.html#care">Jewellery Care</a></li>' +
-            '<li><a href="contact.html#inquiry">Request a Quote</a></li>' +
+            '<li><a href="/sizing-chart">Sizing Chart</a></li>' +
+            '<li><a href="/returns-exchange">Returns &amp; Exchange</a></li>' +
+            '<li><a href="/privacy-policy">Privacy Policy</a></li>' +
+            '<li><a href="/about#care">Jewellery Care</a></li>' +
+            '<li><a href="/contact#inquiry">Request a Quote</a></li>' +
           '</ul>' +
         '</div>' +
 
@@ -212,45 +212,46 @@
 
     '<div class="foot-wordmark-wrap">' +
       '<div class="foot-wordmark" data-wordmark aria-label="Anvesha Jewels">' +
-        '<a href="rings.html" class="wm-char" data-char="A" aria-label="A: Rings">' +
+        '<a href="/rings" class="wm-char" data-char="A" aria-label="A: Rings">' +
           '<span class="wm-letter">A</span>' +
-          '<span class="wm-media"><img src="assets/p-r001.webp" alt="Solene Diamond Ring" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/p-r001.webp" alt="Solene Diamond Ring" loading="lazy"></span>' +
         '</a>' +
-        '<a href="necklaces.html" class="wm-char" data-char="N" aria-label="N: Necklaces">' +
+        '<a href="/necklaces" class="wm-char" data-char="N" aria-label="N: Necklaces">' +
           '<span class="wm-letter">N</span>' +
-          '<span class="wm-media"><img src="assets/hero-necklaces.webp" alt="Signature Diamond Necklace" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/hero-necklaces.webp" alt="Signature Diamond Necklace" loading="lazy"></span>' +
         '</a>' +
-        '<a href="collections.html" class="wm-char" data-char="V" aria-label="V: Collections">' +
+        '<a href="/collections" class="wm-char" data-char="V" aria-label="V: Collections">' +
           '<span class="wm-letter">V</span>' +
-          '<span class="wm-media"><img src="assets/p-r002.webp" alt="Lumiere Halo Creation" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/p-r002.webp" alt="Lumiere Halo Creation" loading="lazy"></span>' +
         '</a>' +
-        '<a href="earrings.html" class="wm-char" data-char="E" aria-label="E: Earrings">' +
+        '<a href="/earrings" class="wm-char" data-char="E" aria-label="E: Earrings">' +
           '<span class="wm-letter">E</span>' +
-          '<span class="wm-media"><img src="assets/hero-earrings.webp" alt="Fine Emerald & Diamond Earrings" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/hero-earrings.webp" alt="Fine Emerald & Diamond Earrings" loading="lazy"></span>' +
         '</a>' +
-        '<a href="bracelets.html" class="wm-char" data-char="S" aria-label="S: Bracelets">' +
+        '<a href="/bracelets" class="wm-char" data-char="S" aria-label="S: Bracelets">' +
           '<span class="wm-letter">S</span>' +
-          '<span class="wm-media"><img src="assets/hero-bracelets.webp" alt="Handcrafted Tennis Bracelet" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/hero-bracelets.webp" alt="Handcrafted Tennis Bracelet" loading="lazy"></span>' +
         '</a>' +
-        '<a href="rings.html" class="wm-char" data-char="H" aria-label="H: Heritage Rings">' +
+        '<a href="/rings" class="wm-char" data-char="H" aria-label="H: Heritage Rings">' +
           '<span class="wm-letter">H</span>' +
-          '<span class="wm-media"><img src="assets/hero-rings.webp" alt="Heritage Gold Ring" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/hero-rings.webp" alt="Heritage Gold Ring" loading="lazy"></span>' +
         '</a>' +
-        '<a href="collections.html" class="wm-char" data-char="A" aria-label="A: Haute Joaillerie">' +
+        '<a href="/collections" class="wm-char" data-char="A" aria-label="A: Haute Joaillerie">' +
           '<span class="wm-letter">A</span>' +
-          '<span class="wm-media"><img src="assets/nav-jewellery.webp" alt="Haute Joaillerie Statement" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/nav-jewellery.webp" alt="Haute Joaillerie Statement" loading="lazy"></span>' +
         '</a>' +
       '</div>' +
     '</div>' +
 
     '<div class="foot-bar">' +
       '<span>© 2026 Anvesha Jewels. Handcrafted with care.</span>' +
+      '<span class="foot-credit">Developed by <a href="https://www.agneyasolutions.com" target="_blank" rel="noopener">Agneya IT Solutions</a></span>' +
       '<nav aria-label="Legal links">' +
-        '<a href="about.html#privacy">Privacy Policy</a>' +
+        '<a href="/about#privacy">Privacy Policy</a>' +
         '<span>·</span>' +
-        '<a href="about.html#terms">Terms of Use</a>' +
+        '<a href="/about#terms">Terms of Use</a>' +
         '<span>·</span>' +
-        '<a href="about.html#sizing">Sizing Guidance</a>' +
+        '<a href="/about#sizing">Sizing Guidance</a>' +
       '</nav>' +
     '</div>' +
   '</div>' +
@@ -304,12 +305,12 @@
     return '<section class="cta-band"><div class="wrap-wide"><div class="cta-inner">' +
       '<div><h2 class="display h-lg">A little guidance. A piece that feels like you.</h2>' +
       '<p class="p">Tell us what you have in mind. We can help you explore the details.</p></div>' +
-      '<a class="btn btn--ghost-em" href="contact.html#inquiry">Make an inquiry ' + I.arrow + '</a>' +
+      '<a class="btn btn--ghost-em" href="/contact#inquiry">Make an inquiry ' + I.arrow + '</a>' +
       '</div></div></section>';
   }
 
   function card(p) {
-    var href = "product.html?id=" + encodeURIComponent(p.code);
+    var href = "/product/" + D.slug(p);
     return '<article class="pcard rv">' +
       '<a class="figwrap" href="' + href + '" aria-label="' + esc(p.name) + '">' +
         '<img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy">' +
@@ -339,9 +340,9 @@
     function waHref() { return "https://wa.me/" + num + "?text=" + encodeURIComponent("Hello Anvesha Jewels,"); }
     document.body.insertAdjacentHTML("beforeend",
       '<a class="wa-float" href="' + waHref() + '" target="_blank" rel="noopener" aria-label="Chat with Anvesha Jewels on WhatsApp">' +
-      '<span class="wa-float__icon"><svg viewBox="0 0 32 32" aria-hidden="true">' +
-      '<path fill="currentColor" d="M16 3.2A12.8 12.8 0 0 0 5 22.5L3.3 28.8l6.5-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.3a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.5 10.5 0 1 1 16 26.5Z"/>' +
-      '<path fill="currentColor" d="M11.7 9.6c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.3 6.6 5.8 3.3 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.4-.3-.7-.5l-2.6-1.3c-.3-.1-.6-.2-.9.2l-1.2 1.4c-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-2.7Z"/>' +
+      /* WhatsApp's official logo glyph */
+      '<span class="wa-float__icon"><svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>' +
       '</svg></span><span class="wa-float__label">Chat with us</span></a>');
     var wa = document.querySelector(".wa-float");
     /* product pages only: a small "need help?" note after 45 seconds, once per visit (a test) */
@@ -491,10 +492,10 @@
       return '<p class="sl-empty">No pieces match \u201c' + esc(q) + '\u201d. Try \u201cring\u201d, \u201cpendant\u201d or \u201choops\u201d.</p>';
     }
     return '<div class="sl-list">' + list.slice(0, 6).map(function (p) {
-      return '<a class="sl-item" href="product.html?id=' + encodeURIComponent(p.code) + '">' +
+      return '<a class="sl-item" href="/product/' + D.slug(p) + '">' +
         '<img src="' + p.img + '" alt="" loading="lazy"><span><b>' + esc(p.name) + '</b><small>' + esc(p.meta) + '</small></span></a>';
     }).join("") + '</div>' +
-      '<a class="mlink sl-all" href="rings.html?q=' + encodeURIComponent(q) + '">View all ' + list.length +
+      '<a class="mlink sl-all" href="/rings?q=' + encodeURIComponent(q) + '">View all ' + list.length +
       (list.length === 1 ? ' result' : ' results') + '</a>';
   }
   function wireSearch(f) {
@@ -509,7 +510,7 @@
     f.addEventListener("submit", function (e) {
       e.preventDefault();
       var q = input.value.trim();
-      if (q) location.href = "rings.html?q=" + encodeURIComponent(q);
+      if (q) location.href = "/rings?q=" + encodeURIComponent(q);
     });
   }
   document.querySelectorAll("[data-search-form]").forEach(wireSearch);
@@ -537,21 +538,79 @@
     var cur$ = hero.querySelector("[data-hero-cur]");
     var bar = hero.querySelector(".hero-bar i");
     var track = hero.querySelector(".hero-track");
-    /* Slides run on automatically; the track scrolls sideways, no controls. */
-    function go(n) {
-      idx = (n + slides.length) % slides.length;
-      track.style.transform = "translateX(-" + (idx * 100) + "%)";
-      slides.forEach(function (s, i) {
-        s.classList.toggle("is-active", i === idx);
-        s.setAttribute("aria-hidden", i === idx ? "false" : "true");
-      });
-      cur$.textContent = String(idx + 1).padStart(2, "0");
-      bar.style.transform = "translateX(" + (idx * 100) + "%)";
-      restart();
+    /* Slides run on automatically and always move left: a copy of the first slide sits after the last,
+       the track slides onto it, then jumps back to the real first slide without animating. */
+    var n = slides.length, first = slides[0].cloneNode(true);
+    first.classList.remove("is-active"); first.setAttribute("aria-hidden", "true"); first.inert = true;
+    first.querySelectorAll("[id]").forEach(function (e) { e.removeAttribute("id"); });
+    var fh = first.querySelector("h1"); if (fh) fh.outerHTML = fh.outerHTML.replace(/^<h1/, "<h2").replace(/h1>$/, "h2>");
+    track.appendChild(first);
+    function place(i, animate, px) {
+      if (!animate) track.style.transition = "none";
+      track.style.transform = px ? "translateX(calc(" + (-i * 100) + "% + " + px + "px))" : "translateX(-" + (i * 100) + "%)";
+      if (!animate && !dragging) { void track.offsetWidth; track.style.transition = ""; }
     }
-    function restart() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 6500); }
-    hero.querySelector("[data-hero-total]").textContent = String(slides.length).padStart(2, "0");
-    bar.style.width = (100 / slides.length) + "%";
+    function go(k) {
+      idx = k;
+      place(idx, true);
+      var shown = idx % n;
+      slides.forEach(function (s, i) {
+        s.classList.toggle("is-active", i === shown);
+        s.setAttribute("aria-hidden", i === shown ? "false" : "true");
+      });
+      first.classList.toggle("is-active", idx === n);
+      cur$.textContent = String(shown + 1).padStart(2, "0");
+      bar.style.transform = "translateX(" + (shown * 100) + "%)";
+      restart();
+      /* no animation (reduced motion): there is no transitionend, so reset straight away */
+      if (idx === n && !parseFloat(getComputedStyle(track).transitionDuration)) reset();
+    }
+    function reset() { idx = 0; first.classList.remove("is-active"); place(0, false); }
+    track.addEventListener("transitionend", function (e) { if (e.target === track && idx === n) reset(); });
+    /* a background tab may skip the animation and its transitionend; never step past the copy */
+    function restart() { clearInterval(timer); timer = setInterval(function () { if (idx >= n) reset(); go(idx + 1); }, 6500); }
+    /* Drag with a mouse or swipe with a finger: the slides follow, and on release move on, go back, or
+       settle if the drag was short. Dragging right from the first slide uses the copy at the end, so the
+       last slide shows on its left and the loop holds both ways. A vertical swipe still scrolls the page,
+       and a drag never opens the slide's link. */
+    var dragging = false, decided = false, horiz = false, sx = 0, sy = 0, dx = 0, moved = 0, t0 = 0;
+    track.addEventListener("pointerdown", function (e) {
+      if (e.button) return;
+      if (idx >= n) reset();
+      dragging = true; decided = e.pointerType === "mouse"; horiz = decided;
+      sx = e.clientX; sy = e.clientY; dx = 0; moved = 0; t0 = e.timeStamp;
+      clearInterval(timer);
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      var mx = e.clientX - sx, my = e.clientY - sy;
+      if (!decided) {
+        if (Math.abs(mx) < 6 && Math.abs(my) < 6) return;
+        decided = true; horiz = Math.abs(mx) > Math.abs(my);
+        if (!horiz) { dragging = false; restart(); return; }
+      }
+      dx = mx; moved = Math.max(moved, Math.abs(dx));
+      if (moved > 4) hero.classList.add("is-dragging");
+      if (idx === 0 && dx > 0) { idx = n; first.classList.add("is-active"); }
+      else if (idx === n && dx < 0) { idx = 0; first.classList.remove("is-active"); }
+      track.style.transition = "none";
+      place(idx, false, dx);
+    });
+    function release(e) {
+      if (!dragging) return;
+      dragging = false; hero.classList.remove("is-dragging"); track.style.transition = "";
+      var w = track.clientWidth, v = dx / Math.max(1, e.timeStamp - t0);   /* px per ms */
+      if (dx < -w * 0.15 || (dx < -30 && v < -0.45)) go(idx + 1);
+      else if (dx > w * 0.15 || (dx > 30 && v > 0.45)) go(idx - 1);
+      else go(idx);
+    }
+    window.addEventListener("pointerup", release);
+    window.addEventListener("pointercancel", release);
+    hero.addEventListener("click", function (e) { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } moved = 0; }, true);
+    hero.addEventListener("dragstart", function (e) { e.preventDefault(); });
+
+    hero.querySelector("[data-hero-total]").textContent = String(n).padStart(2, "0");
+    bar.style.width = (100 / n) + "%";
     go(0);
   }
 
@@ -849,7 +908,7 @@
     if (searching) {
       heroEl.classList.add("cat-hero--search");
       var crumbs = document.querySelector(".crumbs");
-      if (crumbs) crumbs.innerHTML = '<a href="index.html">Home</a> / Search';
+      if (crumbs) crumbs.innerHTML = '<a href="/">Home</a> / Search';
       document.title = "Search: " + qRaw + " · Anvesha Jewels";
     }
 
@@ -865,7 +924,7 @@
         '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
 
     document.querySelector("[data-tabs]").innerHTML = CATS.map(function (k) {
-      return '<a href="' + k + '.html"' + (!searching && k === cat ? ' class="is-active" aria-current="page"' : '') + '>' + D.categories[k].name + '</a>';
+      return '<a href=\"/' + k + '"' + (!searching && k === cat ? ' class="is-active" aria-current="page"' : '') + '>' + D.categories[k].name + '</a>';
     }).join("");
 
     var all = searching ? D.products.slice() : D.products.filter(function (p) { return p.cat === cat; });
@@ -896,7 +955,7 @@
     var anchor = { rings: "rings", bracelets: "bracelets", necklaces: "necklaces" }[cat];
     if (!searching && anchor) {
       document.querySelector("[data-filters]").insertAdjacentHTML("beforebegin",
-        '<nav class="cat-help" aria-label="Sizing help"><a href="sizing-chart.html#' + anchor + '">' + I.ruler + 'Size chart</a></nav>');
+        '<nav class="cat-help" aria-label="Sizing help"><a href="/sizing-chart#' + anchor + '">' + I.ruler + 'Size chart</a></nav>');
     }
 
     var grid = document.querySelector("[data-grid]");
@@ -921,7 +980,7 @@
 
       grid.innerHTML = list.length
         ? list.map(card).join("")
-        : '<p class="grid-empty">' + (searching ? 'No pieces match \u201c' + esc(qRaw) + '\u201d. Try ring, pendant, hoops or bracelet, browse the categories above,' : 'No designs match these details just yet. Try another combination,') + ' or <a class="mlink" href="contact.html#inquiry">make an inquiry</a>.</p>';
+        : '<p class="grid-empty">' + (searching ? 'No pieces match \u201c' + esc(qRaw) + '\u201d. Try ring, pendant, hoops or bracelet, browse the categories above,' : 'No designs match these details just yet. Try another combination,') + ' or <a class="mlink" href="/contact#inquiry">make an inquiry</a>.</p>';
       document.querySelector("[data-count]").textContent = list.length + (list.length === 1 ? " design" : " designs");
       var sum = document.querySelector("[data-search-summary]");
       if (sum) sum.textContent = list.length
@@ -942,16 +1001,24 @@
   /* ── product page ──────────────────────────────────── */
   var state = null;
   if (page === "product") {
-    var id = new URLSearchParams(location.search).get("id") || "AJ-R001";
-    var p = D.products.filter(function (x) { return x.code === id; })[0] || D.products[0];
+    /* /product/aurelia-band; older links used /product.html?id=AJ-R003, so those still work and move to the new address */
+    var slug = (location.pathname.match(/^\/product\/([^/?#]+)/) || [])[1];
+    var id = new URLSearchParams(location.search).get("id");
+    var p = D.products.filter(function (x) { return slug ? D.slug(x) === decodeURIComponent(slug) : x.code === id; })[0] || D.products[0];
+    if (history.replaceState && location.pathname !== "/product/" + D.slug(p)) history.replaceState(null, "", "/product/" + D.slug(p) + location.hash);
     var pc = D.categories[p.cat];
     var gallery = p.gallery || [p.img];
     var isRing = p.cat === "rings";
     state = { metal: "gold", karat: "18K", diamond: "lab-grown", size: "14", product: p };
 
     document.title = "Anvesha Jewels · " + p.name;
+    /* one address per piece for search engines, and its own description */
+    var canon = document.querySelector('link[rel="canonical"]') || document.head.appendChild(document.createElement("link"));
+    canon.rel = "canonical"; canon.href = location.origin + "/product/" + D.slug(p);
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.content = p.name + ". " + p.desc;
     document.querySelector("[data-crumbs]").innerHTML =
-      '<a href="index.html">Home</a> / <a href="' + p.cat + '.html">Jewellery</a> / <a href="' + p.cat + '.html">' + pc.name + '</a> / ' + esc(p.name);
+      '<a href="/">Home</a> / <a href=\"/' + p.cat + '">Jewellery</a> / <a href=\"/' + p.cat + '">' + pc.name + '</a> / ' + esc(p.name);
 
     /* one large 4:5 photo; the other photos of the piece (up to 3) sit beside it */
     /* until the real extra photos arrive, a piece with one photo also shows a close-up of it and its
@@ -1000,10 +1067,10 @@
         ? '<div class="opt"><div class="opt-size"><span class="opt-label">Ring size (India)</span>' +
           '<select data-opt-size aria-label="Ring size">' + D.ringSizes.map(function (s) {
             return '<option' + (s === state.size ? " selected" : "") + '>' + s + '</option>'; }).join("") + '</select>' +
-          '<a href="sizing-chart.html#rings">Size chart</a></div></div>'
+          '<a href="/sizing-chart#rings">Size chart</a></div></div>'
         : sizeAnchor
           ? '<div class="opt"><div class="opt-size"><span class="opt-label">Fit and length</span>' +
-            '<a href="sizing-chart.html#' + sizeAnchor + '">Size chart</a></div></div>'
+            '<a href="/sizing-chart#' + sizeAnchor + '">Size chart</a></div></div>'
           : "") +
       '<div class="pdp-cta"><button class="btn btn--solid" data-request>Request a quote ' + I.chat + '</button>' +
         '<p class="pdp-sel"><span data-selection></span><span>Continue with your selection on WhatsApp.</span></p></div>' +
@@ -1016,16 +1083,16 @@
           '<div class="acc-body"><div><p class="p">Keep your piece away from perfume, lotion and household cleaners. Store it separately in a soft pouch, and bring it to us for a gentle professional clean and a prong check once a year.</p></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Sizing and personal guidance <span>+</span></button>' +
           '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows.</p>' +
-          '<a class="mlink" href="sizing-chart.html">See the sizing chart</a></div></div></div>' +
+          '<a class="mlink" href="/sizing-chart">See the sizing chart</a></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Returns and exchange <span>+</span></button>' +
           '<div class="acc-body"><div><p class="p">Each piece is made to order to your confirmed quote. If it arrives damaged or differs from your quote, we will put it right.</p>' +
-          '<a class="mlink" href="returns-exchange.html">Read our returns and exchange policy</a></div></div></div>' +
+          '<a class="mlink" href="/returns-exchange">Read our returns and exchange policy</a></div></div></div>' +
       '</div>';
 
     var related = D.products.filter(function (x) { return x.cat === p.cat && x.code !== p.code; }).slice(0, 3);
     document.querySelector("[data-related]").innerHTML = related.map(card).join("");
     document.querySelector("[data-related-link]").innerHTML =
-      '<a class="mlink" href="' + p.cat + '.html">Explore all ' + pc.name.toLowerCase() + ' ' + I.diag + '</a>';
+      '<a class="mlink" href=\"/' + p.cat + '">Explore all ' + pc.name.toLowerCase() + ' ' + I.diag + '</a>';
 
     /* option behaviour */
     function syncOptions() {
