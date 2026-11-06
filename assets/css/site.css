@@ -227,10 +227,24 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   min-height:420px;
   transition:transform 1s var(--ease);will-change:transform;
 }
+/* Slides sit side by side and the track scrolls across them on its own; a mouse drags it and a finger swipes it
+   sideways (site.js), while vertical swipes still scroll the page. */
+.hero-track{touch-action:pan-y}
+.hero.is-dragging,.hero.is-dragging *{user-select:none}
 /* Slides sit side by side and the track scrolls across them on its own. */
 .hero-slide{position:relative;flex:0 0 100%;height:100%;overflow:hidden}
-.hero-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 26%}
+.hero-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,72% 26%)}
 .hero-slide .wrap-wide{height:100%}
+/* Wider screens: the photo keeps its own shape at full height on the right, never stretched or zoomed in.
+   The left is filled with a light cream tinted from the photo's background (--bg, set per slide), the photo
+   fades into it, and a soft wash behind the text keeps the headline readable on every slide. */
+@media (min-width:641px){
+  .hero-slide{--fill:color-mix(in srgb,var(--bg,#E8E0D6) 34%,#F7F3EE);background:var(--fill)}
+  .hero-slide img{left:auto;right:0;width:auto;max-width:100%;height:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 min(36%,340px));mask-image:linear-gradient(90deg,transparent 0,#000 min(36%,340px))}
+  .hero-slide::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(90deg,var(--fill) 0,color-mix(in srgb,var(--fill) 82%,transparent) 30%,transparent 56%)}
+}
 .hero-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:620px}
 .hero-copy .eyebrow{margin-bottom:var(--space-stack-m)}
 .hero-copy h1,.hero-copy h2{color:var(--emerald);margin-bottom:var(--space-stack-m)}
@@ -1192,6 +1206,15 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+/* three parts: copyright left, the developer credit centred, legal links right; stacked and centred on phones */
+@media (min-width: 900px) {
+  .foot-bar { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .foot-bar nav { justify-self: end; }
+}
+@media (max-width: 899px) {
+  .foot-bar { flex-direction: column; justify-content: center; text-align: center; gap: 10px; }
 }
 
 .foot-bar a {

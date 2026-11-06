@@ -14,7 +14,7 @@
   function product(code) { return D.products.filter(function (p) { return p.code === code; })[0]; }
 
   function card(t, rv) {
-    var p = product(t.product), href = p ? "product.html?id=" + encodeURIComponent(p.code) : "";
+    var p = product(t.product), href = p ? "/product/" + D.slug(p) : "";
     return '<figure class="tm-card' + (rv ? " rv" : "") + '" data-cat="' + esc(t.category || (p ? p.cat : "")) + '">' +
       '<blockquote><p class="script">“' + esc(t.quote) + '”</p></blockquote>' +
       '<figcaption><hr class="tm-rule"><div class="tm-meta"><div>' +

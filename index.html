@@ -9,13 +9,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anvesha Jewels">
 <meta property="og:description" content="Fine jewellery, for the moments you make your own.">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..700;1,6..12,300..500&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="preload" as="image" href="assets/hero/hero-1-desktop.png" media="(min-width:641px)">
-<link rel="preload" as="image" href="assets/hero/hero-1-mobile.png" media="(max-width:640px)">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="preload" as="image" href="/assets/hero/hero-1-desktop.png" media="(min-width:641px)">
+<link rel="preload" as="image" href="/assets/hero/hero-1-mobile.png" media="(max-width:640px)">
 </head>
 <body data-page="home">
 
@@ -23,33 +23,49 @@
   <!-- Campaign carousel -->
   <section class="hero" data-hero>
     <div class="hero-track">
-      <div class="hero-slide is-active">
-        <!-- hero photos: full quality, not compressed. Phone gets its own tall photo -->
+      <!-- hero photos: each slide sets --pos, the part of the photo kept in view on wider screens.
+           Phones get their own tall photo. The slider loops to the left (site.js). -->
+      <div class="hero-slide is-active" style="--pos:72% 30%;--bg:#DBB486">
         <picture>
-          <source media="(max-width:640px)" srcset="assets/hero/hero-1-mobile.png">
-          <img src="assets/hero/hero-1-desktop.png" alt="A woman wearing Anvesha Jewels fine jewellery">
+          <source media="(max-width:640px)" srcset="/assets/hero/hero-emerald-silk-phone.webp">
+          <img src="/assets/hero/hero-emerald-silk.webp" alt="A woman in an emerald silk dress wearing Anvesha Jewels diamond drop earrings, ring and bracelet">
         </picture>
         <div class="wrap-wide">
           <div class="hero-copy">
             <p class="eyebrow">A personal kind of precious</p>
             <h1 class="display h-xl">Precious,<br>in your own way.</h1>
             <p class="lede">Fine jewellery, for the moments you make your own.</p>
-            <a class="btn btn--solid" href="rings.html">Discover jewellery
+            <a class="btn btn--solid" href="/rings">Discover jewellery
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
           </div>
         </div>
       </div>
-      <div class="hero-slide">
+      <div class="hero-slide" style="--pos:72% 26%;--bg:#9F7150">
         <picture>
-          <source media="(max-width:640px)" srcset="assets/hero/hero-2-mobile.png">
-          <img src="assets/hero/hero-2-desktop.png" alt="A woman in a linen shirt by a window, wearing Anvesha Jewels hoops and bracelets" loading="lazy">
+          <source media="(max-width:640px)" srcset="/assets/hero/hero-ivory-saree-phone.webp">
+          <img src="/assets/hero/hero-ivory-saree.webp" alt="A woman in an ivory silk saree wearing Anvesha Jewels diamond studs and a fine necklace" loading="lazy">
         </picture>
         <div class="wrap-wide">
           <div class="hero-copy">
             <p class="eyebrow">The beauty of every day</p>
             <h2 class="display h-xl">Your light.<br>Your signature.</h2>
             <p class="lede">Fine jewellery, for the moments you make your own.</p>
-            <a class="btn btn--solid" href="earrings.html">Discover jewellery
+            <a class="btn btn--solid" href="/earrings">Discover jewellery
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="--pos:72% 8%;--bg:#EDECEB">
+        <picture>
+          <source media="(max-width:640px)" srcset="/assets/hero/hero-ivory-knit-phone.webp">
+          <img src="/assets/hero/hero-ivory-knit.webp" alt="A woman in an ivory knit by a vase of peonies wearing an Anvesha Jewels solitaire pendant and diamond ring" loading="lazy">
+        </picture>
+        <div class="wrap-wide">
+          <div class="hero-copy">
+            <p class="eyebrow">Made to be kept</p>
+            <h2 class="display h-xl">Quietly brilliant.<br>Endlessly yours.</h2>
+            <p class="lede">Genuine gold and diamonds, made to be worn every day and kept for a lifetime.</p>
+            <a class="btn btn--solid" href="/necklaces">Discover jewellery
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
           </div>
         </div>
@@ -63,8 +79,8 @@
   <!-- About -->
   <section class="sec tone-cream about-sec"><div class="wrap-wide">
     <div class="about-grid about-grid--framed rv">
-      <figure class="about-fig"><img src="assets/about.webp" alt="A gold necklace and rings on stone with a fresh green leaf" loading="lazy">
-        <img class="about-fig__small" src="assets/cat-necklaces.webp" alt="" loading="lazy"><figcaption class="about-fig__cap">Est. with care in Surat</figcaption></figure>
+      <figure class="about-fig"><img src="/assets/about.webp" alt="A gold necklace and rings on stone with a fresh green leaf" loading="lazy">
+        <img class="about-fig__small" src="/assets/cat-necklaces.webp" alt="" loading="lazy"><figcaption class="about-fig__cap">Est. with care in Surat</figcaption></figure>
       <div class="about-copy">
         <p class="eyebrow">About Anvesha Jewels</p>
         <h2 class="display h-lg">Fine jewellery in genuine gold, set with natural or lab-grown diamonds.</h2>
@@ -76,7 +92,7 @@
           <li><b>02</b><span>Natural or lab-grown</span><small>Every diamond named clearly</small></li>
           <li><b>03</b><span>Made personal</span><small>To your metal, stones and size</small></li>
         </ul>
-        <a class="btn btn--ghost" href="about.html">Our story
+        <a class="btn btn--ghost" href="/about">Our story
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
       </div>
     </div>
@@ -91,26 +107,26 @@
       <p class="p">Rings, bracelets, necklaces and earrings,<br>made personal to you.</p>
     </div>
     <div class="mt-grid">
-      <a class="mt" href="rings.html" data-mt>
-        <span class="mt-ph"><img src="assets/cat-rings.webp" alt="Gold ring with an emerald centre stone" loading="lazy"></span>
+      <a class="mt" href="/rings" data-mt>
+        <span class="mt-ph"><img src="/assets/cat-rings.webp" alt="Gold ring with an emerald centre stone" loading="lazy"></span>
         <span class="mt-in"><span class="mt-name">Rings</span><span class="mt-tag">A gesture, held close.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="mt" href="bracelets.html" data-mt>
-        <span class="mt-ph"><img src="assets/cat-bracelets.webp" alt="Gold cuff bracelet with emerald details" loading="lazy"></span>
+      <a class="mt" href="/bracelets" data-mt>
+        <span class="mt-ph"><img src="/assets/cat-bracelets.webp" alt="Gold cuff bracelet with emerald details" loading="lazy"></span>
         <span class="mt-in"><span class="mt-name">Bracelets</span><span class="mt-tag">A rhythm all your own.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="mt" href="necklaces.html" data-mt>
-        <span class="mt-ph"><img src="assets/cat-necklaces.webp" alt="Gold necklace with an emerald pendant" loading="lazy"></span>
+      <a class="mt" href="/necklaces" data-mt>
+        <span class="mt-ph"><img src="/assets/cat-necklaces.webp" alt="Gold necklace with an emerald pendant" loading="lazy"></span>
         <span class="mt-in"><span class="mt-name">Necklaces</span><span class="mt-tag">A little light, close to you.</span><span class="mt-btn">Shop category</span></span>
       </a>
-      <a class="mt" href="earrings.html" data-mt>
-        <span class="mt-ph"><img src="assets/cat-earrings.webp" alt="Gold earrings set with emeralds" loading="lazy"></span>
+      <a class="mt" href="/earrings" data-mt>
+        <span class="mt-ph"><img src="/assets/cat-earrings.webp" alt="Gold earrings set with emeralds" loading="lazy"></span>
         <span class="mt-in"><span class="mt-name">Earrings</span><span class="mt-tag">The finishing expression.</span><span class="mt-btn">Shop category</span></span>
       </a>
     </div>
   </div></section>
 
-  <!-- Our festive specials: a row of featured pieces (marked festive:true in assets/js/data.js) -->
+  <!-- Our festive specials: a row of featured pieces (marked festive:true in /assets/js/data.js) -->
   <section class="sec fs tone-sage" aria-labelledby="fsTitle"><div class="wrap-wide">
     <div class="sec-head rv">
       <p class="eyebrow">This season</p>
@@ -118,7 +134,7 @@
       <p class="p">Pieces chosen for Diwali, weddings and every celebration in between.</p>
     </div>
     <div class="fs-row" data-festive aria-label="Festive specials"></div>
-    <div class="fs-ctl"><button class="fs-arrow" type="button" data-fs-prev aria-label="Previous pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 3 5 8l5 5"/></svg></button><a class="btn btn--ghost" href="collections.html">View all festive pieces</a><button class="fs-arrow" type="button" data-fs-next aria-label="Next pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3l5 5-5 5"/></svg></button></div>
+    <div class="fs-ctl"><button class="fs-arrow" type="button" data-fs-prev aria-label="Previous pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 3 5 8l5 5"/></svg></button><a class="btn btn--ghost" href="/collections">View all festive pieces</a><button class="fs-arrow" type="button" data-fs-next aria-label="Next pieces"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3l5 5-5 5"/></svg></button></div>
   </div></section>
 
   <!-- Catalogue: one row of tall photos, edge to edge, with the catalogue button over them -->
@@ -129,10 +145,10 @@
       <p class="p">Considered forms and captivating details, gathered in one catalogue to explore at your own pace.</p>
     </div></div>
     <div class="cs" data-cs>
-      <figure class="cs-tile"><img src="assets/hero-1.webp" alt="A woman wearing an Anvesha Jewels pendant and earrings" loading="lazy"></figure>
-      <figure class="cs-tile"><img src="assets/about.webp" alt="Gold pendant with an emerald and two gold rings on stone" loading="lazy"></figure>
-      <figure class="cs-tile"><img src="assets/collection.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk" loading="lazy"></figure>
-      <figure class="cs-tile"><img src="assets/hero-2.webp" alt="A woman wearing Anvesha Jewels rings and bracelet" loading="lazy"></figure>
+      <figure class="cs-tile"><img src="/assets/hero-1.webp" alt="A woman wearing an Anvesha Jewels pendant and earrings" loading="lazy"></figure>
+      <figure class="cs-tile"><img src="/assets/about.webp" alt="Gold pendant with an emerald and two gold rings on stone" loading="lazy"></figure>
+      <figure class="cs-tile"><img src="/assets/collection.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk" loading="lazy"></figure>
+      <figure class="cs-tile"><img src="/assets/hero-2.webp" alt="A woman wearing Anvesha Jewels rings and bracelet" loading="lazy"></figure>
       <div class="cs-cta"><a class="cs-btn" href="#" data-catalogue>View the catalogue</a><a class="cs-dl" href="#" data-catalogue download>Download PDF</a></div>
     </div>
     <div class="wrap-wide"><p class="script script--gold cs-note rv">Find the piece that speaks to you.</p></div>
@@ -151,47 +167,47 @@
 
     </div>
 
-    <!-- Reels drift to the left (assets/js/reels.js). These photo cards show until the live list
+    <!-- Reels drift to the left (/assets/js/reels.js). These photo cards show until the live list
          from Instagram (AJ.reels.feed in data.js) loads, and stay if it can't be read. -->
     <div class="ig-reels rv" data-ig-reels role="region" aria-label="Latest reels on Instagram">
       <div class="ig-track"><div class="ig-set">
         <article class="ig-reel">
-          <img src="assets/ig-1.webp" alt="Solene Solitaire diamond ring" loading="lazy" draggable="false">
+          <img src="/assets/ig-1.webp" alt="Solene Solitaire diamond ring" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: Solene Solitaire diamond ring">
             <span class="ig-reel-cap">The Solene Solitaire in 18k solid gold. Handcrafted with an exceptional natural diamond centre.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
           </a>
         </article>
         <article class="ig-reel">
-          <img src="assets/ig-2.webp" alt="Gold ring with an emerald centre stone" loading="lazy" draggable="false">
+          <img src="/assets/ig-2.webp" alt="Gold ring with an emerald centre stone" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: Gold ring with an emerald centre stone">
             <span class="ig-reel-cap">Heritage green halo. A statement natural emerald surrounded by round brilliant diamonds.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
           </a>
         </article>
         <article class="ig-reel">
-          <img src="assets/ig-3.webp" alt="Gold and diamond leaf necklace" loading="lazy" draggable="false">
+          <img src="/assets/ig-3.webp" alt="Gold and diamond leaf necklace" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: Gold and diamond leaf necklace">
             <span class="ig-reel-cap">Botanical contours. Light-catching diamond pave set in brushed 18k yellow gold.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
           </a>
         </article>
         <article class="ig-reel">
-          <img src="assets/ig-4.webp" alt="Emerald and gold drop earrings" loading="lazy" draggable="false">
+          <img src="/assets/ig-4.webp" alt="Emerald and gold drop earrings" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: Emerald and gold drop earrings">
             <span class="ig-reel-cap">Symphony in emerald & gold. Articulated drops designed to catch and refract evening light.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
           </a>
         </article>
         <article class="ig-reel">
-          <img src="assets/hero-bracelets.webp" alt="Handcrafted diamond tennis bracelet" loading="lazy" draggable="false">
+          <img src="/assets/hero-bracelets.webp" alt="Handcrafted diamond tennis bracelet" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: Handcrafted diamond tennis bracelet">
             <span class="ig-reel-cap">Fluid grace. Handcrafted bezel tennis bracelet with continuous fire and comfort setting.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
           </a>
         </article>
         <article class="ig-reel">
-          <img src="assets/nav-jewellery.webp" alt="High jewellery statement piece" loading="lazy" draggable="false">
+          <img src="/assets/nav-jewellery.webp" alt="High jewellery statement piece" loading="lazy" draggable="false">
           <span class="ig-type-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <a class="ig-reel-link" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener" aria-label="Watch on Instagram: High jewellery statement piece">
             <span class="ig-reel-cap">Private commission preview. Custom-cut emerald centrepiece in graduated diamonds.</span><span class="ig-action-cta">Watch on Instagram ↗</span>
@@ -201,7 +217,7 @@
     </div>
 
     <div class="wrap-wide">
-      <!-- arrows glide the reels row one card at a time (assets/js/reels.js) -->
+      <!-- arrows glide the reels row one card at a time (/assets/js/reels.js) -->
       <div class="fs-ctl ig-feed-foot">
         <button class="fs-arrow" type="button" data-ig-prev aria-label="Previous reels"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 3 5 8l5 5"/></svg></button>
         <a class="btn btn--solid" href="https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==" target="_blank" rel="noopener">
@@ -214,7 +230,7 @@
   </section>
 
   <!-- TESTIMONIALS (hidden for now; remove these comment marks to bring the section back)
-  <!~~ Client words: two rows drifting in opposite directions (assets/js/testimonials.js) ~~>
+  <!~~ Client words: two rows drifting in opposite directions (/assets/js/testimonials.js) ~~>
   <section class="sec" aria-labelledby="tm-title">
     <div class="wrap-wide">
       <div class="sec-head rv">
@@ -229,7 +245,7 @@
     </div>
     <div class="wrap-wide sec-foot">
       <!~~ Stories page hidden for now
-      <a class="mlink" href="testimonials.html">Read all stories <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+      <a class="mlink" href="/testimonials">Read all stories <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
       ~~>
     </div>
   </section>
@@ -248,14 +264,14 @@
       <div class="lux-contact-grid">
         <div class="lux-contact-card rv">
           <div class="lux-card-bg">
-            <img src="assets/hero-rings.webp" alt="Handcrafted gold rings" loading="lazy">
+            <img src="/assets/hero-rings.webp" alt="Handcrafted gold rings" loading="lazy">
           </div>
           <div class="lux-contact-content">
             <div class="lux-contact-num">01</div>
             <span class="lux-contact-tag">Bespoke Advice</span>
             <h3 class="display">Personal guidance</h3>
             <p class="p">From ring sizing and diamond selection to custom metal purity, let us help you find the piece that feels effortlessly yours.</p>
-            <a class="lux-contact-action" href="contact.html">
+            <a class="lux-contact-action" href="/contact">
               <span>Make an inquiry</span>
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             </a>
@@ -264,14 +280,14 @@
 
         <div class="lux-contact-card rv">
           <div class="lux-card-bg">
-            <img src="assets/collection.webp" alt="Fine jewellery collection" loading="lazy">
+            <img src="/assets/collection.webp" alt="Fine jewellery collection" loading="lazy">
           </div>
           <div class="lux-contact-content">
             <div class="lux-contact-num">02</div>
             <span class="lux-contact-tag">Occasions & Milestones</span>
             <h3 class="display">A meaningful gift</h3>
             <p class="p">Commemorating anniversaries, celebrating milestones, or curating a generational keepsake crafted in fine natural and lab diamonds.</p>
-            <a class="lux-contact-action" href="contact.html">
+            <a class="lux-contact-action" href="/contact">
               <span>Tell us your occasion</span>
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             </a>
@@ -280,7 +296,7 @@
 
         <div class="lux-contact-card rv">
           <div class="lux-card-bg">
-            <img src="assets/about.webp" alt="Jewellery atelier craftsmanship" loading="lazy">
+            <img src="/assets/about.webp" alt="Jewellery atelier craftsmanship" loading="lazy">
           </div>
           <div class="lux-contact-content">
             <div class="lux-contact-num">03</div>
@@ -306,7 +322,7 @@
             Chat on WhatsApp
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-          <a class="btn btn--ghost" href="contact.html">
+          <a class="btn btn--ghost" href="/contact">
             Visit Contact Page
           </a>
         </div>
@@ -315,11 +331,11 @@
   </section>
 </main>
 
-<script src="assets/js/data.js"></script>
-<script src="assets/js/site.js"></script>
-<script src="assets/js/signup.js"></script>
-<script src="assets/js/home.js"></script>
-<script src="assets/js/strip.js"></script>
-<script src="assets/js/reels.js"></script>
+<script src="/assets/js/data.js"></script>
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/signup.js"></script>
+<script src="/assets/js/home.js"></script>
+<script src="/assets/js/strip.js"></script>
+<script src="/assets/js/reels.js"></script>
 </body>
 </html>

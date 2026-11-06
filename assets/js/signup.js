@@ -16,7 +16,7 @@
 
   /* count product views and time on site for this visit */
   var visit = store.get("aj-visit", true) || { views: 0, secs: 0 };
-  if (/product\.html/.test(location.pathname)) { visit.views += 1; store.set("aj-visit", visit, true); }
+  if (/^\/product\//.test(location.pathname)) { visit.views += 1; store.set("aj-visit", visit, true); }
   var shown = false, start = Date.now();
 
   function busy() {
@@ -41,7 +41,7 @@
       '<form class="su-form" novalidate>' +
         '<label class="field"><span>Email address *</span><input type="email" name="email" autocomplete="email" placeholder="Your email address" maxlength="120"></label>' +
         '<label class="field"><span>Mobile number *</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Country code + number" maxlength="20"></label>' +
-        '<label class="su-agree"><input type="checkbox" name="agree"> <span>I agree to receive updates from Anvesha Jewels and have read the <a href="about.html#privacy">privacy policy</a>.</span></label>' +
+        '<label class="su-agree"><input type="checkbox" name="agree"> <span>I agree to receive updates from Anvesha Jewels and have read the <a href="/about#privacy">privacy policy</a>.</span></label>' +
         '<p class="su-err" role="alert" hidden></p>' +
         '<button class="btn btn--solid btn--block" type="submit">Join the story</button>' +
         '<p class="su-fine">No spam. Unsubscribe anytime.</p>' +
