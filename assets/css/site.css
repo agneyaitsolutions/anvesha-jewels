@@ -2285,10 +2285,11 @@ img{max-width:100%}
   .menu-btn{gap:10px;font-size:12px}
   .head-tools{gap:16px}
 }
-/* phone hero: photo on top, words underneath on white, so nothing sits on the face */
+/* phone hero: its own tall photo, words sit low on the clothes, never on the face */
 @media (max-width:640px){
-  .hero-slide img{height:56%;bottom:auto;object-position:72% 18%}
-  .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 48%,#fff 56%,#fff 100%)}
+  .hero-slide img{height:100%;object-position:center 30%}
+  .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 58%,rgba(255,255,255,.8) 72%,rgba(255,255,255,.94) 100%)}
+  .hero-copy .lede{display:none}
   .hero-copy{justify-content:flex-end;padding-bottom:62px}
   .hero-copy .eyebrow{margin-bottom:10px}
   .hero-copy h1,.hero-copy h2{margin-bottom:12px}
@@ -2333,3 +2334,4 @@ img{max-width:100%}
 /* catalogue line: the same space above and below it, on every screen */
 .cs-sec{padding-bottom:clamp(36px,4.5vw,64px)}
 .cs-sec .cs-note{margin-top:clamp(36px,4.5vw,64px);margin-bottom:0;line-height:1.2}
+@media (max-width:380px){.hero-copy .h-xl{font-size:40px}}

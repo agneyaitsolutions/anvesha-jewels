@@ -56,7 +56,9 @@ window.AJ = {
       detail:"Round centre diamond framed by a pavé halo on a fine polished band. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-R003", cat:"rings", name:"Aurelia Band", line:"Aurelia",
       meta:"Diamond-set · Band", metal:["gold","rose-gold","silver"], diamond:"round", style:"band",
-      img:"assets/p-r003.webp",
+      /* TEST PHOTOS (not compressed) - added to check the 4:5 frames. Replace with the final shots */
+      img:"assets/products-test/aurelia-band-1-white.png",
+      gallery:["assets/products-test/aurelia-band-1-white.png","assets/products-test/aurelia-band-2-silk.png","assets/products-test/aurelia-band-3-green.png","assets/products-test/aurelia-band-4-marble.png"],
       desc:"A continuous line of diamonds, made to be worn on its own or alongside the pieces you already love.",
       detail:"Claw-set round diamonds along a half band. Your quote will confirm the diamond specifications, metal details and fit." },
     { code:"AJ-R004", cat:"rings", name:"Elara Oval Ring", line:"Elara",

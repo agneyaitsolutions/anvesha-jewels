@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..700;1,6..12,300..500&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="preload" as="image" href="assets/hero-1.webp">
+<link rel="preload" as="image" href="assets/hero/hero-1-desktop.png" media="(min-width:641px)">
+<link rel="preload" as="image" href="assets/hero/hero-1-mobile.png" media="(max-width:640px)">
 </head>
 <body data-page="home">
 
@@ -23,7 +24,11 @@
   <section class="hero" data-hero>
     <div class="hero-track">
       <div class="hero-slide is-active">
-        <img src="assets/hero-1.webp" alt="A woman wearing Anvesha Jewels fine jewellery">
+        <!-- hero photos: full quality, not compressed. Phone gets its own tall photo -->
+        <picture>
+          <source media="(max-width:640px)" srcset="assets/hero/hero-1-mobile.png">
+          <img src="assets/hero/hero-1-desktop.png" alt="A woman wearing Anvesha Jewels fine jewellery">
+        </picture>
         <div class="wrap-wide">
           <div class="hero-copy">
             <p class="eyebrow">A personal kind of precious</p>
@@ -35,7 +40,10 @@
         </div>
       </div>
       <div class="hero-slide">
-        <img src="assets/hero-2.webp" alt="A woman in a linen shirt by a window, wearing Anvesha Jewels hoops and bracelets" loading="lazy">
+        <picture>
+          <source media="(max-width:640px)" srcset="assets/hero/hero-2-mobile.png">
+          <img src="assets/hero/hero-2-desktop.png" alt="A woman in a linen shirt by a window, wearing Anvesha Jewels hoops and bracelets" loading="lazy">
+        </picture>
         <div class="wrap-wide">
           <div class="hero-copy">
             <p class="eyebrow">The beauty of every day</p>
