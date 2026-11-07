@@ -2422,3 +2422,12 @@ img{max-width:100%}
 .cs-sec--page{padding-top:0!important}
 body[data-page="collections"] .page-top{padding-bottom:0}
 .page-top .cs-head .p{margin-inline:auto}
+
+/* phone menu: same curved-edge open and close as on computers.
+   The drawer stays full width; only the list scrolls inside it, so the curved edge is not cut off. */
+@media (max-width:640px){
+  .drawer{overflow:visible!important;display:flex;flex-direction:column;padding-bottom:24px}
+  .drawer .drawer-nav{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin-inline:-4px;padding-inline:4px}
+  .drawer-curve{display:block;width:70px}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.drawer-curve{display:none}}
