@@ -191,8 +191,9 @@
           '<ul>' +
             '<li><a href="/sizing-chart">Sizing Chart</a></li>' +
             '<li><a href="/returns-exchange">Returns &amp; Exchange</a></li>' +
+            '<li><a href="/shipping-policy">Shipping Policy</a></li>' +
             '<li><a href="/privacy-policy">Privacy Policy</a></li>' +
-            '<li><a href="/about#care">Jewellery Care</a></li>' +
+            '<li><a href="/jewellery-care">Jewellery Care</a></li>' +
             '<li><a href="/contact#inquiry">Request a Quote</a></li>' +
           '</ul>' +
         '</div>' +
@@ -247,11 +248,11 @@
       '<span>© 2026 Anvesha Jewels. Handcrafted with care.</span>' +
       '<span class="foot-credit">Developed by <a href="https://www.agneyasolutions.com" target="_blank" rel="noopener">Agneya IT Solutions</a></span>' +
       '<nav aria-label="Legal links">' +
-        '<a href="/about#privacy">Privacy Policy</a>' +
+        '<a href="/privacy-policy">Privacy Policy</a>' +
         '<span>·</span>' +
         '<a href="/about#terms">Terms of Use</a>' +
         '<span>·</span>' +
-        '<a href="/about#sizing">Sizing Guidance</a>' +
+        '<a href="/sizing-chart">Sizing Guidance</a>' +
       '</nav>' +
     '</div>' +
   '</div>' +
@@ -1100,12 +1101,14 @@
       '<div><h2 class="display h-md">The details that make it yours.</h2><p class="p">' + esc(p.detail) + '</p></div>' +
       '<div>' +
         '<div class="acc"><button aria-expanded="false">Jewellery care <span>+</span></button>' +
-          '<div class="acc-body"><div><p class="p">Keep your piece away from perfume, lotion and household cleaners. Store it separately in a soft pouch, and bring it to us for a gentle professional clean and a prong check once a year.</p></div></div></div>' +
+          '<div class="acc-body"><div><p class="p">Put your jewellery on last, after make-up and perfume, and store each piece separately in a soft muslin cloth. Clean it gently with lukewarm soapy water and a soft toothbrush.</p>' +
+          '<a class="mlink" href="/jewellery-care">Read the full care guide</a></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Sizing and personal guidance <span>+</span></button>' +
-          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows.</p>' +
+          '<div class="acc-body"><div><p class="p">Not sure of your size, or choosing for someone else? Tell us what you know and we will guide you to the right fit.</p>' +
           '<a class="mlink" href="/sizing-chart">See the sizing chart</a></div></div></div>' +
         '<div class="acc"><button aria-expanded="false">Returns and exchange <span>+</span></button>' +
-          '<div class="acc-body"><div><p class="p">Each piece is made to order to your confirmed quote. If it arrives damaged or differs from your quote, we will put it right.</p>' +
+          '<div class="acc-body"><div><p class="p">Eligible pieces can be returned or exchanged at 80% of the original invoice value. If your piece arrives damaged or different from your order, contact us within 24 hours and we will put it right.</p>' +
+          '<a class="mlink" href="/shipping-policy">Shipping policy</a>' +
           '<a class="mlink" href="/returns-exchange">Read our returns and exchange policy</a></div></div></div>' +
       '</div>';
 

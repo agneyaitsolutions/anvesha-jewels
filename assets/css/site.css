@@ -2379,3 +2379,16 @@ img{max-width:100%}
 .pdp-help-link{color:var(--emerald);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;width:fit-content}
 .pdp-help-link:hover{color:var(--gold-deep)}
 @media (max-width:900px){.pdp-gal.has-thumbs + .pdp-help-list{margin-left:0}}
+
+/* policy pages: contact lines, date at the top */
+.pol-contact{line-height:1.9}
+.pol-contact a,.pol .p a{color:var(--emerald);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pol-updated--top{margin:0 0 18px}
+.pol-list li{margin-bottom:8px}
+/* contact page: phone and email under the intro */
+.contact-direct{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px}
+.contact-direct li{display:flex;flex-direction:column;gap:3px}
+.contact-direct span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.contact-direct a{font-size:16px;color:var(--ink);font-weight:600}
+.contact-direct a:hover{color:var(--emerald)}
+.pol>h2:first-child,.pol>.pol-list:first-child{margin-top:0}

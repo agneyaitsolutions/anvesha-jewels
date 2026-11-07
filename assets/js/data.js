@@ -177,7 +177,7 @@ window.AJ = {
     { id:"gold", label:"Gold" },
     { id:"rose-gold", label:"Rose Gold" }
   ],
-  karats: ["14K","18K","20K","22K"],
+  karats: ["14K","18K","22K"],
   diamonds: [
     { id:"natural", label:"Natural" },
     { id:"lab-grown", label:"Lab-grown" }
