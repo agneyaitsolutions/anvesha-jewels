@@ -922,10 +922,10 @@
         '<p class="lede">' + esc(c.intro) + '</p></div>' +
         '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
 
-    /* sub-category pages: no banner, straight to the pieces (title stays for the page outline) */
-    if (sub) {
+    /* category and sub-category pages: no banner, just the name, straight to the pieces */
+    if (!searching) {
       heroEl.classList.add("cat-hero--sub");
-      heroEl.innerHTML = '<h1 class="display h-lg">' + esc(sub.name) + '</h1>';
+      heroEl.innerHTML = '<h1 class="display h-lg">' + esc(sub ? sub.name : c.name) + '</h1>';
     }
 
     /* tabs: all of this category, then its sub-categories in the client's order */
