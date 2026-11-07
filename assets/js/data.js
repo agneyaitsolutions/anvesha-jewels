@@ -1,6 +1,7 @@
 /* Anvesha Jewels: catalogue data. Shared by the listing pages and the product page. */
 window.AJ = {
   whatsapp: "919898618327",            /* client WhatsApp: 098986 18327 */
+  shipDays: [12, 14],                  /* made to order: ships 12 to 14 days from today (shown under product photos) */
   instagram: "https://www.instagram.com/anveshajewels?xtok=MWZjcnkwazFuOHE3OA==",
   facebook: "https://www.facebook.com/share/1MjLyjDmBE/",
   linkedin: "https://www.linkedin.com/company/anvesha-jewels/",

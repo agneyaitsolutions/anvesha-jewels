@@ -2366,3 +2366,16 @@ img{max-width:100%}
 .cs-sec{padding-bottom:clamp(36px,4.5vw,64px)}
 .cs-sec .cs-note{margin-top:clamp(36px,4.5vw,64px);margin-bottom:0;line-height:1.2}
 @media (max-width:380px){.hero-copy .h-xl{font-size:40px}}
+
+/* product page: help rows under the photos */
+.pdp-help-list{list-style:none;margin:10px 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:18px}
+.pdp-gal.has-thumbs + .pdp-help-list{margin-left:calc(clamp(64px,7vw,96px) + 14px)}
+.pdp-help-list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:14px;align-items:start}
+.pdp-help-list svg{width:20px;height:20px;color:var(--emerald);margin-top:1px}
+.pdp-help-list p{margin:0;display:flex;flex-direction:column;gap:5px;font-size:14px;line-height:1.5;color:var(--body)}
+.pdp-help-list li:first-child p{flex-direction:row;flex-wrap:wrap;gap:6px;align-items:baseline}
+.pdp-help-list strong{font-weight:600;color:var(--ink)}
+.pdp-help-list a[href^="tel"]{color:var(--ink);font-weight:600;letter-spacing:.02em}
+.pdp-help-link{color:var(--emerald);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;width:fit-content}
+.pdp-help-link:hover{color:var(--gold-deep)}
+@media (max-width:900px){.pdp-gal.has-thumbs + .pdp-help-list{margin-left:0}}

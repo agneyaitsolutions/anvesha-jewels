@@ -1035,7 +1035,28 @@
       '<div class="pdp-main"><img src="' + shots[0] + '" alt="' + esc(p.name) + '" data-main>' +
         '<button class="pdp-zoom" data-zoom aria-label="View larger">' + I.zoom + '</button>' +
         (shots.length > 1 ? '<span class="pdp-count" data-counter>01 / ' + String(shots.length).padStart(2, "0") + '</span>' : "") +
-      '</div></div>';
+      '</div></div>' +
+      pdpHelp(p);
+
+    /* under the product photos: call, stylist, made-to-order dates */
+    function pdpHelp(p) {
+      var num = AJ.whatsapp, days = AJ.shipDays || [12, 14];
+      var tel = "+" + num, show = "+" + num.slice(0, 2) + " " + num.slice(2, 7) + " " + num.slice(7);
+      var wa = function (t) { return "https://wa.me/" + num + "?text=" + encodeURIComponent(t); };
+      var day = function (n) { var d = new Date(); d.setDate(d.getDate() + n); return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); };
+      var ic = {
+        phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 4h3.2l1.6 4-2.1 1.3a11 11 0 0 0 5 5l1.3-2.1 4 1.6V17a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
+        video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3" y="6.5" width="12.5" height="11" rx="1.5"/><path d="m15.5 10.5 5-3v9l-5-3z"/></svg>',
+        box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 3 3.5 7.5v9L12 21l8.5-4.5v-9z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg>'
+      };
+      return '<ul class="pdp-help-list">' +
+        '<li>' + ic.phone + '<p><span>Contact us</span> <a href="tel:' + tel + '">' + show + '</a></p></li>' +
+        '<li>' + ic.video + '<p><strong>Have questions? Talk to our personal stylist.</strong>' +
+          '<a class="pdp-help-link" href="' + wa("Hello Anvesha Jewels, I'd like to schedule a call about the " + p.name + ".") + '" target="_blank" rel="noopener">Schedule a call</a></p></li>' +
+        '<li>' + ic.box + '<p><strong>Made to order for you. Ships between ' + day(days[0]) + ' and ' + day(days[1]) + '.</strong>' +
+          '<span>Want it sooner? <a class="pdp-help-link" href="' + wa("Hello Anvesha Jewels, I'd like the " + p.name + " sooner.") + '" target="_blank" rel="noopener">Write to us</a></span></p></li>' +
+      '</ul>';
+    }
 
     function chips(key, items) {
       return items.map(function (it) {
