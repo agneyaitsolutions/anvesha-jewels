@@ -922,6 +922,12 @@
         '<p class="lede">' + esc(c.intro) + '</p></div>' +
         '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
 
+    /* sub-category pages: no banner, straight to the pieces (title stays for the page outline) */
+    if (sub) {
+      heroEl.classList.add("cat-hero--sub");
+      heroEl.innerHTML = '<h1 class="display h-lg">' + esc(sub.name) + '</h1>';
+    }
+
     /* tabs: all of this category, then its sub-categories in the client's order */
 
     var tabsEl = document.querySelector("[data-tabs]");

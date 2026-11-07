@@ -2413,3 +2413,7 @@ img{max-width:100%}
 .tabs--subs::-webkit-scrollbar{display:none}
 .tabs--subs a{white-space:nowrap;flex:none}
 @media (max-width:640px){.tabs--subs{gap:22px;margin-inline:calc(-1 * var(--gutter,20px));padding-inline:var(--gutter,20px)}}
+/* sub-category page: just the name, then the pieces (no banner) */
+.cat-hero.cat-hero--sub{display:block;min-height:0!important;background:none;padding:0;margin:4px 0 0}
+.cat-hero.cat-hero--sub>h1{margin:0}
+.cat-hero.cat-hero--sub + *{margin-top:0}
