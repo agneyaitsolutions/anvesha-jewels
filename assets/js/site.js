@@ -31,6 +31,8 @@
   };
 
   var CATS = ["rings", "bracelets", "necklaces", "earrings"];
+  /* a sub-category's page: its category page with ?sub=<id> */
+  function subHref(n, sb) { return "/" + (D.categories[n.key] || { slug: n.key }).slug + "?sub=" + sb.id; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
   function el(html) { var t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 
@@ -53,11 +55,28 @@
 
   /* ── header ────────────────────────────────────────── */
   function header() {
-    var navCats = CATS.map(function (c) {
-      return '<a href=\"/' + c + '">' + D.categories[c].name + ' ' + I.diag + '</a>';
+    /* navigation bar: the client's 7 categories, each with a hover menu of its 4 sub-categories */
+    var navBar = D.nav.map(function (n) {
+      return '<div data-mega="' + n.key + '"><a class="nav-item" href="' + n.href + '" data-mega-btn aria-haspopup="true" aria-expanded="false">' + esc(n.label) + '</a></div>';
     }).join("");
-    var subCats = CATS.map(function (c) {
-      return '<a href=\"/' + c + '">' + D.categories[c].name + '</a>';
+    var navPanels = D.nav.map(function (n) {
+      var c = D.categories[n.key] || {};
+      return '<div class="mega mega--cat" data-mega-panel="' + n.key + '">' +
+        '<div class="wrap-wide"><div class="mega-inner">' +
+          '<div class="mega-cat-intro"><p class="eyebrow mega-col-head">' + esc(n.label) + '</p>' +
+            '<h3 class="display h-md">' + esc(c.script || "") + '</h3>' +
+            '<a class="mlink" href="' + n.href + '">Shop all ' + esc(n.label.toLowerCase()) + ' ' + I.diag + '</a></div>' +
+          '<div class="mega-subs">' + n.subs.map(function (sb) {
+            return '<a class="mega-sub" href="' + subHref(n, sb) + '"><span class="mega-sub-img"><img src="' + sb.img + '" alt="' + esc(sb.name) + '" loading="lazy"></span>' +
+              '<span class="mega-sub-name">' + esc(sb.name) + ' ' + I.diag + '</span></a>';
+          }).join("") + '</div>' +
+        '</div></div>' +
+      '</div>';
+    }).join("");
+    var drawerCats = D.nav.map(function (n) {
+      return '<div class="drawer-row"><button data-acc aria-expanded="false">' + esc(n.label) + ' <span class="pm">+</span></button>' +
+        '<div class="drawer-sub"><a href="' + n.href + '">All ' + esc(n.label.toLowerCase()) + '</a>' +
+        n.subs.map(function (sb) { return '<a href="' + subHref(n, sb) + '">' + esc(sb.name) + '</a>'; }).join("") + '</div></div>';
     }).join("");
 
     return '' +
@@ -74,41 +93,11 @@
   '</div>' +
   '<div class="head-navbar">' +
     '<nav class="head-nav wrap-wide" aria-label="Primary">' +
-      '<div><a class="nav-item" href="/"' + (page === "home" ? ' aria-current="page"' : '') + '>Home</a></div>' +
-      '<div data-mega="jewellery">' +
-        '<button class="nav-item" data-mega-btn aria-expanded="false">Jewellery ' + I.chev + '</button>' +
-      '</div>' +
-      '<div data-mega="collections">' +
-        '<button class="nav-item" data-mega-btn aria-expanded="false">Collections ' + I.chev + '</button>' +
-      '</div>' +
-      '<div><a class="nav-item" href="/about"' + (page === "about" ? ' aria-current="page"' : '') + '>About Us</a></div>' +
-      '<div><a class="nav-item" href="/contact"' + (page === "contact" ? ' aria-current="page"' : '') + '>Contact Us</a></div>' +
+      navBar +
     '</nav>' +
   '</div>' +
 
-    '<div class="mega mega--jewellery" data-mega-panel="jewellery">' +
-      '<div class="wrap-wide"><div class="mega-inner">' +
-        '<div><p class="eyebrow mega-col-head">Explore jewellery</p><div class="mega-list">' + navCats + '</div></div>' +
-        '<div><p class="eyebrow mega-col-head">Make it personal</p>' +
-          '<h3 class="display h-md" style="margin-bottom:14px">A piece that feels<br>like you.</h3>' +
-          '<p class="p" style="margin-bottom:20px">Explore your preferred metal, diamond and design details with a personal quote.</p>' +
-          '<a class="mlink" href="/contact">Request guidance ' + I.diag + '</a></div>' +
-        '<figure class="mega-fig" style="margin:0"><img src="/assets/nav-jewellery.webp" alt="A gold ring set with an emerald and diamonds" loading="lazy">' +
-          '<figcaption><a href="/rings">A gesture, held close. Explore rings ' + I.diag + '</a></figcaption></figure>' +
-      '</div></div>' +
-    '</div>' +
-
-    '<div class="mega mega--collections" data-mega-panel="collections">' +
-      '<div class="wrap-wide"><div class="mega-inner">' +
-        '<div><p class="eyebrow mega-col-head">Explore our collection</p>' +
-          '<h3 class="display h-lg" style="margin-bottom:18px">Considered forms.<br>Personal expressions.</h3>' +
-          '<p class="p" style="margin-bottom:26px;max-width:40ch">Discover the collection, from delicate everyday details to pieces for meaningful moments.</p>' +
-          '<a class="btn btn--ghost" href="' + D.catalogue + '" data-catalogue>Download catalogue ' + I.dl + '</a></div>' +
-        '<figure class="mega-fig" style="margin:0"><img src="/assets/nav-collections.webp" alt="Gold cuff, emerald ring and emerald drop earrings on green silk" loading="lazy">' +
-          '<div class="mega-links"><a href="/collections">Explore the collection ' + I.diag + '</a>' +
-          '<a href="/collections#solene">Discover the Solene selection ' + I.diag + '</a></div></figure>' +
-      '</div></div>' +
-    '</div>' +
+    navPanels +
 
     '<div class="search-panel" data-search-panel>' +
       '<div class="wrap-wide"><form data-search-form role="search">' + I.search +
@@ -128,11 +117,7 @@
     '<input type="search" name="q" placeholder="Search jewellery" aria-label="Search jewellery"></form>' +
   '<nav class="drawer-nav">' +
     '<div class="drawer-row"><a href="/">Home</a></div>' +
-    '<div class="drawer-row"><button data-acc aria-expanded="false">Jewellery <span class="pm">+</span></button>' +
-      '<div class="drawer-sub">' + subCats + '</div></div>' +
-    '<div class="drawer-row"><button data-acc aria-expanded="false">Collections <span class="pm">+</span></button>' +
-      '<div class="drawer-sub"><a href="/collections">The collection</a><a href="/collections#solene">Solene selection</a>' +
-      '<a href="' + D.catalogue + '" data-catalogue>Download catalogue</a><a href="/contact">Request guidance</a></div></div>' +
+    drawerCats +
     '<div class="drawer-row"><a href="/about">About Us</a></div>' +
     '<div class="drawer-row"><a href="/contact">Contact Us</a></div>' +
   '</nav>' +
@@ -167,11 +152,7 @@
         '<div class="foot-col">' +
           '<h4 class="foot-heading">SHOP</h4>' +
           '<ul>' +
-            '<li><a href="/rings">Rings</a></li>' +
-            '<li><a href="/necklaces">Necklaces</a></li>' +
-            '<li><a href="/earrings">Earrings</a></li>' +
-            '<li><a href="/bracelets">Bracelets</a></li>' +
-            '<li><a href="/collections">All Pieces</a></li>' +
+            D.nav.map(function (n) { return '<li><a href="' + n.href + '">' + esc(n.label) + '</a></li>'; }).join("") +
           '</ul>' +
         '</div>' +
 
@@ -377,14 +358,16 @@
   })();
 
   /* mark the active top-nav item */
-  if (page === "category" || page === "product") {
-    var jBtn = document.querySelector('[data-mega="jewellery"] .nav-item');
-    if (jBtn) jBtn.classList.add("is-active");
-  }
-  if (page === "collections") {
-    var cBtn = document.querySelector('[data-mega="collections"] .nav-item');
-    if (cBtn) cBtn.classList.add("is-active");
-  }
+  (function () {
+    var key = page === "collections" ? "collection" : page === "category" && !new URLSearchParams(location.search).get("q") ? cat : "";
+    if (page === "product") {
+      var pid = new URLSearchParams(location.search).get("id"), slug = (location.pathname.match(/\/product\/([^/?#]+)/) || [])[1];
+      var pp = D.products.filter(function (x) { return x.code === pid || D.slug(x) === slug; })[0];
+      if (pp) key = pp.cat;
+    }
+    var b = key && document.querySelector('[data-mega="' + key + '"] .nav-item');
+    if (b) b.classList.add("is-active");
+  })();
   var cur = document.querySelector('.head-nav [aria-current="page"]');
   if (cur) cur.classList.add("is-active");
 
@@ -446,8 +429,12 @@
   function closeSearch() {
     document.querySelector("[data-search-panel]").classList.remove("is-open");
   }
+  var canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
   document.querySelectorAll("[data-mega-btn]").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
+      var k = btn.closest("[data-mega]").dataset.mega;
+      if (canHover || openMega === k) return;   /* go to the category page */
+      e.preventDefault();
       e.stopPropagation();
       var key = btn.closest("[data-mega]").dataset.mega;
       var same = openMega === key;
@@ -906,6 +893,15 @@
     var q = qRaw.toLowerCase();
     var c = D.categories[cat];
     var searching = !!q;
+    /* sub-category from the menu, e.g. /earrings?sub=ear-studs */
+    var navItem = D.nav.filter(function (n) { return n.key === cat; })[0];
+    var subId = params.get("sub") || "";
+    var sub = !searching && navItem ? navItem.subs.filter(function (x) { return x.id === subId; })[0] : null;
+    if (sub) {
+      document.title = sub.name + " · " + c.name + " · Anvesha Jewels";
+      var cr = document.querySelector(".crumbs");
+      if (cr) cr.innerHTML = '<a href="/">Home</a> / <a href="/' + c.slug + '">' + esc(c.name) + '</a> / ' + esc(sub.name);
+    }
     var matches = searching ? searchProducts(q) : null;
     var heroEl = document.querySelector("[data-cat-hero]");
     if (searching) {
@@ -920,17 +916,35 @@
         '<p class="lede" data-search-summary></p>' +
         '<form class="search-refine" data-search-form role="search">' + I.search +
         '<input type="search" name="q" value="' + esc(qRaw) + '" aria-label="Search jewellery"><button class="mlink" type="submit">Search</button></form></div>'
-      : '<div><p class="eyebrow">The Anvesha selection</p>' +
-        '<h1 class="display h-xl">' + c.name + '</h1>' +
+      : '<div><p class="eyebrow">' + (sub ? esc(c.name) : 'The Anvesha selection') + '</p>' +
+        '<h1 class="display h-xl">' + esc(sub ? sub.name : c.name) + '</h1>' +
         '<span class="script script--emerald">' + esc(c.script) + '</span>' +
         '<p class="lede">' + esc(c.intro) + '</p></div>' +
         '<img src="' + c.hero + '" alt="' + esc(c.name) + ' by Anvesha Jewels">';
 
-    document.querySelector("[data-tabs]").innerHTML = CATS.map(function (k) {
-      return '<a href=\"/' + k + '"' + (!searching && k === cat ? ' class="is-active" aria-current="page"' : '') + '>' + D.categories[k].name + '</a>';
-    }).join("");
+    /* tabs: all of this category, then its sub-categories in the client's order */
 
-    var all = searching ? D.products.slice() : D.products.filter(function (p) { return p.cat === cat; });
+    var tabsEl = document.querySelector("[data-tabs]");
+    if (searching || !navItem) tabsEl.innerHTML = CATS.map(function (k) {
+      return '<a href=\"/' + k + '">' + D.categories[k].name + '</a>';
+    }).join("");
+    else {
+      tabsEl.classList.add("tabs--subs");
+      tabsEl.innerHTML = '<a href="/' + c.slug + '"' + (!sub ? ' class="is-active" aria-current="page"' : '') + '>All</a>' +
+        navItem.subs.map(function (x) {
+          return '<a href="' + subHref(navItem, x) + '"' + (sub && x.id === sub.id ? ' class="is-active" aria-current="page"' : '') + '>' + esc(x.name) + '</a>';
+        }).join("");
+      var on = tabsEl.querySelector(".is-active");
+      if (on && on.scrollIntoView) tabsEl.scrollLeft = on.offsetLeft - 16;
+    }
+
+    var all = searching ? D.products.slice() : D.products.filter(function (p) { return c.all || p.cat === cat; });
+    /* sub-category: tagged products only, once any product here is tagged; India Festive uses the festive pieces */
+    if (sub) {
+      var tagged = all.some(function (p) { return p.subs && p.subs.length; });
+      if (tagged) all = all.filter(function (p) { return (p.subs || []).indexOf(sub.id) >= 0; });
+      else if (sub.id === "india-festive") all = all.filter(function (p) { return p.festive; });
+    }
     var styleOpts = [];
     all.forEach(function (p) { if (styleOpts.indexOf(p.style) < 0) styleOpts.push(p.style); });
     function label(list, id) { var f = list.filter(function (x) { return x[0] === id; })[0]; return f ? f[1] : id; }
@@ -983,7 +997,7 @@
 
       grid.innerHTML = list.length
         ? list.map(card).join("")
-        : '<p class="grid-empty">' + (searching ? 'No pieces match \u201c' + esc(qRaw) + '\u201d. Try ring, pendant, hoops or bracelet, browse the categories above,' : 'No designs match these details just yet. Try another combination,') + ' or <a class="mlink" href="/contact#inquiry">make an inquiry</a>.</p>';
+        : '<p class="grid-empty">' + (!searching && !all.length ? 'Pieces for ' + esc((sub ? sub.name : c.name)) + ' are coming soon. For something made for you,' : searching ? 'No pieces match \u201c' + esc(qRaw) + '\u201d. Try ring, pendant, hoops or bracelet, browse the categories above,' : 'No designs match these details just yet. Try another combination,') + ' or <a class="mlink" href="/contact#inquiry">make an inquiry</a>.</p>';
       document.querySelector("[data-count]").textContent = list.length + (list.length === 1 ? " design" : " designs");
       var sum = document.querySelector("[data-search-summary]");
       if (sum) sum.textContent = list.length
@@ -992,7 +1006,7 @@
       endNote.textContent = list.length
         ? searching
           ? "You've explored all " + list.length + " matching design" + (list.length === 1 ? "" : "s") + "."
-          : "You've explored all " + list.length + " design" + (list.length === 1 ? "" : "s") + " in " + c.name.toLowerCase() + "."
+          : "You've explored all " + list.length + " design" + (list.length === 1 ? "" : "s") + " in " + (sub ? sub.name : c.name).toLowerCase() + "."
         : "";
       reveal();
     }

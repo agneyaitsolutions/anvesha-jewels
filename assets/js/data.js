@@ -39,8 +39,70 @@ window.AJ = {
       script: "The finishing expression.",
       intro: "From a quiet sparkle to a graceful drop, explore earrings that bring a little light to the way you move.",
       hero: "/assets/hero-earrings.webp"
+    },
+    /* all: true shows every piece until the client tags products for this page */
+    collection: {
+      name: "Collection", slug: "collection", all: true,
+      script: "Pieces for every moment.",
+      intro: "From festive evenings to the everyday, discover pieces chosen for the moments you make your own.",
+      hero: "/assets/collection.webp"
+    },
+    "mens-jewellery": {
+      name: "Men's Jewellery", slug: "mens-jewellery",
+      script: "Quiet strength, finely made.",
+      intro: "Studs, bracelets, cuffs and brooches, crafted in gold and diamonds for him.",
+      hero: "/assets/hero-bracelets.webp"
+    },
+    gifting: {
+      name: "Gifting", slug: "gifting", all: true,
+      script: "A little light, given.",
+      intro: "Thoughtful pieces for birthdays, engagements and anniversaries, made to be remembered.",
+      hero: "/assets/nav-jewellery.webp"
     }
   },
+
+  /* Navigation bar: the client's categories and sub-categories, in her order.
+     Each sub-category opens its category page with ?sub=<id>. img = the picture in the hover menu:
+     swap each one for the client's photo when it arrives (e.g. /assets/nav/ear-studs.webp).
+     To place a product in a sub-category, add subs:["ear-studs"] to it below; until a category has
+     tagged products, its sub-category pages show every piece of that category. */
+  nav: [
+    { key:"earrings", label:"Earrings", href:"/earrings", subs:[
+      { id:"ear-studs", name:"Ear Studs", img:"/assets/p-e001.webp" },
+      { id:"drop-danglers", name:"Drop & Danglers", img:"/assets/p-e004.webp" },
+      { id:"hoops", name:"Hoops (Bali)", img:"/assets/p-e006.webp" },
+      { id:"everyday-earrings", name:"Everyday Earrings", img:"/assets/p-e003.webp" } ] },
+    { key:"rings", label:"Rings", href:"/rings", subs:[
+      { id:"light-weight-rings", name:"Light-weight Rings", img:"/assets/p-r006.webp" },
+      { id:"cocktail-rings", name:"Cocktail Rings", img:"/assets/p-r002.webp" },
+      { id:"engagement-rings", name:"Engagement Rings", img:"/assets/p-r001.webp" },
+      { id:"everyday-rings", name:"Everyday Rings", img:"/assets/p-r004.webp" } ] },
+    { key:"necklaces", label:"Necklace", href:"/necklaces", subs:[
+      { id:"pendant-necklaces", name:"Pendant Necklaces", img:"/assets/p-n001.webp" },
+      { id:"chokers", name:"Chokers", img:"/assets/p-n004.webp" },
+      { id:"statement-necklaces", name:"Statement Necklaces", img:"/assets/p-n003.webp" },
+      { id:"festive-necklaces", name:"Festive Necklaces", img:"/assets/p-n006.webp" } ] },
+    { key:"bracelets", label:"Bracelet", href:"/bracelets", subs:[
+      { id:"tennis-bracelet", name:"Tennis Bracelet", img:"/assets/p-b001.webp" },
+      { id:"bangles", name:"Bangles", img:"/assets/p-b004.webp" },
+      { id:"everyday-bangles", name:"Everyday Bangles", img:"/assets/p-b002.webp" },
+      { id:"everyday-bracelet", name:"Everyday Bracelet", img:"/assets/p-b003.webp" } ] },
+    { key:"collection", label:"Collection", href:"/collections", subs:[
+      { id:"india-festive", name:"India Festive", img:"/assets/p-n003.webp" },
+      { id:"everyday-essentials", name:"Everyday Essentials", img:"/assets/p-e002.webp" },
+      { id:"life-of-the-party", name:"Life of the Party", img:"/assets/p-r002.webp" },
+      { id:"the-office-wear", name:"The Office Wear", img:"/assets/p-n002.webp" } ] },
+    { key:"mens-jewellery", label:"Men's Jewellery", href:"/mens-jewellery", subs:[
+      { id:"stud-earrings", name:"Stud Earrings", img:"/assets/p-e003.webp" },
+      { id:"bracelet", name:"Bracelet", img:"/assets/p-b005.webp" },
+      { id:"cuffs", name:"Cuffs", img:"/assets/p-b002.webp" },
+      { id:"brooch", name:"Brooch", img:"/assets/p-n005.webp" } ] },
+    { key:"gifting", label:"Gifting", href:"/gifting", subs:[
+      { id:"top-picks", name:"Top Picks", img:"/assets/p-r003.webp" },
+      { id:"birthday-gifts", name:"Birthday Gifts", img:"/assets/p-n002.webp" },
+      { id:"engagement-gifts", name:"Engagement Gifts", img:"/assets/p-r001.webp" },
+      { id:"anniversary-gifts", name:"Anniversary Gifts", img:"/assets/p-b001.webp" } ] }
+  ],
 
   /* metal / diamond / style drive the filter bar. */
   products: [
