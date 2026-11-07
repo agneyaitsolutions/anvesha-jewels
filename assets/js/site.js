@@ -1178,8 +1178,17 @@
   /* ── quote modal ───────────────────────────────────── */
   var modal = document.querySelector("[data-quote]");
   function openQuote(p, selection) {
-    var msg = "Hello Anvesha Jewels, I'd like to request a quote for the " + p.name + " (" + p.code + ").\n\n" +
-      "My selection: " + selection.replace(/ · /g, ", ") + ".\n\nPlease share the details and a personalised quote. Thank you.";
+    /* WhatsApp message: one line per detail, so the team sees the full specification at a glance */
+    var parts = selection.split(" · "), spec = ["Product: " + p.name, "Code: " + p.code];
+    parts.forEach(function (x) {
+      if (/^\d+K$/.test(x)) spec.push("Gold purity: " + x);
+      else if (/diamonds$/i.test(x)) spec.push("Diamond: " + x.replace(/ diamonds$/i, ""));
+      else if (/^Size /.test(x)) spec.push("Ring size: " + x.slice(5));
+      else spec.push("Metal: " + x);
+    });
+    spec.push("Link: " + location.href.split("#")[0]);
+    var msg = "Hello Anvesha Jewels,\n\nI'd like a quote for this piece:\n\n" + spec.join("\n") +
+      "\n\nPlease share the price and details. Thank you.";
     document.querySelector("[data-quote-card]").innerHTML =
       '<div class="modal-top"><p class="eyebrow">Your personal quote</p>' +
       '<button data-close-quote aria-label="Close">' + I.close + '</button></div>' +

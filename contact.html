@@ -42,16 +42,16 @@
       </div>
       <form class="form-grid rv" data-inquiry novalidate>
         <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" placeholder="Your name" required></div>
-        <div class="field"><label for="f-mail">Email address *</label><input id="f-mail" type="email" name="email" placeholder="Your email address" required></div>
-        <div class="field"><label for="f-tel">Phone number (optional)</label><input id="f-tel" name="phone" placeholder="Country code + number"></div>
+        <div class="field"><label for="f-tel">Phone number *</label><input id="f-tel" type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="Country code + number" pattern="\+?[0-9 ]{10,}" title="Please enter a valid phone number" required></div>
+        <div class="field"><label for="f-mail">Email address (optional)</label><input id="f-mail" type="email" name="email" autocomplete="email" placeholder="Your email address"></div>
         <div class="field"><label for="f-cat">I’m interested in</label>
           <select id="f-cat" name="interest">
             <option value="">Select a category</option>
             <option>Rings</option><option>Bracelets</option><option>Necklaces</option><option>Earrings</option>
             <option>A custom design</option><option>Something else</option>
           </select></div>
-        <div class="field field--full"><label for="f-msg">Your message *</label>
-          <textarea id="f-msg" name="message" placeholder="Tell us about the piece or occasion you have in mind…" required></textarea></div>
+        <div class="field field--full"><label for="f-msg">Your message (optional)</label>
+          <textarea id="f-msg" name="message" placeholder="Tell us about the piece or occasion you have in mind…"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" required>
           <span>I agree to be contacted about my inquiry and have read the privacy policy.</span></label>
         <div class="form-foot">
