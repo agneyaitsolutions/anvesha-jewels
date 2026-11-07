@@ -2417,3 +2417,8 @@ img{max-width:100%}
 .cat-hero.cat-hero--sub{display:block;min-height:0!important;background:none;padding:0;margin:4px 0 0}
 .cat-hero.cat-hero--sub>h1{margin:0}
 .cat-hero.cat-hero--sub + *{margin-top:0}
+/* collections page: intro centred on the page, less empty space before the photos */
+.page-top .cs-head{margin:var(--space-stack-l) auto clamp(32px,4vw,52px);max-width:760px;text-align:center}
+.cs-sec--page{padding-top:0!important}
+body[data-page="collections"] .page-top{padding-bottom:0}
+.page-top .cs-head .p{margin-inline:auto}
