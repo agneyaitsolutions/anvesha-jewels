@@ -203,7 +203,7 @@
           '<p class="foot-connect-desc">Follow our journey, new bespoke arrivals and private previews.</p>' +
           '<ul class="foot-connect-list">' +
             '<li><a href="tel:+919898618327" class="foot-connect-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 4h3.2l1.6 4-2.1 1.3a11 11 0 0 0 5 5l1.3-2.1 4 1.6V17a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>+91 98986 18327</span></a></li>' +
-            '<li><a href="mailto:admin@anveshajewels.com" class="foot-connect-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>admin@anveshajewels.com</span></a></li>' +
+            '<li><a href="mailto:anveshajewels@gmail.com" class="foot-connect-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>anveshajewels@gmail.com</span></a></li>' +
             '<li><a href="' + D.instagram + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.insta + '<span>Instagram</span></a></li>' +
             '<li><a href="' + D.facebook + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.fb + '<span>Facebook</span></a></li>' +
             '<li><a href="' + D.linkedin + '" target="_blank" rel="noopener" class="foot-connect-link">' + I.linkedin + '<span>LinkedIn</span></a></li>' +
