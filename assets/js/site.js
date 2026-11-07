@@ -404,6 +404,7 @@
     scrim.classList.toggle("is-open", on);
     drawer.setAttribute("aria-hidden", on ? "false" : "true");
     document.body.classList.toggle("no-scroll", on);
+    document.documentElement.classList.toggle("no-scroll", on);   /* page behind stays still */
   }
   document.addEventListener("click", function (e) {
     if (e.target.closest("[data-open-drawer]")) { setDrawer(true); }

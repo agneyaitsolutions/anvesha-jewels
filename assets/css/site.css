@@ -2423,11 +2423,13 @@ img{max-width:100%}
 body[data-page="collections"] .page-top{padding-bottom:0}
 .page-top .cs-head .p{margin-inline:auto}
 
-/* phone menu: same curved-edge open and close as on computers.
-   The drawer stays full width; only the list scrolls inside it, so the curved edge is not cut off. */
-@media (max-width:640px){
-  .drawer{overflow:visible!important;display:flex;flex-direction:column;padding-bottom:24px}
-  .drawer .drawer-nav{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin-inline:-4px;padding-inline:4px}
-  .drawer-curve{display:block;width:70px}
-}
-@media (max-width:640px) and (prefers-reduced-motion:reduce){.drawer-curve{display:none}}
+/* menu on every screen: logo and Close stay put, only the list scrolls inside it,
+   so the curved open/close edge is never cut off; the page behind stays still */
+.drawer{overflow:visible!important;display:flex;flex-direction:column;padding-bottom:24px}
+.drawer .drawer-nav{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin;margin-inline:-4px;padding-inline:4px}
+.drawer-top,.drawer-search,.drawer-foot,.drawer-tag{flex:none}
+@media (min-width:641px) and (max-height:760px){.drawer-curve{display:block}}
+@media (max-width:640px){.drawer-curve{display:block;width:70px}}
+@media (prefers-reduced-motion:reduce){.drawer-curve{display:none!important}}
+html:has(body.no-scroll){overflow:hidden}
+html.no-scroll{overflow:hidden}
