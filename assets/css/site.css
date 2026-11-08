@@ -2472,3 +2472,4 @@ html.lenis,html.lenis body{height:auto}
   .hero-copy .eyebrow{color:var(--emerald)!important;font-weight:700;opacity:1;text-shadow:0 0 10px #fff,0 0 4px #fff}
   .hero-copy h1,.hero-copy h2{text-shadow:0 0 18px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.9)}
 }
+.name-meaning .hi{font-family:"Tiro Devanagari Hindi",var(--serif);font-weight:400;font-size:1.05em}
