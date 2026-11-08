@@ -77,29 +77,6 @@
   },
   "nav": [
     {
-      "key": "earrings",
-      "label": "Earrings",
-      "href": "/earrings",
-      "subs": [
-        {
-          "id": "ear-studs",
-          "name": "Ear Studs"
-        },
-        {
-          "id": "drop-danglers",
-          "name": "Drop & Danglers"
-        },
-        {
-          "id": "hoops",
-          "name": "Hoops (Bali)"
-        },
-        {
-          "id": "everyday-earrings",
-          "name": "Everyday Earrings"
-        }
-      ]
-    },
-    {
       "key": "rings",
       "label": "Rings",
       "href": "/rings",
@@ -134,6 +111,29 @@
         {
           "id": "chokers",
           "name": "Chokers"
+        }
+      ]
+    },
+    {
+      "key": "earrings",
+      "label": "Earrings",
+      "href": "/earrings",
+      "subs": [
+        {
+          "id": "ear-studs",
+          "name": "Ear Studs"
+        },
+        {
+          "id": "drop-danglers",
+          "name": "Drop & Danglers"
+        },
+        {
+          "id": "hoops",
+          "name": "Hoops (Bali)"
+        },
+        {
+          "id": "everyday-earrings",
+          "name": "Everyday Earrings"
         }
       ]
     },
@@ -3760,7 +3760,7 @@
       "diamond": "round",
       "style": "band",
       "img": "/assets/Ring/AJ-R023.webp",
-      "festive": false,
+      "festive": true,
       "subs": [
         "cocktail-rings"
       ],
@@ -4264,7 +4264,7 @@
       "diamond": "round",
       "style": "halo",
       "img": "/assets/Ring/AJ-R047.webp",
-      "festive": false,
+      "festive": true,
       "subs": [
         "cocktail-rings"
       ],
