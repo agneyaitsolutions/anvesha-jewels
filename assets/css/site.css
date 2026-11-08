@@ -2445,3 +2445,12 @@ html.no-scroll{overflow:hidden}
 /* less space under page headers before the first section */
 .page-top + .sec{padding-top:clamp(28px,3.5vw,48px)!important}
 .name-meaning span{white-space:nowrap}
+
+/* ───────── premium scrolling (assets/js/smooth.js): computers only ───────── */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+/* hero photo drifts a little slower than the page; the small About photo floats against the large one */
+.has-parallax .hero-slide picture{position:absolute;inset:0;display:block;transform:translate3d(0,var(--hero-y,0px),0);will-change:transform}
+.has-parallax .about-fig__small{translate:0 var(--fig-y,0px);will-change:translate}
