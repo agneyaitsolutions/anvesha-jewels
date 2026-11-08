@@ -2465,3 +2465,10 @@ html.lenis,html.lenis body{height:auto}
 /* hero photo drifts a little slower than the page; the small About photo floats against the large one */
 .has-parallax .hero-slide picture{position:absolute;inset:0;display:block;transform:translate3d(0,var(--hero-y,0px),0);will-change:transform}
 .has-parallax .about-fig__small{translate:0 var(--fig-y,0px);will-change:translate}
+
+/* phone hero: words stay readable over the jewellery (soft white backing + darker small line) */
+@media (max-width:640px){
+  .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 60%,rgba(255,255,255,.55) 70%,rgba(255,255,255,.9) 80%,#fff 100%)!important}
+  .hero-copy .eyebrow{color:var(--emerald)!important;font-weight:700;opacity:1;text-shadow:0 0 10px #fff,0 0 4px #fff}
+  .hero-copy h1,.hero-copy h2{text-shadow:0 0 18px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.9)}
+}
