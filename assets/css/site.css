@@ -2432,3 +2432,6 @@ body[data-page="collections"] .page-top{padding-bottom:0}
 @media (prefers-reduced-motion:reduce){.drawer-curve{display:none!important}}
 html:has(body.no-scroll){overflow:hidden}
 html.no-scroll{overflow:hidden}
+/* home: less empty space between "Our story" and "Shop by category" */
+.sec.about-sec{padding-bottom:clamp(44px,5vw,72px)!important}
+.about-sec + .sec{padding-top:clamp(44px,5vw,72px)!important}
