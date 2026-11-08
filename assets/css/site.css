@@ -2480,9 +2480,13 @@ html.lenis,html.lenis body{height:auto}
   .hero-slide img{height:66%!important;bottom:auto;object-position:86% 28%!important}
   .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 48%,rgba(255,255,255,.75) 60%,#fff 67%,#fff 100%)!important}
 }
-/* shop by category: 5 tiles (rings, necklaces, earrings, bracelets, men's jewellery) */
-@media (min-width:901px){.mt-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}.mt-name{font-size:clamp(24px,2.2vw,34px)!important;text-align:center}}
-@media (min-width:761px) and (max-width:900px){
-  .mt-grid{grid-auto-flow:column;grid-template-columns:none!important;grid-auto-columns:42%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+/* shop by category: 5 tiles at the same 4-per-row size as before; the row slides sideways to the 5th.
+   Names sit low on a soft dark fade so they read clearly over any photo */
+@media (min-width:761px){
+  .mt-grid{display:grid!important;grid-auto-flow:column;grid-template-columns:none!important;
+    grid-auto-columns:calc((100% - 4 * clamp(12px,1.4vw,20px)) / 4.3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:8px}
   .mt{scroll-snap-align:start}
 }
+.mt-in{justify-content:flex-end!important;padding-bottom:clamp(18px,2.4vw,28px)!important}
+.mt-ph::after{background:linear-gradient(180deg,rgba(14,22,18,0) 38%,rgba(14,22,18,.35) 62%,rgba(14,22,18,.72) 100%)!important}
+.mt-name{text-shadow:0 2px 14px rgba(0,0,0,.45)}
