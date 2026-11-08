@@ -201,7 +201,7 @@
     {
       "code": "AJ-B002",
       "cat": "bracelets",
-      "name": "Étoile Trio",
+      "name": "Etoile Trio",
       "line": "Aurelia",
       "meta": "Diamond accents · Cuff",
       "metal": [
@@ -239,7 +239,7 @@
     {
       "code": "AJ-B004",
       "cat": "bracelets",
-      "name": "Lumière Band",
+      "name": "Lumiere Band",
       "line": "Celeste",
       "meta": "Diamond-set · Bangle",
       "metal": [
@@ -296,7 +296,7 @@
     {
       "code": "AJ-B007",
       "cat": "bracelets",
-      "name": "Rosé Link",
+      "name": "Rose Link",
       "line": "Solene",
       "meta": "Bezel settings · Smooth continuous fire",
       "metal": [
@@ -359,7 +359,7 @@
     {
       "code": "AJ-B010",
       "cat": "bracelets",
-      "name": "Aurora Pavé",
+      "name": "Aurora Pave",
       "line": "Elara",
       "meta": "Elongated links · Diamond accent",
       "metal": [
@@ -400,8 +400,9 @@
     },
     {
       "code": "AJ-B012",
+      "slug": "rose-royale-bracelet",
       "cat": "bracelets",
-      "name": "Rosé Royale",
+      "name": "Rose Royale",
       "line": "Mira",
       "meta": "Textured gold · Diamond finials",
       "metal": [
@@ -674,7 +675,7 @@
     {
       "code": "AJ-B025",
       "cat": "bracelets",
-      "name": "Majestic Pavé",
+      "name": "Majestic Pave",
       "line": "Solene",
       "meta": "Brushed gold band · Modern drape",
       "metal": [
@@ -758,7 +759,7 @@
     {
       "code": "AJ-B029",
       "cat": "bracelets",
-      "name": "Rosé Infinity",
+      "name": "Rose Infinity",
       "line": "Celeste",
       "meta": "Layered delicate chains · Shimmer",
       "metal": [
@@ -779,7 +780,7 @@
     {
       "code": "AJ-B030",
       "cat": "bracelets",
-      "name": "Golden Élan",
+      "name": "Golden Elan",
       "line": "Mira",
       "meta": "Ergonomic wrist fit · Pavé top",
       "metal": [
@@ -863,7 +864,7 @@
     {
       "code": "AJ-B034",
       "cat": "bracelets",
-      "name": "Rosé Crescent",
+      "name": "Rose Crescent",
       "line": "Elara",
       "meta": "Interlocking loops · Diamond pavé",
       "metal": [
@@ -1065,7 +1066,7 @@
     {
       "code": "AJ-E008",
       "cat": "earrings",
-      "name": "Pearl Étoile",
+      "name": "Pearl Etoile",
       "line": "Lumiere",
       "meta": "Diamond studs · Pavé halo border",
       "metal": [
@@ -1107,7 +1108,7 @@
     {
       "code": "AJ-E010",
       "cat": "earrings",
-      "name": "Halo Lumière",
+      "name": "Halo Lumiere",
       "line": "Elara",
       "meta": "Polished round form · Daily essential",
       "metal": [
@@ -1170,7 +1171,7 @@
     {
       "code": "AJ-E013",
       "cat": "earrings",
-      "name": "Éternelle",
+      "name": "Eternelle",
       "line": "Solene",
       "meta": "Sculptural twist · Medium diameter",
       "metal": [
@@ -1212,7 +1213,7 @@
     {
       "code": "AJ-E015",
       "cat": "earrings",
-      "name": "Rosé Halo",
+      "name": "Rose Halo",
       "line": "Aurelia",
       "meta": "Clean cup setting · Sits flush",
       "metal": [
@@ -1654,7 +1655,7 @@
     {
       "code": "AJ-E036",
       "cat": "earrings",
-      "name": "Rosé Radiance",
+      "name": "Rose Radiance",
       "line": "Mira",
       "meta": "Scattered diamond stars · Fine hoop",
       "metal": [
@@ -2370,7 +2371,7 @@
     {
       "code": "AJ-M021",
       "cat": "mens-jewellery",
-      "name": "Pavé Square Stud",
+      "name": "Pave Square Stud",
       "line": "Equinox",
       "meta": "Sleek rectangular keepsake · Satin face",
       "metal": [
@@ -2591,7 +2592,7 @@
       "code": "AJ-N003",
       "festive": true,
       "cat": "necklaces",
-      "name": "Éclat Pearl Necklace",
+      "name": "Eclat Pearl Necklace",
       "line": "Celeste",
       "meta": "Three diamonds · Drop",
       "metal": [
@@ -2817,7 +2818,7 @@
     {
       "code": "AJ-N014",
       "cat": "necklaces",
-      "name": "Rosé Bloom Pendant",
+      "name": "Rose Bloom Pendant",
       "line": "Lumiere",
       "meta": "Lush green centre · Pavé collar",
       "metal": [
@@ -3316,7 +3317,7 @@
       "code": "AJ-R002",
       "festive": true,
       "cat": "rings",
-      "name": "Élan",
+      "name": "Elan",
       "line": "Lumiere",
       "meta": "Round diamond · Halo",
       "metal": [
@@ -3559,7 +3560,7 @@
     {
       "code": "AJ-R014",
       "cat": "rings",
-      "name": "Rosé Blossom",
+      "name": "Rose Blossom",
       "line": "Lumiere",
       "meta": "Bezel set · Daily stack",
       "metal": [
@@ -4169,7 +4170,7 @@
     {
       "code": "AJ-R043",
       "cat": "rings",
-      "name": "Grand Éclat",
+      "name": "Grand Eclat",
       "line": "Solene",
       "meta": "Braided silhouette · Gold shine",
       "metal": [
@@ -4509,7 +4510,11 @@
   }
   var SINGULAR = { rings: "ring", necklaces: "necklace", earrings: "earring", bracelets: "bracelet", "mens-jewellery": "mens" };
   var slugs = {}, taken = {};
+  window.AJ.products.forEach(function (p) { /* a piece can fix its own address with "slug" */
+    if (p.slug) { taken[p.slug] = true; slugs[p.code] = p.slug; }
+  });
   window.AJ.products.forEach(function (p) {
+    if (slugs[p.code]) return;
     var s = baseSlug(p.name || p.code);
     if (!taken[s] && legacySlug(p.name || p.code) === s) { taken[s] = true; slugs[p.code] = s; }
   });

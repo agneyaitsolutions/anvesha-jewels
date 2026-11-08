@@ -512,6 +512,14 @@ writeFileSync(join(root, "site.webmanifest"), JSON.stringify({
 
 /* 9 · vercel.json redirects, and the published addresses */
 const vercel = JSON.parse(read("vercel.json"));
+/* redirects already published stay (pointed at the piece's current address) unless that address is in use again */
+const codeOf = Object.fromEntries(Object.entries(published).map(([c, s]) => [s, c]));
+for (const r of vercel.redirects || []) {
+  const from = (r.source.match(/^\/product\/(.+)$/) || [])[1], to = (r.destination.match(/^\/product\/(.+)$/) || [])[1];
+  const code = to && (bySlug[to] || codeOf[to]);
+  const p = code && products.find((x) => x.code === code);
+  if (from && p && !bySlug[from] && !moved.has(from)) moved.set(from, slug(p));
+}
 vercel.redirects = (vercel.redirects || []).filter((r) => !r.source.startsWith("/product/") && !HIDDEN.includes(r.source.slice(1)))
   .concat(HIDDEN.map((n) => ({ source: `/${n}`, destination: "/", permanent: false })))
   .concat([...moved].map(([a, b]) => ({ source: `/product/${a}`, destination: `/product/${b}`, permanent: true })));
