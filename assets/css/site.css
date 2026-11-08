@@ -2443,3 +2443,25 @@ body[data-page="collections"] .page-top{padding-bottom:0}
 @media (prefers-reduced-motion:reduce){.drawer-curve{display:none!important}}
 html:has(body.no-scroll){overflow:hidden}
 html.no-scroll{overflow:hidden}
+/* home: less empty space between "Our story" and "Shop by category" */
+.sec.about-sec{padding-bottom:clamp(44px,5vw,72px)!important}
+.about-sec + .sec{padding-top:clamp(44px,5vw,72px)!important}
+
+/* tighter, even space between all sections (was up to 128px above and below each) */
+:root{--space-section:clamp(48px,5vw,72px)}
+@media (max-width:900px){:root{--space-section:44px}}
+/* about page: what "Anvesha" means */
+.name-meaning{margin:6px 0 14px;font-family:var(--serif);font-size:clamp(22px,2vw,28px);font-weight:500;line-height:1.3;color:var(--emerald)}
+.name-meaning em{font-style:italic;font-weight:400;font-size:.8em;opacity:.85}
+/* less space under page headers before the first section */
+.page-top + .sec{padding-top:clamp(28px,3.5vw,48px)!important}
+.name-meaning span{white-space:nowrap}
+
+/* ───────── premium scrolling (assets/js/smooth.js): computers only ───────── */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+/* hero photo drifts a little slower than the page; the small About photo floats against the large one */
+.has-parallax .hero-slide picture{position:absolute;inset:0;display:block;transform:translate3d(0,var(--hero-y,0px),0);will-change:transform}
+.has-parallax .about-fig__small{translate:0 var(--fig-y,0px);will-change:translate}
