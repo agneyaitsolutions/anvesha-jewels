@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "reels": "node scripts/instagram-sync.mjs"
+    "reels": "node scripts/instagram-sync.mjs",
+    "seo": "node scripts/seo-build.mjs",
+    "icons": "python3 scripts/seo-icons.py"
   },
   "devDependencies": {
     "aws4fetch": "^1.0.20",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "playwright-core": "^1.65.0"
   }
 }

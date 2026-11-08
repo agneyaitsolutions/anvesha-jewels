@@ -1,0 +1,105 @@
+{
+  "_note": "Questions and answers for AI assistants, written into llms-full.txt by npm run seo. Each answer is copied word for word from the visible text of that page (key = page name); update it whenever the page text changes. Not used as FAQPage structured data, because the questions are not printed on the pages.",
+  "about": [
+    {
+      "question": "How should I care for my jewellery?",
+      "answer": "Keep your piece away from perfume, lotion and household cleaners. Store it separately in a soft pouch so finer chains do not tangle, and bring it to us once a year for a gentle professional clean and a prong check."
+    },
+    {
+      "question": "How does ring sizing work?",
+      "answer": "Ring sizes follow the Indian scale. If you are unsure, or choosing for someone else, tell us what you know and we will guide you, including a complimentary resize within the first six months where the design allows."
+    },
+    {
+      "question": "Can I choose natural or lab-grown diamonds?",
+      "answer": "Both are real diamonds, identical in brilliance and hardness. Natural stones are formed in the earth; lab-grown are created under the same conditions above it. The choice is yours, and we quote for either."
+    }
+  ],
+  "jewellery-care": [
+    {
+      "question": "How do I care for my jewellery?",
+      "answer": "While care has been taken to ensure that all the pieces adhere to the best quality and craftsmanship possible, the jewellery is handmade and there might be breakage, stone displacement or other issues due to conditions beyond our control. Feel free to contact us. Natural skin oils affect diamonds and other precious stones and can lead to a loss of lustre. Even if you do not wear your jewellery regularly, it can still get dusty. Commercially available jewellery boxes are not recommended for storage. They may have chemical adhesives that can cause discolouring and blackening. When dressing, jewellery should always be put on last, as make-up, cosmetics and perfumes can damage delicate pieces. Heat and light can affect a precious stone's colour and durability. Direct sunlight can fade many stones, including amethyst and smoky quartz. Gold jewellery can also darken for any of the reasons above. This is not because of inferior quality of gold. Should there be any concerns, please bring the piece back to us and we will gladly rectify it for you."
+    },
+    {
+      "question": "How do I care for diamonds and gemstones?",
+      "answer": "To clean diamonds, use warm water, a soft toothbrush and mild soap. Do not use harsh or strong agents. Soak your jewellery in lukewarm soapy water and clean it gently with a soft-bristled toothbrush. Regularly check the prongs holding diamonds and other stones, especially on rings, and make sure they are all of equal height. If one is shorter than the others, the stone might loosen and fall out. Some gems can bleach in sunlight. Heat can dry out the natural moisture of some gemstones, and sudden temperature changes or extreme heat can cause fractures. Do not expose gemstones to high temperatures, as this can change their colour or reduce their lustre. Store your diamond and gemstone jewellery in separate boxes or wrapped in a muslin cloth, as friction between two pieces can chip the stones."
+    }
+  ],
+  "sizing-chart": [
+    {
+      "question": "How do I find my ring size if I have a ring?",
+      "answer": "You can find your ring size by measuring a ring you already own that fits comfortably. This is the most accurate way to find your size. Lay the ring on a ruler and measure the widest distance between the inner edges, in millimetres. That is the inner diameter. Find it in the chart to see your ring size."
+    },
+    {
+      "question": "How do I find my ring size if I don't have a ring?",
+      "answer": "If you don't have a ring, wrap a strip of paper around the base of your finger, mark where it meets and measure the length. That is your circumference."
+    },
+    {
+      "question": "What if I am between two ring sizes?",
+      "answer": "Between two sizes? Choose the larger one. Sizes can differ slightly between makers, so we confirm your size with you before your piece is made."
+    },
+    {
+      "question": "How do I find my bracelet size if I have a bracelet?",
+      "answer": "Lay a bracelet that fits you well flat along a ruler and measure its full length, clasp included. Use the chart below to find your size."
+    },
+    {
+      "question": "How do I find my bracelet size if I don't have a bracelet?",
+      "answer": "Wrap a thread snugly around your wrist and cut it where the ends meet. Measure the thread on a ruler, then add 1 to 2 cm for a comfortable fit."
+    },
+    {
+      "question": "How do I find my bangle size if I have a bangle?",
+      "answer": "Place a bangle that slips on comfortably over a ruler and measure straight across the inside, from edge to edge, in millimetres. Find that inner diameter in the chart below."
+    },
+    {
+      "question": "How do I find my bangle size if I don't have a bangle?",
+      "answer": "Bring your thumb and little finger together, as if putting on a bangle. Wrap a thread around the widest part of your hand, across the knuckles, and measure it. Match that to the inner circumference below. For an open cuff, measure your wrist as for a bracelet. Most cuffs can be gently adjusted for a closer fit."
+    },
+    {
+      "question": "Still not sure of your size?",
+      "answer": "Tell us what you know, or if the piece is a gift, and we will guide you. Where the design allows, we offer a complimentary resize within the first six months."
+    }
+  ],
+  "shipping-policy": [
+    {
+      "question": "When is a purchase considered an order?",
+      "answer": "Any purchase will be considered an order as soon as the full payment is received."
+    },
+    {
+      "question": "Is an identity proof needed to receive the parcel?",
+      "answer": "For logistics and insurance purposes, our team will reach out to request an identity proof of the person or people likely to receive the parcel. Our logistics company will hand over the parcel only to these specified people."
+    },
+    {
+      "question": "Are shipments insured, and how do I get the tracking link?",
+      "answer": "We ship through luxury logistics services and all our shipments are insured. As soon as your order is dispatched, our team will reach out to you on WhatsApp and/or email with the tracking link of the shipment."
+    },
+    {
+      "question": "Who do I contact for a shipping-related query?",
+      "answer": "For any shipping-related query, you can get in touch with us on +91 98986 18327 or email us at admin@anveshajewels.com and we would gladly assist you."
+    }
+  ],
+  "returns-exchange": [
+    {
+      "question": "How much is refunded on a change-of-mind return?",
+      "answer": "For approved change-of-mind returns, 80% of the original invoice value will be refunded, with 20% retained towards handling, insurance and logistics costs, subject to applicable law and confirmation of the applicable charges. To be eligible, the jewellery must be unworn, unused, unaltered and returned in its original condition with the original packaging, invoice and applicable certificates. Once your request is reviewed, we will provide instructions for returning the product. Upon receipt, our team will inspect the jewellery before processing an eligible refund. Anvesha Jewels reserves the right to decline a change-of-mind return if the product does not meet the stated eligibility conditions, subject to applicable consumer rights."
+    },
+    {
+      "question": "What happens if my jewellery arrives damaged, defective or incorrect?",
+      "answer": "If your jewellery arrives damaged, defective or different from the item ordered, please contact us as soon as possible, preferably within 24 hours of delivery, with your order details and clear photographs showing the issue. Our team will review your concern and guide you through the appropriate resolution, which may include repair, replacement or refund, depending on the circumstances and applicable law. Where a return is required, we will provide instructions for secure packaging and collection. The recommended reporting timeframe helps us investigate promptly and does not limit any rights or remedies available under applicable law."
+    },
+    {
+      "question": "Can I exchange my jewellery?",
+      "answer": "Anvesha Jewels offers an exchange facility for eligible purchases. Products may be exchanged at 80% of the original invoice value, subject to product inspection and verification of the original purchase. To initiate an exchange, please contact us on +91 98986 18327 with your order details. Our team will review your request and explain the exchange process. The jewellery must be returned in its original condition, accompanied by the original invoice, packaging and applicable certificates. Custom-made, personalised or bespoke pieces may be excluded from change-of-mind exchanges, subject to applicable law. Any difference in value between the original purchase and the replacement product will be communicated before the exchange is confirmed. The exchange facility is separate from any buyback programme and does not constitute a cash refund of the exchange value."
+    },
+    {
+      "question": "What are the important conditions for returns and exchanges?",
+      "answer": "All return and exchange requests are subject to verification and product inspection. Original invoices, certificates and product documentation must be provided where applicable. Products that have been worn, altered, resized, repaired or damaged after delivery may not qualify for a change-of-mind return or exchange. Nothing in this policy excludes remedies required under applicable consumer protection laws."
+    },
+    {
+      "question": "Will the jewellery look exactly like the product images?",
+      "answer": "At Anvesha Jewels, we make every reasonable effort to ensure that our jewellery is accurately represented on our website. However, product images are for illustrative purposes, and photographs or screen settings may result in slight differences in the appearance or colour of a piece. As our jewellery may involve intricate craftsmanship and handcrafted detailing, minor variations in finish, dimensions or appearance may occur. Product descriptions and measurements should be used as a guide. We encourage you to contact us before placing an order if you require further information about a product's dimensions, materials, gemstones or other specifications."
+    },
+    {
+      "question": "Who do I contact for return or exchange enquiries?",
+      "answer": "For return or exchange enquiries, please contact: Anvesha Jewels Email: admin@anveshajewels.com WhatsApp: +91 98986 18327 Registered address: F-612 Surya Darshan Apartment, Citylight, Surat"
+    }
+  ]
+}

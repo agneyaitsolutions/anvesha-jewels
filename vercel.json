@@ -2,6 +2,201 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/product/:slug", "destination": "/product" }
+    {
+      "source": "/product/:slug",
+      "destination": "/product"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/instagram",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(webp|png|jpg|jpeg|ico|svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(llms|llms-full|robots)\\.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/collection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/gifting",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/product/toile-trio",
+      "destination": "/product/etoile-trio",
+      "permanent": true
+    },
+    {
+      "source": "/product/lumi-re-band",
+      "destination": "/product/lumiere-band",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-link",
+      "destination": "/product/rose-link",
+      "permanent": true
+    },
+    {
+      "source": "/product/aurora-pav",
+      "destination": "/product/aurora-pave",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-royale",
+      "destination": "/product/rose-royale-bracelet",
+      "permanent": true
+    },
+    {
+      "source": "/product/majestic-pav",
+      "destination": "/product/majestic-pave",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-infinity",
+      "destination": "/product/rose-infinity",
+      "permanent": true
+    },
+    {
+      "source": "/product/golden-lan",
+      "destination": "/product/golden-elan",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-crescent",
+      "destination": "/product/rose-crescent",
+      "permanent": true
+    },
+    {
+      "source": "/product/pearl-toile",
+      "destination": "/product/pearl-etoile",
+      "permanent": true
+    },
+    {
+      "source": "/product/halo-lumi-re",
+      "destination": "/product/halo-lumiere",
+      "permanent": true
+    },
+    {
+      "source": "/product/ternelle",
+      "destination": "/product/eternelle",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-halo",
+      "destination": "/product/rose-halo",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-radiance",
+      "destination": "/product/rose-radiance",
+      "permanent": true
+    },
+    {
+      "source": "/product/pav-square-stud",
+      "destination": "/product/pave-square-stud",
+      "permanent": true
+    },
+    {
+      "source": "/product/clat-pearl-necklace",
+      "destination": "/product/eclat-pearl-necklace",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-bloom-pendant",
+      "destination": "/product/rose-bloom-pendant",
+      "permanent": true
+    },
+    {
+      "source": "/product/lan",
+      "destination": "/product/elan",
+      "permanent": true
+    },
+    {
+      "source": "/product/ros-blossom",
+      "destination": "/product/rose-blossom",
+      "permanent": true
+    },
+    {
+      "source": "/product/grand-clat",
+      "destination": "/product/grand-eclat",
+      "permanent": true
+    }
   ]
 }

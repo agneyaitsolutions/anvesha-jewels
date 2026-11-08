@@ -1,11 +1,16 @@
 # Clean addresses on Apache hosts (Hostinger and similar); Vercel uses vercel.json instead.
 #   /rings.html → /rings (redirect), /rings → rings.html, /product/aurelia-band → product.html
 Options -MultiViews
+DirectorySlash Off
 RewriteEngine On
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
 RewriteRule ^ / [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+([^.?\s]+)\.html[\s?]
 RewriteRule ^ /%1 [R=301,L,NE]
-RewriteRule ^product/[^/]+/?$ product.html [L]
+# /product (legacy ?id= links) → the product template; /product/<slug> → its built page, else the template
+RewriteRule ^product/?$ product.html [END]
+RewriteCond %{DOCUMENT_ROOT}/product/$1.html -f
+RewriteRule ^product/([^/.]+)/?$ product/$1.html [END]
+RewriteRule ^product/[^/.]+/?$ product.html [END]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^.]+)$ $1.html [L]

@@ -5,3 +5,5 @@ reels-local
 *.md
 # source photos for the hero banners (large PNGs); the site uses the WebP copies in assets/hero/
 assets/hero/originals/
+temp/
+.DS_Store
