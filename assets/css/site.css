@@ -2473,3 +2473,16 @@ html.lenis,html.lenis body{height:auto}
   .hero-copy h1,.hero-copy h2{text-shadow:0 0 18px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.9)}
 }
 .name-meaning .hi{font-family:"Tiro Devanagari Hindi",var(--serif);font-weight:400;font-size:1.05em}
+
+/* phone hero: same look as before, just less zoomed in: the photo fills the top part of the banner
+   (instead of the full height) and fades softly into the words below */
+@media (max-width:640px){
+  .hero-slide img{height:66%!important;bottom:auto;object-position:86% 28%!important}
+  .hero-slide::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 48%,rgba(255,255,255,.75) 60%,#fff 67%,#fff 100%)!important}
+}
+/* shop by category: 5 tiles (rings, necklaces, earrings, bracelets, men's jewellery) */
+@media (min-width:901px){.mt-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}.mt-name{font-size:clamp(24px,2.2vw,34px)!important;text-align:center}}
+@media (min-width:761px) and (max-width:900px){
+  .mt-grid{grid-auto-flow:column;grid-template-columns:none!important;grid-auto-columns:42%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .mt{scroll-snap-align:start}
+}

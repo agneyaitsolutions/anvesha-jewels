@@ -34,7 +34,15 @@
   /* ── festive specials ── */
   var row = document.querySelector("[data-festive]");
   if (row && D.products) {
-    var items = D.products.filter(function (p) { return p.festive; });
+    /* client's order: 2 necklaces, 2 earrings, 2 rings, 1 bracelet, then repeat */
+    var pool = {}, pattern = ["necklaces", "necklaces", "earrings", "earrings", "rings", "rings", "bracelets"];
+    D.products.forEach(function (p) { if (p.festive) (pool[p.cat] = pool[p.cat] || []).push(p); });
+    var items = [], left = true;
+    while (left) {
+      left = false;
+      pattern.forEach(function (c) { var q = pool[c]; if (q && q.length) { items.push(q.shift()); left = true; } });
+    }
+    Object.keys(pool).forEach(function (c) { items = items.concat(pool[c]); });
     var diag = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9 9 3M4 3h5v5"/></svg>';
     row.innerHTML = items.map(function (p) {
       var href = "/product/" + D.slug(p);
