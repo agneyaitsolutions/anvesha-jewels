@@ -4496,10 +4496,35 @@
   }
 };
 
+  /* web address of a piece: /product/<slug>. Accents are kept as plain letters (Étoile → etoile), and
+     when two pieces share a name one of them gets its category added (celestial-bloom-ring), so every
+     piece has its own address. A piece that already owned an address keeps it (pass 1), so a published
+     link never starts showing a different piece. scripts/seo-build.mjs uses this same function. */
+  function baseSlug(name) {
+    return String(name || "").normalize("NFKD").replace(/[̀-ͯ]/g, "")
+      .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  function legacySlug(name) { /* the scheme before accents were handled */
+    return String(name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  var SINGULAR = { rings: "ring", necklaces: "necklace", earrings: "earring", bracelets: "bracelet", "mens-jewellery": "mens" };
+  var slugs = {}, taken = {};
+  window.AJ.products.forEach(function (p) {
+    var s = baseSlug(p.name || p.code);
+    if (!taken[s] && legacySlug(p.name || p.code) === s) { taken[s] = true; slugs[p.code] = s; }
+  });
+  window.AJ.products.forEach(function (p) {
+    if (slugs[p.code]) return;
+    var s = baseSlug(p.name || p.code);
+    if (taken[s]) s = s + "-" + (SINGULAR[p.cat] || p.cat);
+    if (taken[s]) s = s + "-" + p.code.toLowerCase();
+    taken[s] = true;
+    slugs[p.code] = s;
+  });
+  window.AJ.legacySlug = function (p) { return p ? legacySlug(p.name || p.code) : ""; };
   window.AJ.slug = function (p) {
     if (!p) return "";
-    var name = p.name || p.code || "";
-    return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return slugs[p.code] || baseSlug(p.name || p.code);
   };
 
   window.TESTIMONIALS = [

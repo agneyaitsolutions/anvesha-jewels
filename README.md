@@ -142,3 +142,29 @@ photographs; the second slide comes from `Campaign carousel · Alternate slide.p
 
 The form validates in the browser and shows a confirmation, but does not post anywhere yet. Wire
 the `submit` handler in `assets/js/site.js` to whichever endpoint or inbox the client prefers.
+
+## Search and AI visibility (SEO / AEO / GEO)
+
+Run **`npm run seo`** after any change to `assets/js/data.js` (products, names, categories) or to a page
+template, then commit what it changed. It needs Google Chrome installed (or `CHROME_PATH`).
+
+What it does (`scripts/seo-build.mjs`). Nothing visible changes; a pixel comparison of every page type
+on desktop and mobile shows zero difference.
+
+- **Pre-drawn pages.** Most AI crawlers (ChatGPT, Claude, Perplexity) do not run JavaScript, so the
+  listing grids and product details were invisible to them. The build lets the site's own JavaScript
+  draw each page in headless Chrome and saves that markup inside the containers (between `<!--ssr-->`
+  markers). In the browser `site.js` draws the same markup over it.
+- **One real page per piece:** `product/<slug>.html`, each with its own title, description,
+  canonical address, main-photo preload and Product + Breadcrumb structured data.
+- **Head block** on every page between `<!-- seo:start -->` and `<!-- seo:end -->`: icons, social tags
+  and one JSON-LD graph (JewelryStore, WebSite, page, breadcrumbs, item lists). Do not edit it by hand.
+- **`sitemap.xml`** (with product photos), **`robots.txt`** (search engines and AI assistants welcome),
+  **`llms.txt`** and **`llms-full.txt`** (whole catalogue plus verbatim answers from `scripts/seo-faq.json`),
+  **`site.webmanifest`**.
+- **Addresses never move silently.** `scripts/seo-slugs.json` records every piece's published address.
+  If a rename would make an address show a different piece the build stops; changed addresses get a
+  301 in `vercel.json` automatically.
+
+Icons: `assets/icons/icon-1024.png` is the master (emerald monogram with the gold sparkle).
+`npm run icons` cuts `favicon.ico`, `apple-touch-icon.png` and the PNG sizes from it.

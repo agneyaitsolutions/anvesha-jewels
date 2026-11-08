@@ -14,7 +14,8 @@ function routes(req, res, next) {
     res.setHeader("Location", (u.pathname === "/index.html" ? "/" : u.pathname.slice(0, -5)) + u.search);
     return res.end();
   }
-  if (/^\/product\/[^/]+\/?$/.test(u.pathname)) req.url = "/product.html" + u.search;
+  /* a built product page (npm run seo) wins; otherwise the product template draws the piece */
+  if (/^\/product\/[^/]+\/?$/.test(u.pathname) && !existsSync(join(root, u.pathname.replace(/\/$/, "") + ".html"))) req.url = "/product.html" + u.search;
   else if (u.pathname !== "/" && !/\.[a-z0-9]+$/i.test(u.pathname) && existsSync(join(root, u.pathname + ".html"))) req.url = u.pathname + ".html" + u.search;
   next();
 }

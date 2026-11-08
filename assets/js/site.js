@@ -6,7 +6,7 @@
   if (typeof D.slug !== "function") {
     D.slug = function (p) {
       if (!p) return "";
-      var name = p.name || p.code || "";
+      var name = String(p.name || p.code || "").normalize("NFKD").replace(/[̀-ͯ]/g, "");
       return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     };
   }
@@ -1064,7 +1064,16 @@
     /* /product/aurelia-band; older links used /product.html?id=AJ-R003, so those still work and move to the new address */
     var slug = (location.pathname.match(/^\/product\/([^/?#]+)/) || [])[1];
     var id = new URLSearchParams(location.search).get("id");
-    var p = D.products.filter(function (x) { return slug ? D.slug(x) === decodeURIComponent(slug) : x.code === id; })[0] || D.products[0];
+    var want = slug ? decodeURIComponent(slug) : "";
+    var p = D.products.filter(function (x) { return slug ? D.slug(x) === want : x.code === id; })[0];
+    /* addresses from before accents were handled (/product/toile-trio) still find their piece */
+    if (!p && want && D.legacySlug) p = D.products.filter(function (x) { return D.legacySlug(x) === want; })[0];
+    /* an address that matches no piece still shows the first piece, but search engines are told not to index it */
+    if (!p) {
+      p = D.products[0];
+      var nr = document.createElement("meta"); nr.name = "robots"; nr.content = "noindex, follow";
+      document.head.appendChild(nr);
+    }
     if (history.replaceState && location.pathname !== "/product/" + D.slug(p)) history.replaceState(null, "", "/product/" + D.slug(p) + location.hash);
     var pc = D.categories[p.cat];
     var gallery = p.gallery || [p.img];
@@ -1075,19 +1084,21 @@
     /* one address per piece for search engines, and its own description */
     var canon = document.querySelector('link[rel="canonical"]') || document.head.appendChild(document.createElement("link"));
     canon.rel = "canonical"; canon.href = location.origin + "/product/" + D.slug(p);
+    var prebuilt = !!document.querySelector('script[type="application/ld+json"][data-seo]');
     var md = document.querySelector('meta[name="description"]');
-    if (md) md.content = p.name + ". " + p.desc;
-    /* structured data so search engines and AI answers understand the piece */
-    (function () {
+    if (md && !prebuilt) md.content = p.name + ". " + p.desc;
+    /* structured data so search engines and AI answers understand the piece.
+       Pre-built pages (/product/<slug>.html from scripts/seo-build.mjs) already carry it in the HTML. */
+    if (!prebuilt) (function () {
       var ld = document.createElement("script"); ld.type = "application/ld+json";
       ld.textContent = JSON.stringify({
         "@context": "https://schema.org", "@type": "Product",
         name: p.name, sku: p.code, description: p.desc + " " + (p.detail || ""),
-        image: [location.origin + p.img], category: pc.name,
+        image: [location.origin + encodeURI(p.img).replace(/'/g, "%27")], category: pc.name,
         brand: { "@type": "Brand", name: "Anvesha Jewels" },
-        material: "Gold", url: location.origin + "/product/" + D.slug(p),
-        offers: { "@type": "Offer", availability: "https://schema.org/PreOrder", priceCurrency: "INR",
-          seller: { "@type": "Organization", name: "Anvesha Jewels" }, url: location.origin + "/product/" + D.slug(p) }
+        material: D.metals.filter(function (m) { return p.metal.indexOf(m.id) >= 0; }).map(function (m) { return m.label; }).join(", "),
+        url: location.origin + "/product/" + D.slug(p)
+        /* no offers: pieces are quoted individually, and an offer without a price is invalid */
       });
       document.head.appendChild(ld);
       var bc = document.createElement("script"); bc.type = "application/ld+json";
