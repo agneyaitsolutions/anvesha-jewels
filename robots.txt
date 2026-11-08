@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /testimonials
+Disallow: /instagram
+
+Sitemap: https://www.anveshajewels.com/sitemap.xml

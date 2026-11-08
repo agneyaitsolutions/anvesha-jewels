@@ -1056,12 +1056,32 @@
     var isRing = p.cat === "rings" || (p.subs && p.subs.indexOf("rings") >= 0);
     state = { metal: "gold", karat: "18K", diamond: "lab-grown", size: "14", product: p };
 
-    document.title = "Anvesha Jewels · " + p.name;
+    document.title = p.name + " · " + pc.name + " · Anvesha Jewels";
     /* one address per piece for search engines, and its own description */
     var canon = document.querySelector('link[rel="canonical"]') || document.head.appendChild(document.createElement("link"));
     canon.rel = "canonical"; canon.href = location.origin + "/product/" + D.slug(p);
     var md = document.querySelector('meta[name="description"]');
     if (md) md.content = p.name + ". " + p.desc;
+    /* structured data so search engines and AI answers understand the piece */
+    (function () {
+      var ld = document.createElement("script"); ld.type = "application/ld+json";
+      ld.textContent = JSON.stringify({
+        "@context": "https://schema.org", "@type": "Product",
+        name: p.name, sku: p.code, description: p.desc + " " + (p.detail || ""),
+        image: [location.origin + p.img], category: pc.name,
+        brand: { "@type": "Brand", name: "Anvesha Jewels" },
+        material: "Gold", url: location.origin + "/product/" + D.slug(p),
+        offers: { "@type": "Offer", availability: "https://schema.org/PreOrder", priceCurrency: "INR",
+          seller: { "@type": "Organization", name: "Anvesha Jewels" }, url: location.origin + "/product/" + D.slug(p) }
+      });
+      document.head.appendChild(ld);
+      var bc = document.createElement("script"); bc.type = "application/ld+json";
+      bc.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: location.origin + "/" },
+        { "@type": "ListItem", position: 2, name: pc.name, item: location.origin + "/" + (pc.slug || p.cat) },
+        { "@type": "ListItem", position: 3, name: p.name } ] });
+      document.head.appendChild(bc);
+    })();
     document.querySelector("[data-crumbs]").innerHTML =
       '<a href="/">Home</a> / <a href="/' + (pc.slug || p.cat) + '">' + pc.name + '</a> / ' + esc(p.name);
 
