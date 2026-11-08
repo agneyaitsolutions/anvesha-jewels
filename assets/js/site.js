@@ -2,7 +2,14 @@
    Header, drawer, mega menus and footer are injected here so every page stays in step. */
 (function () {
   "use strict";
-  var D = window.AJ;
+  var D = window.AJ || {};
+  if (typeof D.slug !== "function") {
+    D.slug = function (p) {
+      if (!p) return "";
+      var name = p.name || p.code || "";
+      return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    };
+  }
   var page = document.body.dataset.page || "";
   var cat = document.body.dataset.cat || "";
 
@@ -61,15 +68,27 @@
     }).join("");
     var navPanels = D.nav.map(function (n) {
       var c = D.categories[n.key] || {};
+      var coverImg = c.cover || c.hero || '';
       return '<div class="mega mega--cat" data-mega-panel="' + n.key + '">' +
         '<div class="wrap-wide"><div class="mega-inner">' +
-          '<div class="mega-cat-intro"><p class="eyebrow mega-col-head">' + esc(n.label) + '</p>' +
+          '<div class="mega-cat-intro">' +
+            '<p class="eyebrow mega-col-head">' + esc(n.label) + '</p>' +
             '<h3 class="display h-md">' + esc(c.script || "") + '</h3>' +
-            '<a class="mlink" href="' + n.href + '">Shop all ' + esc(n.label.toLowerCase()) + ' ' + I.diag + '</a></div>' +
-          '<div class="mega-subs">' + n.subs.map(function (sb) {
-            return '<a class="mega-sub" href="' + subHref(n, sb) + '"><span class="mega-sub-img"><img src="' + sb.img + '" alt="' + esc(sb.name) + '" loading="lazy"></span>' +
-              '<span class="mega-sub-name">' + esc(sb.name) + ' ' + I.diag + '</span></a>';
-          }).join("") + '</div>' +
+            '<a class="mlink mega-all-link" href="' + n.href + '">Shop all ' + esc(n.label.toLowerCase()) + ' ' + I.diag + '</a>' +
+          '</div>' +
+          '<div class="mega-cat-links">' +
+            '<ul class="mega-sub-list">' +
+              n.subs.map(function (sb) {
+                return '<li><a class="mega-sub-link" href="' + subHref(n, sb) + '">' + esc(sb.name) + ' ' + I.diag + '</a></li>';
+              }).join("") +
+            '</ul>' +
+          '</div>' +
+          (coverImg ? '<div class="mega-cat-cover">' +
+            '<a class="mega-cover-fig" href="' + n.href + '">' +
+              '<img src="' + coverImg + '" alt="' + esc(n.label) + ' Cover" loading="lazy">' +
+              '<span class="mega-cover-tag"><span>Explore ' + esc(n.label) + '</span> ' + I.diag + '</span>' +
+            '</a>' +
+          '</div>' : '') +
         '</div></div>' +
       '</div>';
     }).join("");
@@ -507,9 +526,11 @@
   document.querySelectorAll("[data-search-form]").forEach(wireSearch);
   document.addEventListener("click", function (e) {
     var c = e.target.closest("[data-catalogue]");
-    if (c && (!c.getAttribute("href") || c.getAttribute("href") === "#")) {
-      e.preventDefault();
-      alert("The Anvesha Jewels catalogue PDF will be linked here once it is supplied.");
+    if (c) {
+      var catUrl = (D && D.catalogue) || "/Anvesha_Jewels_Catalogue.pdf";
+      if (!c.getAttribute("href") || c.getAttribute("href") === "#") {
+        c.setAttribute("href", catUrl);
+      }
     }
   });
 

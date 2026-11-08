@@ -1,0 +1,615 @@
+{
+  "AJ-E002": [
+    "ear-studs"
+  ],
+  "AJ-E003": [
+    "drop-danglers"
+  ],
+  "AJ-E013": [
+    "hoops"
+  ],
+  "AJ-E001": [
+    "everyday-earrings"
+  ],
+  "AJ-R004": [
+    "light-weight-rings"
+  ],
+  "AJ-R001": [
+    "cocktail-rings"
+  ],
+  "AJ-R003": [
+    "everyday-rings"
+  ],
+  "AJ-N001": [
+    "festive-necklaces"
+  ],
+  "AJ-N002": [
+    "pendant-necklaces"
+  ],
+  "AJ-N032": [
+    "chokers"
+  ],
+  "AJ-B002": [
+    "tennis-bracelet"
+  ],
+  "AJ-B001": [
+    "bangles"
+  ],
+  "AJ-M003": [
+    "stud-earrings"
+  ],
+  "AJ-M005": [
+    "stud-earrings"
+  ],
+  "AJ-M007": [
+    "stud-earrings"
+  ],
+  "AJ-M010": [
+    "stud-earrings"
+  ],
+  "AJ-M020": [
+    "stud-earrings"
+  ],
+  "AJ-M021": [
+    "stud-earrings"
+  ],
+  "AJ-M023": [
+    "stud-earrings"
+  ],
+  "AJ-M028": [
+    "stud-earrings"
+  ],
+  "AJ-M029": [
+    "stud-earrings"
+  ],
+  "AJ-M004": [
+    "bracelet"
+  ],
+  "AJ-M011": [
+    "bracelet"
+  ],
+  "AJ-M012": [
+    "bracelet"
+  ],
+  "AJ-M013": [
+    "bracelet"
+  ],
+  "AJ-M024": [
+    "bracelet"
+  ],
+  "AJ-M027": [
+    "bracelet"
+  ],
+  "AJ-M001": [
+    "rings"
+  ],
+  "AJ-M006": [
+    "rings"
+  ],
+  "AJ-M008": [
+    "rings"
+  ],
+  "AJ-M009": [
+    "rings"
+  ],
+  "AJ-M014": [
+    "rings"
+  ],
+  "AJ-M015": [
+    "rings"
+  ],
+  "AJ-M025": [
+    "rings"
+  ],
+  "AJ-M002": [
+    "chain-lockets"
+  ],
+  "AJ-M016": [
+    "chain-lockets"
+  ],
+  "AJ-M017": [
+    "chain-lockets"
+  ],
+  "AJ-M018": [
+    "chain-lockets"
+  ],
+  "AJ-M019": [
+    "chain-lockets"
+  ],
+  "AJ-M022": [
+    "chain-lockets"
+  ],
+  "AJ-M026": [
+    "chain-lockets"
+  ],
+  "AJ-E005": [
+    "ear-studs"
+  ],
+  "AJ-E004": [
+    "drop-danglers"
+  ],
+  "AJ-E006": [
+    "everyday-earrings"
+  ],
+  "AJ-R008": [
+    "light-weight-rings"
+  ],
+  "AJ-R002": [
+    "cocktail-rings"
+  ],
+  "AJ-R005": [
+    "everyday-rings"
+  ],
+  "AJ-N003": [
+    "festive-necklaces"
+  ],
+  "AJ-N005": [
+    "festive-necklaces",
+    "pendant-necklaces"
+  ],
+  "AJ-N033": [
+    "chokers"
+  ],
+  "AJ-E010": [
+    "ear-studs"
+  ],
+  "AJ-E008": [
+    "drop-danglers"
+  ],
+  "AJ-E016": [
+    "hoops"
+  ],
+  "AJ-R009": [
+    "light-weight-rings"
+  ],
+  "AJ-R006": [
+    "cocktail-rings"
+  ],
+  "AJ-R007": [
+    "everyday-rings"
+  ],
+  "AJ-N004": [
+    "festive-necklaces"
+  ],
+  "AJ-N006": [
+    "pendant-necklaces"
+  ],
+  "AJ-N034": [
+    "chokers"
+  ],
+  "AJ-B004": [
+    "tennis-bracelet"
+  ],
+  "AJ-B003": [
+    "bangles"
+  ],
+  "AJ-E020": [
+    "ear-studs"
+  ],
+  "AJ-E011": [
+    "drop-danglers"
+  ],
+  "AJ-E007": [
+    "everyday-earrings"
+  ],
+  "AJ-R019": [
+    "light-weight-rings"
+  ],
+  "AJ-R010": [
+    "cocktail-rings"
+  ],
+  "AJ-R014": [
+    "everyday-rings"
+  ],
+  "AJ-N007": [
+    "festive-necklaces"
+  ],
+  "AJ-N009": [
+    "pendant-necklaces"
+  ],
+  "AJ-N035": [
+    "chokers"
+  ],
+  "AJ-E024": [
+    "ear-studs"
+  ],
+  "AJ-E012": [
+    "drop-danglers"
+  ],
+  "AJ-E018": [
+    "hoops"
+  ],
+  "AJ-R020": [
+    "everyday-rings",
+    "light-weight-rings"
+  ],
+  "AJ-R011": [
+    "cocktail-rings"
+  ],
+  "AJ-R017": [
+    "everyday-rings"
+  ],
+  "AJ-N008": [
+    "festive-necklaces"
+  ],
+  "AJ-N010": [
+    "pendant-necklaces"
+  ],
+  "AJ-N036": [
+    "chokers"
+  ],
+  "AJ-B005": [
+    "tennis-bracelet"
+  ],
+  "AJ-B008": [
+    "bangles"
+  ],
+  "AJ-E025": [
+    "ear-studs"
+  ],
+  "AJ-E028": [
+    "drop-danglers"
+  ],
+  "AJ-E029": [
+    "drop-danglers"
+  ],
+  "AJ-E009": [
+    "everyday-earrings"
+  ],
+  "AJ-R021": [
+    "light-weight-rings"
+  ],
+  "AJ-R012": [
+    "cocktail-rings"
+  ],
+  "AJ-R018": [
+    "everyday-rings"
+  ],
+  "AJ-N011": [
+    "pendant-necklaces"
+  ],
+  "AJ-N037": [
+    "chokers"
+  ],
+  "AJ-E027": [
+    "ear-studs"
+  ],
+  "AJ-E030": [
+    "hoops"
+  ],
+  "AJ-R026": [
+    "light-weight-rings"
+  ],
+  "AJ-R013": [
+    "cocktail-rings"
+  ],
+  "AJ-N013": [
+    "festive-necklaces"
+  ],
+  "AJ-N012": [
+    "pendant-necklaces"
+  ],
+  "AJ-B006": [
+    "tennis-bracelet"
+  ],
+  "AJ-B009": [
+    "bangles"
+  ],
+  "AJ-E032": [
+    "ear-studs"
+  ],
+  "AJ-E031": [
+    "drop-danglers"
+  ],
+  "AJ-E014": [
+    "everyday-earrings"
+  ],
+  "AJ-R028": [
+    "light-weight-rings"
+  ],
+  "AJ-R015": [
+    "cocktail-rings"
+  ],
+  "AJ-R027": [
+    "everyday-rings"
+  ],
+  "AJ-N016": [
+    "festive-necklaces"
+  ],
+  "AJ-N014": [
+    "pendant-necklaces"
+  ],
+  "AJ-E035": [
+    "ear-studs"
+  ],
+  "AJ-E050": [
+    "hoops"
+  ],
+  "AJ-R029": [
+    "light-weight-rings"
+  ],
+  "AJ-R016": [
+    "cocktail-rings"
+  ],
+  "AJ-R030": [
+    "everyday-rings"
+  ],
+  "AJ-N020": [
+    "festive-necklaces"
+  ],
+  "AJ-N015": [
+    "pendant-necklaces"
+  ],
+  "AJ-B007": [
+    "tennis-bracelet"
+  ],
+  "AJ-B010": [
+    "bangles"
+  ],
+  "AJ-E042": [
+    "ear-studs"
+  ],
+  "AJ-E033": [
+    "drop-danglers"
+  ],
+  "AJ-E015": [
+    "everyday-earrings"
+  ],
+  "AJ-R034": [
+    "light-weight-rings"
+  ],
+  "AJ-R022": [
+    "cocktail-rings"
+  ],
+  "AJ-R035": [
+    "everyday-rings"
+  ],
+  "AJ-N021": [
+    "festive-necklaces"
+  ],
+  "AJ-N017": [
+    "pendant-necklaces"
+  ],
+  "AJ-E043": [
+    "ear-studs",
+    "everyday-earrings"
+  ],
+  "AJ-E034": [
+    "hoops"
+  ],
+  "AJ-R038": [
+    "light-weight-rings"
+  ],
+  "AJ-R023": [
+    "cocktail-rings"
+  ],
+  "AJ-R045": [
+    "everyday-rings"
+  ],
+  "AJ-N022": [
+    "festive-necklaces"
+  ],
+  "AJ-N018": [
+    "pendant-necklaces"
+  ],
+  "AJ-B014": [
+    "tennis-bracelet"
+  ],
+  "AJ-B011": [
+    "bangles"
+  ],
+  "AJ-E045": [
+    "ear-studs"
+  ],
+  "AJ-E037": [
+    "drop-danglers"
+  ],
+  "AJ-E017": [
+    "everyday-earrings"
+  ],
+  "AJ-R039": [
+    "light-weight-rings"
+  ],
+  "AJ-R024": [
+    "cocktail-rings"
+  ],
+  "AJ-R049": [
+    "everyday-rings"
+  ],
+  "AJ-N023": [
+    "festive-necklaces"
+  ],
+  "AJ-N019": [
+    "pendant-necklaces"
+  ],
+  "AJ-E047": [
+    "ear-studs"
+  ],
+  "AJ-R042": [
+    "light-weight-rings"
+  ],
+  "AJ-R025": [
+    "cocktail-rings"
+  ],
+  "AJ-N024": [
+    "festive-necklaces"
+  ],
+  "AJ-N025": [
+    "pendant-necklaces"
+  ],
+  "AJ-B016": [
+    "tennis-bracelet"
+  ],
+  "AJ-B012": [
+    "bangles"
+  ],
+  "AJ-E048": [
+    "ear-studs"
+  ],
+  "AJ-E038": [
+    "drop-danglers"
+  ],
+  "AJ-E019": [
+    "everyday-earrings"
+  ],
+  "AJ-R044": [
+    "light-weight-rings"
+  ],
+  "AJ-R031": [
+    "cocktail-rings"
+  ],
+  "AJ-R048": [
+    "cocktail-rings"
+  ],
+  "AJ-N026": [
+    "festive-necklaces"
+  ],
+  "AJ-N027": [
+    "pendant-necklaces"
+  ],
+  "AJ-E022": [
+    "everyday-earrings",
+    "hoops"
+  ],
+  "AJ-R051": [
+    "light-weight-rings"
+  ],
+  "AJ-R032": [
+    "cocktail-rings"
+  ],
+  "AJ-R047": [
+    "cocktail-rings"
+  ],
+  "AJ-N028": [
+    "festive-necklaces"
+  ],
+  "AJ-N030": [
+    "pendant-necklaces"
+  ],
+  "AJ-B017": [
+    "tennis-bracelet"
+  ],
+  "AJ-B013": [
+    "bangles"
+  ],
+  "AJ-E039": [
+    "drop-danglers"
+  ],
+  "AJ-E021": [
+    "everyday-earrings"
+  ],
+  "AJ-R043": [
+    "light-weight-rings"
+  ],
+  "AJ-R046": [
+    "light-weight-rings"
+  ],
+  "AJ-R033": [
+    "cocktail-rings"
+  ],
+  "AJ-N029": [
+    "festive-necklaces"
+  ],
+  "AJ-R036": [
+    "cocktail-rings"
+  ],
+  "AJ-N031": [
+    "festive-necklaces"
+  ],
+  "AJ-B019": [
+    "tennis-bracelet"
+  ],
+  "AJ-B015": [
+    "bangles"
+  ],
+  "AJ-E044": [
+    "drop-danglers"
+  ],
+  "AJ-R037": [
+    "cocktail-rings"
+  ],
+  "AJ-R040": [
+    "cocktail-rings"
+  ],
+  "AJ-B020": [
+    "tennis-bracelet"
+  ],
+  "AJ-B018": [
+    "bangles"
+  ],
+  "AJ-E049": [
+    "drop-danglers"
+  ],
+  "AJ-E023": [
+    "everyday-earrings"
+  ],
+  "AJ-R041": [
+    "cocktail-rings"
+  ],
+  "AJ-E036": [
+    "everyday-earrings"
+  ],
+  "AJ-R050": [
+    "cocktail-rings"
+  ],
+  "AJ-B022": [
+    "tennis-bracelet"
+  ],
+  "AJ-B021": [
+    "bangles"
+  ],
+  "AJ-E040": [
+    "everyday-earrings"
+  ],
+  "AJ-B027": [
+    "tennis-bracelet"
+  ],
+  "AJ-B023": [
+    "bangles"
+  ],
+  "AJ-E041": [
+    "everyday-earrings"
+  ],
+  "AJ-B028": [
+    "tennis-bracelet"
+  ],
+  "AJ-B024": [
+    "bangles"
+  ],
+  "AJ-E046": [
+    "everyday-earrings"
+  ],
+  "AJ-B035": [
+    "tennis-bracelet"
+  ],
+  "AJ-B025": [
+    "bangles"
+  ],
+  "AJ-B036": [
+    "tennis-bracelet"
+  ],
+  "AJ-B026": [
+    "bangles"
+  ],
+  "AJ-B029": [
+    "bangles"
+  ],
+  "AJ-B030": [
+    "bangles"
+  ],
+  "AJ-B031": [
+    "bangles"
+  ],
+  "AJ-B032": [
+    "bangles"
+  ],
+  "AJ-B033": [
+    "bangles"
+  ],
+  "AJ-B034": [
+    "bangles"
+  ],
+  "AJ-E026": [
+    "ear-studs"
+  ]
+}

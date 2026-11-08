@@ -1,0 +1,59 @@
+Earrings,Rings,Necklace,Bracelet,Collection,Accessories,Men's Jewellery,Gifting
+,,,,,,,
+Ear Studs,Light-weight Rings,Festive Necklaces,Tennis Bracelets,India Festive,Mangalsutra,Stud Earrings,Top Picks
+Drop & Danglers,Cocktail Rings,Pendant Necklaces,Bangles,Everyday Essentials,Anklets,Bracelet,Birthday Gufts
+Hoops (Bali ),Everday Rings,Chokers,,Life of the Party,Nose Pin,Rings,Engagment Gifts
+Everday earrings,,,,,,Chain & Lockets,Anniversary Gifts
+Earrings,,Rings,,Necklace,,Bracelet,,Men's Jewellery
+,,,,,,,,
+| AJ-E001      | Celeste Duo        |,,| AJ-R001      | Celeste             |,,AJ-N001         | Celeste Tennis Necklace    |,,| AJ-B001      | Celeste Cuff       |,,| AJ-M001      | The Monarch Signet |
+| AJ-E002      | Aurelia Bloom      |,,| AJ-R002      | Élan                |,,| AJ-N002      | Solitaire Grace Pendant    |,,| AJ-B002      | Étoile Trio        |,,| AJ-M002      | Solis Pendant      |
+| AJ-E003      | Maharani           |,,| AJ-R003      | Infinity Grace      |,,| AJ-N003      | Éclat Pearl Necklace       |,,| AJ-B003      | Royal Radiance     |,,| AJ-M003      | Triad Stud         | 
+| AJ-E004      | Soleil Burst       |,,| AJ-R004      | Golden Lattice      |,,| AJ-N004      | Thea Geometric Necklace    |,,| AJ-B004      | Lumière Band       |,,| AJ-M004      | Axis Bracelet      | 
+| AJ-E005      | Daisy Dew          |,,| AJ-R005      | Seraphina           |,,| AJ-N005      | Aurelia Floral Set         |,,| AJ-B005      | Dainty Grace       |,,| AJ-M005      | Quadra Stud        | 
+| AJ-E006      | Snowflake Radiance |,,| AJ-R006      | Aurora Halo         |,,| AJ-N006      | Mira Square Pendant        |,,| AJ-B006      | Celestial Bloom    |,,| AJ-M006      | Imperial Ring      | 
+| AJ-E007      | Golden Petals      |,,| AJ-R007      | Eternal Twist       |,,| AJ-N007      | Emerald Royale Necklace    |,,| AJ-B007      | Rosé Link          |,,| AJ-M007      | Solitaire Stud     | 
+| AJ-E008      | Pearl Étoile       |,,| AJ-R008      | Amorette            |,,| AJ-N008      | Ruby Luxe Set              |,,| AJ-B008      | Golden Whisper     |,,| AJ-M008      | Heritage Signet    | 
+| AJ-E009      | Celestial Studs    |,,| AJ-R009      | Intertwined         |,,| AJ-N009      | Celestia Chandbali Set     |,,| AJ-B009      | Petal Embrace      |,,| AJ-M009      | Apex Solitaire     | 
+| AJ-E010      | Halo Lumière       |,,| AJ-R010      | Soleil Bloom        |,,| AJ-N010      | Peacock Majesty Pendant    |,,| AJ-B010      | Aurora Pavé        |,,| AJ-M010      | Trigon Stud        | 
+| AJ-E011      | Golden Drizzle     |,,| AJ-R011      | The Royal Edit      |,,| AJ-N011      | Orbit Diamond Pendant      |,,| AJ-B011      | Solstice Bangle    |,,| AJ-M011      | Azure Bracelet     | 
+| AJ-E012      | Seraphina Drops    |,,| AJ-R012      | Imperial Radiance   |,,| AJ-N012      | Twin Soul Pendant          |,,| AJ-B012      | Rosé Royale        |,,| AJ-M012      | Twinline Bracelet  | 
+| AJ-E013      | Éternelle          |,,| AJ-R013      | Signature Luxe      |,,| AJ-N013      | Serene Diamond Necklace    |,,| AJ-B013      | Infinity Weave     |,,| AJ-M013      | Obsidian Bracelet  | 
+| AJ-E014      | Royal Cushion      |,,| AJ-R014      | Rosé Blossom        |,,| AJ-N014      | Rosé Bloom Pendant         |,,| AJ-B014      | Link & Luxe        |,,| AJ-M014      | Prestige Band      | 
+| AJ-E015      | Rosé Halo          |,,| AJ-R015      | Fluid Grace         |,,| AJ-N015      | Petalia Diamond Necklace   |,,| AJ-B015      | Diamond Muse       |,,| AJ-M015      | Radiant Crest      | 
+| AJ-E016      | Golden Embrace     |,,| AJ-R016      | Rose Royale         |,,| AJ-N016      | Dainty Luxe Necklace       |,,| AJ-B016      | Eternal Spark      |,,| AJ-M016      | Legacy Pendant     | 
+| AJ-E017      | Twin Spark         |,,| AJ-R017      | Petal Kiss          |,,| AJ-N017      | Elara Drop Pendant         |,,| AJ-B017      | Crystal Line       |,,| AJ-M017      | Emerald Crest      | 
+| AJ-E018      | Silver Symphony    |,,| AJ-R018      | Deux Amour          |,,| AJ-N018      | Fleur Royale Pendant       |,,| AJ-B018      | Elara Bracelet     |,,| AJ-M018      | Noir Bar Pendant   | 
+| AJ-E019      | Aurora Bloom       |,,| AJ-R019      | Baguette Luxe       |,,| AJ-N019      | Solstice Diamond Pendant   |,,| AJ-B019      | Golden Serpentine  |,,| AJ-M019      | Onyx Pendant       | 
+| AJ-E020      | Emerald Enchant    |,,| AJ-R020      | Diamond Bloom       |,,| AJ-N020      | Vanya Statement Necklace   |,,| AJ-B020      | Luxe Tennis        |,,| AJ-M020      | Classic Huggie     | 
+| AJ-E021      | Diamond Duchess    |,,| AJ-R021      | Trinity             |,,| AJ-N021      | Maharani Heritage Set      |,,| AJ-B021      | Twin Elegance      |,,| AJ-M021      | Pavé Square Stud   | 
+| AJ-E022      | Golden Teardrop    |,,| AJ-R022      | Emerald Elegance    |,,| AJ-N022      | Golden Aura Necklace       |,,| AJ-B022      | Starburst Bracelet |,,| AJ-M022      | Titan Bar Pendant  | 
+| AJ-E023      | Midnight Noir      |,,| AJ-R023      | The Empress         |,,| AJ-N023      | Ruby Empress Set           |,,| AJ-B023      | Imperial Link      |,,| AJ-M023      | Orbit Stud         | 
+| AJ-E024      | Starlight Bloom    |,,| AJ-R024      | Cushion Royale      |,,| AJ-N024      | Blossom Diamond Necklace   |,,| AJ-B024      | Double Eternity    |,,| AJ-M024      | Link Luxe Bracelet | 
+| AJ-E025      | Ruby Muse          |,,| AJ-R025      | Fiesta Bloom        |,,| AJ-N025      | Noor Floral Pendant        |,,| AJ-B025      | Majestic Pavé      |,,| AJ-M025      | Signature Band     | 
+| AJ-E026      | Frosted Flora      |,,| AJ-R026      | Golden Whirl        |,,| AJ-N026      | Maharani Collar Necklace   |,,| AJ-B026      | Golden Halo        |,,| AJ-M026      | Trident Pendant    | 
+| AJ-E027      | Ruby Royale        |,,| AJ-R027      | Dainty Spark        |,,| AJ-N027      | Everyday Elegance Necklace |,,| AJ-B027      | Geometric Luxe     |,,| AJ-M027      | Dual Arc Bracelet  | 
+| AJ-E028      | Sapphire Grace     |,,| AJ-R028      | Linear Grace        |,,| AJ-N028      | Amara Bridal Set           |,,| AJ-B028      | Petal Trail        |,,| AJ-M028      | Maverick Hoop      | 
+| AJ-E029      | Bluebell Elegance  |,,| AJ-R029      | Golden Petals       |,,| AJ-N029      | Rosalia Pendant Set        |,,| AJ-B029      | Rosé Infinity      |,,| AJ-M029      | Trinity Stud       | 
+| AJ-E030      | Golden Waves       |,,| AJ-R030      | Serene Twist        |,,| AJ-N030      | Heart of Eternity Pendant  |,,| AJ-B030      | Golden Élan        |,,
+| AJ-E031      | Sapphire Cascade   |,,| AJ-R031      | Starlight           |,,| AJ-N031      | Triple Grace Necklace Set  |,,| AJ-B031      | Marquise Muse      |,,
+| AJ-E032      | Floral Whisper     |,,| AJ-R032      | Celestial Bloom     |,,| AJ-N032     | Celestia Choker,,| AJ-B032      | Diamond Cascade    |,,
+| AJ-E033      | Celestial Cascade  |,,| AJ-R033      | Golden Interlace    |,,| AJ-N033    | Evara Necklace,,| AJ-B033      | Celestial Eye      |,,
+| AJ-E034      | Golden Aura        |,,| AJ-R034      | Blossom Royale      |,,| AJ-N034    | Aurelle Choker,,| AJ-B034      | Rosé Crescent      |,,
+| AJ-E035      | Ruby Blossom       |,,| AJ-R035      | Chevron Grace       |,,| AJ-N035    | Seraphine Necklace,,| AJ-B035      | Serpentine Glow    |,,
+| AJ-E036      | Rosé Radiance      |,,| AJ-R036      | Rainbow Muse        |,,| AJ-N036     | Noore Choke,,| AJ-B036      | Solitaire Trail    |,,
+| AJ-E037      | Diamond Cascade    |,,| AJ-R037      | Classic Radiance    |,,| AJ-N037   | Fancy Diamonds Choker,,,,
+| AJ-E038      | Emerald Muse       |,,| AJ-R038      | Golden Eternity     |,,,,,,
+| AJ-E039      | Silver Starlight   |,,| AJ-R039      | Pear Perfection     |,,,,,,
+| AJ-E040      | Petal Glow         |,,| AJ-R040      | Halo Majesty        |,,,,,,
+| AJ-E041      | Floral Grace       |,,| AJ-R041      | Ruby Empress        |,,,,,,
+| AJ-E042      | Diamond Bloom      |,,| AJ-R042      | Emerald Luxe        |,,,,,,
+| AJ-E043      | Golden Daisy       |,,| AJ-R043      | Grand Éclat         |,,,,,,
+| AJ-E044      | Golden Cascade     |,,| AJ-R044      | Golden Symphony     |,,,,,,
+| AJ-E045      | Noir Elegance      |,,| AJ-R045      | Butterfly Grace     |,,,,,,
+| AJ-E046      | Golden Frame       |,,| AJ-R046      | Everyday Elegance   |,,,,,,
+| AJ-E047      | Teardrop Royale    |,,| AJ-R047      | Delicate Muse       |,,,,,,
+| AJ-E048      | Emerald Majesty    |,,| AJ-R048      | Statement Blue      |,,,,,,
+| AJ-E049      | Diamond Rain       |,,| AJ-R049      | Solitaire Majesty   |,,,,,,
+| AJ-E050      | Golden Twist       |,,| AJ-R050      | Pearls of Light     |,,,,,,
+,,| AJ-R051      | Marquise Allure     |,,,,,,

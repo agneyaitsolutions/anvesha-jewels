@@ -2,6 +2,13 @@
 (function () {
   "use strict";
   var D = window.AJ || {};
+  if (typeof D.slug !== "function") {
+    D.slug = function (p) {
+      if (!p) return "";
+      var name = p.name || p.code || "";
+      return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    };
+  }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
 
