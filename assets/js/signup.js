@@ -1,4 +1,4 @@
-/* Anvesha Jewels: sign-up pop-up (email + mobile).
+/* Anvesha Jewels: sign-up pop-up (full name + mobile).
    When it appears (whichever comes first, never as someone lands):
      · after the visitor has viewed 2 pieces (product pages), or
      · after about 40 seconds on the site (counted across pages), or
@@ -39,9 +39,9 @@
       '<h2 class="display h-md" id="suTitle">Be the first to know.</h2>' +
       '<p class="p su-lede">New pieces, private previews and special moments, shared with you first.</p>' +
       '<form class="su-form" novalidate>' +
-        '<label class="field"><span>Email address *</span><input type="email" name="email" autocomplete="email" placeholder="Your email address" maxlength="120"></label>' +
+        '<label class="field"><span>Full name *</span><input type="text" name="name" autocomplete="name" placeholder="Your full name" maxlength="80"></label>' +
         '<label class="field"><span>Mobile number *</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Country code + number" maxlength="20"></label>' +
-        '<label class="su-agree"><input type="checkbox" name="agree"> <span>I agree to receive updates from Anvesha Jewels and have read the <a href="/about#privacy">privacy policy</a>.</span></label>' +
+        '<label class="su-agree"><input type="checkbox" name="agree"> <span>I agree to receive updates from Anvesha Jewels and have read the <a href="/privacy-policy">privacy policy</a>.</span></label>' +
         '<p class="su-err" role="alert" hidden></p>' +
         '<button class="btn btn--solid btn--block" type="submit">Join the story</button>' +
         '<p class="su-fine">No spam. Unsubscribe anytime.</p>' +
@@ -56,7 +56,7 @@
     store.set(KEY, { t: Date.now(), joined: false });
     lastFocus = document.activeElement;
     el.hidden = false; requestAnimationFrame(function () { el.classList.add("on"); });
-    setTimeout(function () { var f = el.querySelector("input[name=email]"); if (f && matchMedia("(hover:hover)").matches) f.focus(); }, 450);
+    setTimeout(function () { var f = el.querySelector("input[name=name]"); if (f && matchMedia("(hover:hover)").matches) f.focus(); }, 450);
     document.addEventListener("keydown", onKey);
   }
   function close() {
@@ -76,14 +76,14 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var email = form.email.value.trim(), phone = form.phone.value.trim(), bad = [];
-    if (!/^\S+@\S+\.\S+$/.test(email)) bad.push(form.email);
-    if (phone.replace(/\D/g, "").length < 8) bad.push(form.phone);
-    [form.email, form.phone].forEach(function (x) { x.setAttribute("aria-invalid", bad.indexOf(x) > -1); });
-    if (bad.length) { err.hidden = false; err.textContent = "Please add a valid email address and mobile number."; bad[0].focus(); return; }
+    var name = form.name.value.trim(), phone = form.phone.value.trim(), bad = [];
+    if (name.length < 2) bad.push(form.name);
+    if (phone.replace(/\D/g, "").length < 10) bad.push(form.phone);
+    [form.name, form.phone].forEach(function (x) { x.setAttribute("aria-invalid", bad.indexOf(x) > -1); });
+    if (bad.length) { err.hidden = false; err.textContent = "Please add your full name and a valid mobile number."; bad[0].focus(); return; }
     if (!form.agree.checked) { err.hidden = false; err.textContent = "Please tick the box to agree to receive updates."; return; }
     err.hidden = true;
-    var data = { email: email, phone: phone, page: location.pathname, date: new Date().toISOString() };
+    var data = { name: name, phone: phone, page: location.pathname, date: new Date().toISOString() };
     function done() {
       store.set(KEY, { t: Date.now(), joined: true });
       form.hidden = true; el.querySelector(".su-done").hidden = false;
@@ -93,7 +93,7 @@
       fetch(AJ.signupEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
         .then(done).catch(function () { err.hidden = false; err.textContent = "Something went wrong. Please try again in a moment."; });
     } else {
-      window.open("https://wa.me/" + String(AJ.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent("Hello Anvesha Jewels, please add me to your updates.\nEmail: " + email + "\nMobile: " + phone), "_blank", "noopener");
+      window.open("https://wa.me/" + String(AJ.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent("Hello Anvesha Jewels, please add me to your updates.\nName: " + name + "\nMobile: " + phone), "_blank", "noopener");
       done();
     }
   });
