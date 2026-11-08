@@ -12,7 +12,7 @@
   "linkedin": "https://www.linkedin.com/company/anvesha-jewels/",
   "google": "https://share.google/W20GPQ1LgxwlsJTgo",
   "catalogue": "/Anvesha_Jewels_Catalogue.pdf",
-  "signupEndpoint": "",
+  "signupEndpoint": "https://script.google.com/macros/s/AKfycbxjRPdvUo10w0_qhPYjbvbK4TgJ8Viqyw7T_6xAwltQfBGS7b7N4SGQamGxWaHp8dyrtw/exec",
   "reels": {
     "feed": "https://pub-f9ec3c35742243adb91804e153531c79.r2.dev/reels.json"
   },
