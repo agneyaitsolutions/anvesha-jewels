@@ -919,7 +919,14 @@
     var navItem = D.nav.filter(function (n) { return n.key === cat; })[0];
     var subId = params.get("sub") || "";
     var sub = !searching && navItem ? navItem.subs.filter(function (x) { return x.id === subId; })[0] : null;
-    if (sub) {
+    /* "View all festive pieces" on the home page opens /festive */
+    var festiveAll = !searching && document.body.hasAttribute("data-festive-page");
+    if (festiveAll) {
+      sub = { id: "festive", name: "Festive Specials" };
+      navItem = null;
+      document.title = "Festive Specials · Anvesha Jewels";
+    }
+    if (sub && !festiveAll) {
       document.title = sub.name + " · " + c.name + " · Anvesha Jewels";
       var cr = document.querySelector(".crumbs");
       if (cr) cr.innerHTML = '<a href="/">Home</a> / <a href="/' + c.slug + '">' + esc(c.name) + '</a> / ' + esc(sub.name);
@@ -967,8 +974,16 @@
     }
 
     var all = searching ? D.products.slice() : D.products.filter(function (p) { return c.all || p.cat === cat; });
+    if (festiveAll) {
+      /* same order as the home page row: 2 necklaces, 2 earrings, 2 rings, 1 bracelet, repeat */
+      var pool = {}, pat = ["necklaces", "necklaces", "earrings", "earrings", "rings", "rings", "bracelets"], more = true, ordered = [];
+      D.products.forEach(function (p) { if (p.festive) (pool[p.cat] = pool[p.cat] || []).push(p); });
+      while (more) { more = false; pat.forEach(function (k) { if (pool[k] && pool[k].length) { ordered.push(pool[k].shift()); more = true; } }); }
+      Object.keys(pool).forEach(function (k) { ordered = ordered.concat(pool[k]); });
+      all = ordered;
+    }
     /* sub-category: tagged products only, once any product here is tagged; India Festive uses the festive pieces */
-    if (sub) {
+    if (sub && !festiveAll) {
       var tagged = all.some(function (p) { return p.subs && p.subs.length; });
       if (tagged) all = all.filter(function (p) { return (p.subs || []).indexOf(sub.id) >= 0; });
       else if (sub.id === "india-festive") all = all.filter(function (p) { return p.festive; });
