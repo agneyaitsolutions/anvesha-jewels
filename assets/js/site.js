@@ -1,4 +1,4 @@
-﻿/* Anvesha Jewels: site behaviour.
+/* Anvesha Jewels: site behaviour.
    Header, drawer, mega menus and footer are injected here so every page stays in step. */
 (function () {
   "use strict";
@@ -198,31 +198,31 @@
       '<div class="foot-wordmark" data-wordmark aria-label="Anvesha Jewels">' +
         '<a href="/rings" class="wm-char" data-char="A" aria-label="A: Rings">' +
           '<span class="wm-letter">A</span>' +
-          '<span class="wm-media"><img src="/assets/p-r001.webp" alt="Solene Diamond Ring" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/Ring/AJ-R001.webp" alt="Solene Solitaire Ring" loading="lazy"></span>' +
         '</a>' +
         '<a href="/necklaces" class="wm-char" data-char="N" aria-label="N: Necklaces">' +
           '<span class="wm-letter">N</span>' +
-          '<span class="wm-media"><img src="/assets/hero-necklaces.webp" alt="Signature Diamond Necklace" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/necklace/AJ-N001.webp" alt="Solene Solitaire Pendant" loading="lazy"></span>' +
         '</a>' +
-        '<a href="/collections" class="wm-char" data-char="V" aria-label="V: Collections">' +
+        '<a href="/mens-jewellery" class="wm-char" data-char="V" aria-label="V: Men\'s Jewellery">' +
           '<span class="wm-letter">V</span>' +
-          '<span class="wm-media"><img src="/assets/p-r002.webp" alt="Lumiere Halo Creation" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/Men\'s jewellery/AJ-M001.webp" alt="Vanguard Signet Ring" loading="lazy"></span>' +
         '</a>' +
         '<a href="/earrings" class="wm-char" data-char="E" aria-label="E: Earrings">' +
           '<span class="wm-letter">E</span>' +
-          '<span class="wm-media"><img src="/assets/hero-earrings.webp" alt="Fine Emerald & Diamond Earrings" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/earring/AJ-E001.webp" alt="Solene Diamond Studs" loading="lazy"></span>' +
         '</a>' +
         '<a href="/bracelets" class="wm-char" data-char="S" aria-label="S: Bracelets">' +
           '<span class="wm-letter">S</span>' +
-          '<span class="wm-media"><img src="/assets/hero-bracelets.webp" alt="Handcrafted Tennis Bracelet" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/Bracelet/AJ-B001.webp" alt="Solene Line Bracelet" loading="lazy"></span>' +
         '</a>' +
-        '<a href="/rings" class="wm-char" data-char="H" aria-label="H: Heritage Rings">' +
+        '<a href="/necklaces" class="wm-char" data-char="H" aria-label="H: Heritage Necklaces">' +
           '<span class="wm-letter">H</span>' +
-          '<span class="wm-media"><img src="/assets/hero-rings.webp" alt="Heritage Gold Ring" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/necklace/AJ-N003.webp" alt="Celeste Drop Necklace" loading="lazy"></span>' +
         '</a>' +
-        '<a href="/collections" class="wm-char" data-char="A" aria-label="A: Haute Joaillerie">' +
+        '<a href="/earrings" class="wm-char" data-char="A" aria-label="A: Fine Earrings">' +
           '<span class="wm-letter">A</span>' +
-          '<span class="wm-media"><img src="/assets/nav-jewellery.webp" alt="Haute Joaillerie Statement" loading="lazy"></span>' +
+          '<span class="wm-media"><img src="/assets/earring/AJ-E006.webp" alt="Lumiere Diamond Hoops" loading="lazy"></span>' +
         '</a>' +
       '</div>' +
     '</div>' +
@@ -1032,7 +1032,7 @@
     if (history.replaceState && location.pathname !== "/product/" + D.slug(p)) history.replaceState(null, "", "/product/" + D.slug(p) + location.hash);
     var pc = D.categories[p.cat];
     var gallery = p.gallery || [p.img];
-    var isRing = p.cat === "rings";
+    var isRing = p.cat === "rings" || (p.subs && p.subs.indexOf("rings") >= 0);
     state = { metal: "gold", karat: "18K", diamond: "lab-grown", size: "14", product: p };
 
     document.title = "Anvesha Jewels · " + p.name;
@@ -1042,12 +1042,12 @@
     var md = document.querySelector('meta[name="description"]');
     if (md) md.content = p.name + ". " + p.desc;
     document.querySelector("[data-crumbs]").innerHTML =
-      '<a href="/">Home</a> / <a href=\"/' + p.cat + '">Jewellery</a> / <a href=\"/' + p.cat + '">' + pc.name + '</a> / ' + esc(p.name);
+      '<a href="/">Home</a> / <a href="/' + (pc.slug || p.cat) + '">' + pc.name + '</a> / ' + esc(p.name);
 
     /* one large 4:5 photo; the other photos of the piece (up to 3) sit beside it */
     /* until the real extra photos arrive, a piece with one photo also shows a close-up of it and its
        category photo, so the side column is never empty. Real photos: add "gallery" in data.js. */
-    var shots = (p.gallery && p.gallery.length > 1 ? p.gallery : [p.img, p.img + "#detail", pc.hero]).slice(0, 4);
+    var shots = (p.gallery && p.gallery.length > 1 ? p.gallery : [p.img, p.img + "#detail"]).slice(0, 4);
     var isDetail = function (src) { return /#detail$/.test(src); };
     document.querySelector("[data-pdp-media]").innerHTML =
       '<div class="pdp-gal' + (shots.length > 1 ? " has-thumbs" : "") + '">' +

@@ -1593,16 +1593,16 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .cs-head{margin:var(--space-stack-l) 0 var(--space-head)}
 .cs{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;overflow:hidden;background:var(--cream)}
 .cs-tile{position:relative;margin:0;aspect-ratio:2/3;overflow:hidden;clip-path:inset(100% 0 0 0);transition:clip-path 1.25s cubic-bezier(.7,0,.2,1)}
-.cs-tile img{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;transform:translate3d(0,var(--cs-y,0px),0) scale(1.04)}
+.cs-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cs.in .cs-tile{clip-path:inset(0 0 0 0)}
 .cs.in .cs-tile:nth-child(2){transition-delay:.12s}.cs.in .cs-tile:nth-child(3){transition-delay:.24s}.cs.in .cs-tile:nth-child(4){transition-delay:.36s}
-.cs::after{content:"";position:absolute;inset:0;background:rgba(14,22,18,.22);opacity:0;transition:opacity 1s var(--ease) .5s;pointer-events:none}
+.cs::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(14,22,18,.45) 0%,rgba(14,22,18,.25) 55%,rgba(14,22,18,.12) 100%);opacity:0;transition:opacity 1s var(--ease) .5s;pointer-events:none}
 .cs.in::after{opacity:1}
 .cs-cta{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;opacity:0;transform:translateY(10px);transition:opacity .8s var(--ease) .8s,transform .9s var(--ease) .8s;pointer-events:none}
 .cs.in .cs-cta{opacity:1;transform:none;pointer-events:auto}
-.cs-btn{padding:16px 34px;border:1px solid rgba(255,255,255,.9);color:#fff;font-size:var(--t-label);font-weight:500;letter-spacing:var(--track);text-transform:uppercase;transition:background .4s var(--ease),color .4s var(--ease)}
-.cs-btn:hover{background:#fff;color:var(--emerald)}
-.cs-dl{font-size:var(--t-small);color:rgba(255,255,255,.9);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:2px}
+.cs-btn{padding:16px 36px;border:1px solid rgba(255,255,255,.92);background:rgba(14,22,18,.28);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:var(--t-label);font-weight:500;letter-spacing:var(--track);text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.45);box-shadow:0 4px 20px rgba(0,0,0,.2);transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.cs-btn:hover{background:#fff;border-color:#fff;color:var(--emerald);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.cs-dl{font-size:var(--t-small);color:rgba(255,255,255,.92);border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:2px;text-shadow:0 1px 8px rgba(0,0,0,.5);transition:color .3s var(--ease),border-color .3s var(--ease)}
 .cs-dl:hover{color:#fff;border-color:#fff}
 .cs-note{text-align:center;margin-top:var(--space-head)}
 @media (max-width:900px){
@@ -1630,11 +1630,10 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 .ct img{object-position:50% 45%}
 @media (max-width:900px){.ct-row{height:auto!important;max-height:none}}
 .cs-sec .cs-note{margin-top:var(--space-head)}
-.cs::after{background:rgba(14,22,18,.16)}
-.cs-tile:nth-child(1) img{object-position:72% 30%}
-.cs-tile:nth-child(2) img{object-position:50% 40%}
-.cs-tile:nth-child(3) img{object-position:62% 55%}
-.cs-tile:nth-child(4) img{object-position:68% 30%}
+.cs-tile:nth-child(1) img{object-position:82% center}
+.cs-tile:nth-child(2) img{object-position:center center}
+.cs-tile:nth-child(3) img{object-position:center center}
+.cs-tile:nth-child(4) img{object-position:88% center}
 
 /* ═════════ client round: Moi-style categories, festive specials, slim bold nav, compact menus, curved drawer ═════════ */
 
@@ -2331,8 +2330,8 @@ img{max-width:100%}
 @media (max-width:900px){
   .cs-tile{aspect-ratio:3/4}
   .cs-cta{gap:12px}
-  .cs-btn{padding:14px 26px;background:rgba(14,22,18,.38);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-  .cs-dl{position:absolute;left:50%;top:calc(50% + 40px);transform:translateX(-50%);white-space:nowrap;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+  .cs-btn{padding:14px 26px;border:1px solid rgba(255,255,255,.9);background:rgba(14,22,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff}
+  .cs-dl{position:relative;left:auto;top:auto;transform:none;white-space:nowrap;margin-top:2px}
   .cs-sec + .sec{padding-top:56px}
 }
 /* Instagram on phones: a neat 2 x 3 grid instead of six full-width posts */
