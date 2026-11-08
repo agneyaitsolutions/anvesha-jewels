@@ -2490,3 +2490,15 @@ html.lenis,html.lenis body{height:auto}
 .mt-in{justify-content:flex-end!important;padding-bottom:clamp(18px,2.4vw,28px)!important}
 .mt-ph::after{background:linear-gradient(180deg,rgba(14,22,18,0) 38%,rgba(14,22,18,.35) 62%,rgba(14,22,18,.72) 100%)!important}
 .mt-name{text-shadow:0 2px 14px rgba(0,0,0,.45)}
+
+/* phone hero, Moi-style: a little shorter than the screen so the next section peeks in and invites a scroll */
+@media (max-width:640px){
+  .hero-track{height:calc(100svh - var(--head-h,64px) - 92px)!important;max-height:calc(100svh - var(--head-h,64px) - 92px)!important;min-height:520px!important}
+  .hero-slide{background:#fff}
+  .hero-slide img{height:70%!important;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 72%,transparent 100%)!important}
+  .hero-slide::after{display:none!important}
+  .hero-copy{padding-bottom:52px}
+  .hero-copy .lede{display:none}
+  .hero-ui{bottom:22px}
+  main > .hero + .sec.tone-cream,main > .hero + .sec{padding-top:22px!important}
+}
