@@ -2502,3 +2502,9 @@ html.lenis,html.lenis body{height:auto}
   .hero-ui{bottom:22px}
   main > .hero + .sec.tone-cream,main > .hero + .sec{padding-top:22px!important}
 }
+/* home: the line under "Shop by category" sits on two lines on phones */
+@media (max-width:640px){
+  .cat-sub{font-size:14px;line-height:1.55;max-width:none}
+  .cat-sub br{display:none}
+}
+.about-copy .name-meaning{margin:4px 0 10px}
