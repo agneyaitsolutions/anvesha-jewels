@@ -2508,3 +2508,12 @@ html.lenis,html.lenis body{height:auto}
   .cat-sub br{display:none}
 }
 .about-copy .name-meaning{margin:4px 0 10px}
+
+/* phones: a short brand line between the banner and About, like Moi's quote strip */
+.brand-quote{display:none}
+@media (max-width:640px){
+  .brand-quote{display:block;padding:34px var(--gut,20px) 30px;text-align:center;background:#fff}
+  .brand-quote__text{margin:0 auto;max-width:22ch;font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.3;color:var(--emerald)}
+  .brand-quote__by{margin:12px 0 0;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+  .brand-quote__by::before{content:"";display:block;width:36px;height:1px;background:var(--gold);margin:0 auto 12px}
+}
