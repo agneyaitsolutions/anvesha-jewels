@@ -297,7 +297,7 @@ function productHead(tpl, p) {
   props.push({ "@type": "PropertyValue", name: "Gold purity", value: D.karats.join(", ") });
   if (p.diamond && p.diamond !== "none") props.push({ "@type": "PropertyValue", name: "Diamond preference", value: D.diamonds.map((d) => d.label).join(" or ") });
   if (p.meta) props.push({ "@type": "PropertyValue", name: "Design", value: p.meta });
-  props.push({ "@type": "PropertyValue", name: "Made to order", value: `Delivered in ${D.shipDays[0]}–${D.shipDays[1]} days` });
+  props.push({ "@type": "PropertyValue", name: "Made to order", value: `Delivered in ${D.shipDays[0]}-${D.shipDays[1]} days` });
 
   /* No "offers": every piece is quoted individually, and an offer without a price is invalid. Search
      Console will therefore list these under Product snippets as missing offers/review/rating. That is
@@ -468,7 +468,7 @@ const llms = [
   `- [Festive Specials](${SITE}/festive): Pieces chosen for festive evenings.`,
   `- [Collections](${SITE}/collections): The Anvesha collection and the Solene selection.`, "",
   "## Buying",
-  `- Made to order; delivered in ${D.shipDays[0]}–${D.shipDays[1]} days, insured shipping.`,
+  `- Made to order; delivered in ${D.shipDays[0]}-${D.shipDays[1]} days, insured shipping.`,
   "- Gold purity: 14K, 18K, 22K. Diamonds: natural or lab-grown, certified.",
   `- [About Anvesha Jewels](${SITE}/about)`,
   `- [Sizing chart](${SITE}/sizing-chart)`,
