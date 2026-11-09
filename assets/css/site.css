@@ -2526,3 +2526,9 @@ html.lenis,html.lenis body{height:auto}
   .brand-quote__by{margin-top:8px}
   .brand-quote__by::before{margin-bottom:8px}
 }
+/* About and Contact banners: a neat, fixed-height box (photo crops to fit, never stretches the box) */
+@media (min-width:901px){
+  .cat-hero:not(.cat-hero--search):not(.cat-hero--sub){height:clamp(400px,34vw,480px);min-height:0!important;overflow:hidden}
+  .cat-hero:not(.cat-hero--search):not(.cat-hero--sub)>div{padding:clamp(28px,4vw,60px)!important}
+  .cat-hero:not(.cat-hero--search):not(.cat-hero--sub) img{height:100%!important;min-height:0!important;object-position:center 60%}
+}
