@@ -168,3 +168,5 @@ on desktop and mobile shows zero difference.
 
 Icons: `assets/icons/icon-1024.png` is the master (emerald monogram with the gold sparkle).
 `npm run icons` cuts `favicon.ico`, `apple-touch-icon.png` and the PNG sizes from it.
+
+V
