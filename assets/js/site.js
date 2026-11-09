@@ -1007,7 +1007,7 @@
       '</div>' +
       '<div class="filters-right"><span data-count></span>' +
         '<span class="selectish"><select data-sort aria-label="Sort"><option value="featured">Sort: Featured</option>' +
-        '<option value="az">Sort: A – Z</option><option value="za">Sort: Z – A</option></select>' + I.chev + '</span></div>';
+        '<option value="az">Sort: A-Z</option><option value="za">Sort: Z-A</option></select>' + I.chev + '</span></div>';
 
     enhanceAllSelects(document.querySelector("[data-filters]"));
 
@@ -1143,7 +1143,7 @@
         '<li>' + ic.phone + '<p><span>Contact us</span> <a href="tel:' + tel + '">' + show + '</a></p></li>' +
         '<li>' + ic.video + '<p><strong>Have questions? Talk to our personal stylist.</strong>' +
           '<a class="pdp-help-link" href="' + wa("Hello Anvesha Jewels, I'd like to schedule a call about the " + p.name + ".") + '" target="_blank" rel="noopener">Schedule a call</a></p></li>' +
-        '<li>' + ic.box + '<p><strong>Made to order for you. Delivered in ' + days[0] + '–' + days[1] + ' days.</strong>' +
+        '<li>' + ic.box + '<p><strong>Made to order for you. Delivered in ' + days[0] + '-' + days[1] + ' days.</strong>' +
           '<span>Want it sooner? <a class="pdp-help-link" href="' + wa("Hello Anvesha Jewels, I'd like the " + p.name + " sooner.") + '" target="_blank" rel="noopener">Write to us</a></span></p></li>' +
       '</ul>';
     }
