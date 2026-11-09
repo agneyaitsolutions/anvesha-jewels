@@ -2517,3 +2517,12 @@ html.lenis,html.lenis body{height:auto}
   .brand-quote__by{margin:12px 0 0;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
   .brand-quote__by::before{content:"";display:block;width:36px;height:1px;background:var(--gold);margin:0 auto 12px}
 }
+/* phones: the banner and the brand line fit together on the first screen */
+@media (max-width:640px){
+  .hero-track{height:calc(100svh - var(--head-h,64px) - 132px)!important;max-height:calc(100svh - var(--head-h,64px) - 132px)!important;min-height:480px!important}
+  .hero-copy{padding-bottom:44px}
+  .brand-quote{padding:18px var(--gut,20px) 20px;min-height:132px;display:flex;flex-direction:column;justify-content:center}
+  .brand-quote__text{font-size:23px;max-width:none}
+  .brand-quote__by{margin-top:8px}
+  .brand-quote__by::before{margin-bottom:8px}
+}
